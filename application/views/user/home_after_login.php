@@ -11,22 +11,20 @@
 
     </style>
 
-
-
-
 </head>
 
 <body class="w-full">
 
     <div class="relative mx-auto sm:w-4/5 mt-4">
         <div class="slide_gambar">
-            <div id="gallery" class="relative mx-auto sm:w-full" data-carousel="slide">
+            <div id="gallery" class="relative mx-auto w-full fixed" data-carousel="slide">
 
                 <!-- Carousel wrapper -->
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                     <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="<?php echo base_url('assets/image/slider/1.png'); ?>" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="1">
+                        <img src="<?php echo base_url('assets/image/slider/1.png'); ?>" class="absolute block max-w-full h-auto 
+                        -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="1">
                     </div>
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
@@ -65,10 +63,13 @@
             </div>
         </div>
 
-        <div class="w-full items-start mt-4 bg-red-900">
+        <div class="w-full items-start mt-4">
             <h1 class="mb-6 text-sm text-gray-900 uppercase dark:text-gray-500 font-black" style="font-family: 'Inter', sans-serif;">Kategori</h1>
-            
-            <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 sm:grid-cols-2">
+            <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 xs:grid-cols-2 w-full">
+                <a href="#"><img class="flex relative h-40 max-w-sm aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/1.png'); ?>" alt="image description"></a>
+                <a href="#"><img class="flex relative h-40 max-w-sm aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/2.jpg'); ?>" alt="image description"></a>
+                <a href="#"><img class="flex relative h-40 max-w-sm aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/3.jpg'); ?>" alt="image description"></a>
+                <a href="#"><img class="flex relative h-40 max-w-sm aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/4.jpg'); ?>" alt="image description"></a>
                 
             </div>
         </div>
@@ -81,7 +82,7 @@
             <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 sm:grid-cols-2">
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/slider/2.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -103,7 +104,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -125,7 +126,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -147,7 +148,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -169,7 +170,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -191,7 +192,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -213,7 +214,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -235,7 +236,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -254,6 +255,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
         <div class="text-center mb-10 mt-10 mx-auto my-4">

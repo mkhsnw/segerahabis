@@ -11,8 +11,8 @@
 
 <body>
 
-    <div class="flex flex-row w-full mx-auto items-start bg-green-100 overflow-auto">
-        <aside id="default-sidebar" class="flex-col left-0 z-10 md:w-64 sm:w-20 h-screen" aria-label="Sidebar">
+    <div class="flex flex-row w-full mx-auto items-start bg-gray-100 overflow-auto">
+        <aside id="default-sidebar" class="flex-col left-0 z-10 xs:invisible md:visible md:w-64 h-screen sticky" aria-label="Sidebar">
                 <div class="h-full px-3 py-4 bg-white dark:bg-white border-r-2 border-bg-gray-600 shadow shadow-lg">
                     <ul class="space-y-0 font-medium">
                         <li>
@@ -74,7 +74,7 @@
         <div class="flex flex-col h-screen w-full px-6 py-8 bg-gray-100 overflow-auto">
             <p class="text-black font-bold text-xl mb-8">Dashboard</p>
 
-            <div class="flex flex-row w-full gap-8">
+            <div class="flex flex-row grid grid lg:grid-cols-3 md:grid-cols-1 w-full gap-8">
 
                 <ul class="w-full text-sm font-medium text-gray-900 bg-white shadow shadow-lg border 
                 border-bg-gray-600 rounded-lg dark:bg-white dark:text-white tracking-wide">

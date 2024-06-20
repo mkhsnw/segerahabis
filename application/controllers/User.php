@@ -97,6 +97,13 @@ class User extends CI_Controller {
         $this->load->view('user/password_user');
         $this->load->view('user/footer/footer');
     }
+
+    public function pesanan_user() {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('user/header/header_after_login');
+        $this->load->view('user/pesanan_user');
+        $this->load->view('user/footer/footer');
+    }
     // Tambahkan method lain sesuai kebutuhan seperti login, register, dll.
 
     public function login_user()

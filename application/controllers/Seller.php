@@ -47,4 +47,28 @@ class Seller extends CI_Controller {
         $this->load->view('seller/seller_edit_product');
     }
 
+<<<<<<< HEAD
+=======
+    public function seller_pesanan() {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('seller/header/header_seller');
+        $this->load->view('seller/pesanan_seller');
+    }
+
+    public function seller_aksi_lihat_pesanan() {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('seller/header/header_seller');
+        $this->load->view('seller/seller_aksi_lihat_pesanan');
+    }
+
+    public function pengaturan() {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('seller/header/header_seller');
+        $this->load->view('seller/pengaturan');
+    }
+    
+
+
+
+>>>>>>> 428d30c61c3973f4a543590764e4a61bee6ea6bc
 }
