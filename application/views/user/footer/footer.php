@@ -8,7 +8,7 @@
 </head>
 <body class="flex flex-col min-h-screen width-full">
 
-    <footer class="bg-white dark:bg-white-700 mt-auto border-t border-gray-300 ">
+    <footer class="bg-white dark:bg-white-700 mt-auto border-t border-gray-300 bottom-0">
         <div class="mx-auto w-full max-w-screen-lg">
             <div class="grid grid-cols-1 gap-8 px-4 py-6 lg:py-8 lg:grid-cols-3">
                 <div>

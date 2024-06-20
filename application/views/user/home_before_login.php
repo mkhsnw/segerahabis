@@ -4,22 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Before Login</title>
+    <title>Home After Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <style>
-        .dropdown-above-slider {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            /* Atur z-index agar dropdown tetap di atas slider */
-        }
 
-        .slide_gambar-container {
-            position: relative;
-        }
     </style>
 
 
@@ -76,19 +65,26 @@
             </div>
         </div>
 
-        <div class="mt-4">
+        <div class="w-full items-start mt-4">
             <h1 class="mb-6 text-sm text-gray-900 uppercase dark:text-gray-500 font-black" style="font-family: 'Inter', sans-serif;">Kategori</h1>
-
+            <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 xs:grid-cols-2 w-full">
+                <a href="#"><img class="relative h-40 max-w-sm aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/1.png'); ?>" alt="image description"></a>
+                <a href="#"><img class="relative h-40 max-w-sm aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/2.jpg'); ?>" alt="image description"></a>
+                <a href="#"><img class="relative h-40 max-w-sm aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/3.jpg'); ?>" alt="image description"></a>
+                <a href="#"><img class="relative h-40 max-w-sm aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/4.jpg'); ?>" alt="image description"></a>
+                
+            </div>
         </div>
 
 
         <!-- Produk Terlaris --->
         <div class="mt-4 mb-4">
             <h1 class="mb-4 text-sm text-gray-900 uppercase dark:text-gray-500 font-black" style="font-family: 'Inter', sans-serif;">Produk Terlaris</h1>
+
             <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 sm:grid-cols-2">
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/slider/2.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -110,7 +106,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -132,7 +128,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -154,7 +150,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -176,7 +172,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -198,7 +194,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -220,7 +216,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -242,7 +238,7 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                        <img class="rounded-t-lg aspect-square" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -261,14 +257,9 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
-
-        
-
-        
-
-
         <div class="text-center mb-10 mt-10 mx-auto my-4">
             <a href="#" class="text-sm font-medium text-green-600 dark:green-600 bg-white border border-green-800 rounded-lg px-4 py-2 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-white-200 dark:hover:bg-gray-400 dark:focus:ring-white">
                 Muat Lebih Banyak</a>

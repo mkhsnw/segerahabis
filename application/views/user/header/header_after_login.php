@@ -27,27 +27,30 @@
         <div class="flex md:flex-row md:items-center md:justify-between">
             <div class="mr-4">
                 <a href="#">
-                    <img class="w-30 h-6 absolute-left transform -translate-y-1/2 mt-7" src="<?php echo base_url('assets/image/logo.png'); ?>" alt="logo">
+                    <img class="sm:invisible md:visible md:w-30 md:h-6 absolute-left transform -translate-y-1/2 mt-7" src="<?php echo base_url('assets/image/logo.png'); ?>" alt="logo">
                 </a>
             </div>
 
-            <form class="flex-grow flex-row mx-2 ">
+            <form class="flex-grow flex-row mx-2">
                 <div class="flex">
                     <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"></label>
-                    <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-white-700 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-200 dark:hover:bg-gray-400 dark:focus:ring-white dark:text-black dark:border-gray-300" type="button">
+                    <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 
+                    text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-white-700 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-200 dark:hover:bg-gray-400 dark:focus:ring-white dark:text-black dark:border-gray-300" type="button">
                         Semua Kategori
                         <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                         </svg>
                     </button>
                     <div id="dropdown" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-200">
-                        <ul class="py-2 text-sm text-white-700 dark:text-black-200" aria-labelledby="dropdown-button">
+                        <ul class="py-2 text-sm text-white-700 dark:text-black-200 border border-bg-300 rounded-xl " aria-labelledby="dropdown-button">
                             <li><button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800">Makanan</button></li>
                             <li><button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800">Minuman</button></li>
                             <li><button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800">Bumbu Masak</button></li>
                             <li><button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800">Minuman Serbuk</button></li>
                         </ul>
                     </div>
+
+
                     <div class="relative w-full">
                         <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-white-200 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-white-200 focus:border-white-500 dark:bg-white-700 dark:border-s-white-700  dark:border-white-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-white" placeholder="Cari Sekarang Sebelum Kehabisan" required />
                         <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-green-800 rounded-e-lg border border-white-700 hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-white-800">

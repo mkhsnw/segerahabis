@@ -12,7 +12,7 @@
         <div class="bg-gray-200 p-4 rounded text-xs flex flex-row justify-between mx-auto ">
             <div class="text-center grow">
                 <span class="mb-0 text-center items-center">
-                    Diskon 20% untuk Semua Produk Sebelum Waktu Habis! <a href="#" class="text-black font-bold">Beli Sekarang</a>
+                    Tetap Dapatkan Keuntungan Dengan Jual Produk yang Mendekati Kadaluwarsa
                 </span>
             </div>
 
