@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="w-4/5 flex flex-col md:items-start mx-auto mb-4">
+    <div class="w-4/5 flex flex-col md:items-start mx-auto mb-4 overflow-auto tracking-wide">
         <p class="text-black mr-4 md:mr-8 font-bold text-xl mt-4">Pengiriman</p>
         <div class="flex flex-row md:items-start mx-auto mt-2 gap-4">
 
@@ -57,44 +57,47 @@
                                     <div class="w-full flex flex-col">
                                         <div class="w-full flex flex-row justify-between">
                                             <div class="w-full flex flex-col">
-                                                <p class="text-black font-small text-sm text-gray-900">Nama Produk - Variasi</p>
-                                                <p class="text-black font-small text-sm text-gray-900">Produk - Subvariasi Produk</p>
+                                                <p class="text-black font-small sm:text-xs md:text-sm text-gray-900 md:w-full sm:w-1/12">Nama Produk - Variasi</p>
+                                                <p class="text-black font-small sm:text-xs md:text-sm text-gray-900 md:w-full sm:w-1/12">Produk - Subvariasi Produk</p>
                                             </div>
-                                            <p class="text-black font-bold text-lg w-3/12 max-w-4/12">5 x 24.000</p>
+                                            <p class="text-black font-bold sm:text-sm md:text-lg w-3/12 max-w-4/12">5 x 24.000</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="mb-2">
-                                    <button id="dropdownDefaultButton" data-dropdown-toggle="pengiriman1" class="mt-8 w-full text-black text-sm bg-gray-100 border-2 border-bg-black 
+                                <div class="flex mb-2 w-full">
+                                    <div class="flex w-full justify-end">
+                                        <button id="dropdownDefaultButton" data-dropdown-toggle="pengiriman1" class="mt-8 w-11/12 text-black text-sm bg-gray-100 border-2 border-bg-black 
                                             hover:bg-gray-200 focus:ring-1 focus:outline-none 
                                             focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-gray-100 dark:hover:bg-gray-200 
                                             dark:focus:ring-white" type="button">
-                                        Pilih Pengiriman
-                                        <div class="w-1/2 absolute-right">
-                                            <svg class="w-2.5 h-2.5 ms-2  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                                            </svg>
+                                            Pilih Pengiriman
+                                            <div class="w-1/2 absolute-right">
+                                                <svg class="w-2.5 h-2.5 ms-2  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <!-- Dropdown menu -->
+                                        <div id="pengiriman1" class="z-1  hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-6/12">
+                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 border-2 boroder-gray-300 rounded-lg" aria-labelledby="dropdownDefaultButton">
+                                                <li>
+                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNT</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNE</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNY</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNA</a>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </button>
-                                    <!-- Dropdown menu -->
-                                    <div id="pengiriman1" class="z-1  hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-6/12">
-                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNT</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNE</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNY</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNA</a>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -120,7 +123,7 @@
                                                 <p class="text-black font-small text-sm text-gray-900">Nama Produk - Variasi</p>
                                                 <p class="text-black font-small text-sm text-gray-900">Produk - Subvariasi Produk</p>
                                             </div>
-                                            <p class="text-black font-bold text-lg w-3/12 max-w-4/12">5 x 24.000</p>
+                                            <p class="text-black font-bold sm:text-sm md:text-lg w-3/12 max-w-4/12">5 x 24.000</p>
                                         </div>
                                     </div>
                                 </div>
@@ -134,41 +137,44 @@
                                                 <p class="text-black font-small text-sm text-gray-900">Nama Produk - Variasi</p>
                                                 <p class="text-black font-small text-sm text-gray-900">Produk - Subvariasi Produk</p>
                                             </div>
-                                            <p class="text-black font-bold text-lg w-3/12 max-w-4/12">5 x 24.000</p>
+                                            <p class="text-black font-bold sm:text-sm md:text-lg w-3/12 max-w-4/12">5 x 24.000</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="mb-2">
-                                    <button id="dropdownDefaultButton" data-dropdown-toggle="pengiriman2" class="mt-8 w-full text-black text-sm bg-gray-100 border-2 border-bg-black 
+                                <div class="flex mb-2 w-full">
+                                    <div class="flex w-full justify-end">
+                                        <button id="dropdownDefaultButton" data-dropdown-toggle="pengiriman2" class="mt-8 w-11/12 text-black text-sm bg-gray-100 border-2 border-bg-black 
                                             hover:bg-gray-200 focus:ring-1 focus:outline-none 
                                             focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-gray-100 dark:hover:bg-gray-200 
                                             dark:focus:ring-white" type="button">
-                                        Pilih Pengiriman
-                                        <div class="w-1/2 absolute-right">
-                                            <svg class="w-2.5 h-2.5 ms-2  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                                            </svg>
+                                            Pilih Pengiriman
+                                            <div class="w-1/2 absolute-right">
+                                                <svg class="w-2.5 h-2.5 ms-2  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <!-- Dropdown menu -->
+                                        <div id="pengiriman2" class="z-1 hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-6/12">
+                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 border-2 boroder-gray-300 rounded-lg" aria-labelledby="dropdownDefaultButton">
+                                                <li>
+                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNT</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNE</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNY</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNA</a>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </button>
-                                    <!-- Dropdown menu -->
-                                    <div id="pengiriman2" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 w-6/12">
-                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNT</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNE</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNY</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">JNA</a>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -182,7 +188,7 @@
                 <div class="flex flex-col">
                     <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white mb-2">
                         <div class="w-full px-6 py-2 flex flex-col">
-                            <p class="text-black font-bold text-lg mb-4 mt-2">Metode Pembayaran</p>
+                            <p class="text-black font-bold text-md mb-4 mt-2 font-sans">Metode Pembayaran</p>
 
                             <div class="flex flex-col items-center w-full">
 
@@ -191,7 +197,7 @@
                                     <div class="flex flex-row items-center w-full gap-2 mb-2">
                                         <img srcset="<?php echo base_url('assets/image/card/1.jpg'); ?> 2x" class="w-12 h-12 max-w-xl rounded-lg" alt="image description">
                                         <div class="flex flex-row justify-between w-full items-center">
-                                            <p class="text-black font-bold text-sm">Mandiri Virtual Account</p>
+                                            <p class="text-black font-bold text-xs">Mandiri Virtual Account</p>
                                             <input id="mandiri" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                         </div>
                                     </div>
@@ -201,7 +207,7 @@
                                     <div class="flex flex-row items-center w-full gap-2 mb-2 mt-2">
                                         <img srcset="<?php echo base_url('assets/image/card/1.jpg'); ?> 2x" class="w-12 h-12 max-w-xl rounded-lg" alt="image description">
                                         <div class="flex flex-row justify-between w-full items-center">
-                                            <p class="text-black font-bold text-sm">BCA Virtual Account</p>
+                                            <p class="text-black font-bold text-xs">BCA Virtual Account</p>
                                             <input id="bca" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                         </div>
                                     </div>
@@ -211,7 +217,7 @@
                                     <div class="flex flex-row items-center w-full gap-2 mb-2 mt-2 ">
                                         <img srcset="<?php echo base_url('assets/image/card/1.jpg'); ?> 2x" class="w-12 h-12 max-w-xl rounded-lg" alt="image description">
                                         <div class="flex flex-row justify-between w-full items-center">
-                                            <p class="text-black font-bold text-sm">Gopay</p>
+                                            <p class="text-black font-bold text-xs">Gopay</p>
                                             <input id="gopay" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                         </div>
                                     </div>
@@ -233,19 +239,19 @@
                             <p class="text-black font-bold text-lg mb-6 mt-4">Ringkasan Belanja</p>
 
                             <div class="flex flex-row justify-between mb-1 ">
-                                <p class="text-black font-md text-md">Total Harga (16)</p>
+                                <p class="text-gray-600 font-md text-md">Total Harga (16)</p>
                                 <p class="text-black font-bold text-md ">Rp. 284.000</p>
                             </div>
                             <div class="flex flex-row justify-between mb-1 ">
-                                <p class="text-black font-md text-md">Ongkos Kirim</p>
+                                <p class="text-gray-600 font-md text-md">Ongkos Kirim</p>
                                 <p class="text-black font-bold text-md ">Rp. 15.000</p>
                             </div>
                             <div class="flex flex-row justify-between mb-1 ">
-                                <p class="text-black font-md text-md">Admin Pembayaran</p>
+                                <p class="text-gray-600 font-md text-md">Admin Pembayaran</p>
                                 <p class="text-black font-bold text-md ">Rp. 1.000</p>
                             </div>
                             <div class="flex flex-row justify-between mb-4 ">
-                                <p class="text-black font-md text-md">Biaya Aplikasi</p>
+                                <p class="text-gray-600 font-md text-md">Biaya Aplikasi</p>
                                 <p class="text-black font-bold text-md ">Rp. 2.000</p>
                             </div>
 
@@ -253,7 +259,7 @@
                             <p class="border-2 border-t border-bg-black"></p>
 
                             <div class="flex flex-row justify-between mb-2 mt-4 ">
-                                <p class="text-black font-md text-md">Total Pembayaran</p>
+                                <p class="text-gray-600 font-md text-md">Total Pembayaran</p>
                                 <p class="text-black font-bold text-md ">Rp. 482.000</p>
                             </div>
 
@@ -267,4 +273,5 @@
         </div>
     </div>
 </body>
+
 </html>
