@@ -47,6 +47,8 @@ class Seller extends CI_Controller {
         $this->load->view('seller/seller_edit_product');
     }
 
+<<<<<<< HEAD
+=======
     public function seller_pesanan() {
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('seller/header/header_seller');
@@ -68,4 +70,5 @@ class Seller extends CI_Controller {
 
 
 
+>>>>>>> 428d30c61c3973f4a543590764e4a61bee6ea6bc
 }
