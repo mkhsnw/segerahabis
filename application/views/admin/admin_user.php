@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Toko</title>
+    <title>Admin User</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
@@ -34,18 +34,18 @@
                             </a>
                         </li>
                         <li>
-                        <a href="#"class="flex text-lg font-bold items-center hover:text-dark p-2 text-green-700 rounded-lg group">
-                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="darkgreen" viewBox="0 0 24 24">
-                                <path stroke="darkgreen" stroke-linecap="round" fill-rule="evenodd" d="M5.535 7.677c.313-.98.687-2.023.926-2.677H17.46c.253.63.646 1.64.977 2.61.166.487.312.953.416 1.347.11.42.148.675.148.779 0 .18-.032.355-.09.515-.06.161-.144.3-.243.412-.1.111-.21.192-.324.245a.809.809 0 0 1-.686 0 1.004 1.004 0 0 1-.324-.245c-.1-.112-.183-.25-.242-.412a1.473 1.473 0 0 1-.091-.515 1 1 0 1 0-2 0 1.4 1.4 0 0 1-.333.927.896.896 0 0 1-.667.323.896.896 0 0 1-.667-.323A1.401 1.401 0 0 1 13 9.736a1 1 0 1 0-2 0 1.4 1.4 0 0 1-.333.927.896.896 0 0 1-.667.323.896.896 0 0 1-.667-.323A1.4 1.4 0 0 1 9 9.74v-.008a1 1 0 0 0-2 .003v.008a1.504 1.504 0 0 1-.18.712 1.22 1.22 0 0 1-.146.209l-.007.007a1.01 1.01 0 0 1-.325.248.82.82 0 0 1-.316.08.973.973 0 0 1-.563-.256 1.224 1.224 0 0 1-.102-.103A1.518 1.518 0 0 1 5 9.724v-.006a2.543 2.543 0 0 1 .029-.207c.024-.132.06-.296.11-.49.098-.385.237-.85.395-1.344ZM4 12.112a3.521 3.521 0 0 1-1-2.376c0-.349.098-.8.202-1.208.112-.441.264-.95.428-1.46.327-1.024.715-2.104.958-2.767A1.985 1.985 0 0 1 6.456 3h11.01c.803 0 1.539.481 1.844 1.243.258.641.67 1.697 1.019 2.72a22.3 22.3 0 0 1 .457 1.487c.114.433.214.903.214 1.286 0 .412-.072.821-.214 1.207A3.288 3.288 0 0 1 20 12.16V19a2 2 0 0 1-2 2h-6a1 1 0 0 1-1-1v-4H8v4a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2v-6.888ZM13 15a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2Z" clip-rule="evenodd"/>
+                        <a href="#" class="flex text-lg font-bold items-center hover:text-white p-2 text-black rounded-lg dark:text-black hover:bg-green-700 dark:hover:bg-green-700 group">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="curentColor" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" fill-rule="evenodd" d="M5.535 7.677c.313-.98.687-2.023.926-2.677H17.46c.253.63.646 1.64.977 2.61.166.487.312.953.416 1.347.11.42.148.675.148.779 0 .18-.032.355-.09.515-.06.161-.144.3-.243.412-.1.111-.21.192-.324.245a.809.809 0 0 1-.686 0 1.004 1.004 0 0 1-.324-.245c-.1-.112-.183-.25-.242-.412a1.473 1.473 0 0 1-.091-.515 1 1 0 1 0-2 0 1.4 1.4 0 0 1-.333.927.896.896 0 0 1-.667.323.896.896 0 0 1-.667-.323A1.401 1.401 0 0 1 13 9.736a1 1 0 1 0-2 0 1.4 1.4 0 0 1-.333.927.896.896 0 0 1-.667.323.896.896 0 0 1-.667-.323A1.4 1.4 0 0 1 9 9.74v-.008a1 1 0 0 0-2 .003v.008a1.504 1.504 0 0 1-.18.712 1.22 1.22 0 0 1-.146.209l-.007.007a1.01 1.01 0 0 1-.325.248.82.82 0 0 1-.316.08.973.973 0 0 1-.563-.256 1.224 1.224 0 0 1-.102-.103A1.518 1.518 0 0 1 5 9.724v-.006a2.543 2.543 0 0 1 .029-.207c.024-.132.06-.296.11-.49.098-.385.237-.85.395-1.344ZM4 12.112a3.521 3.521 0 0 1-1-2.376c0-.349.098-.8.202-1.208.112-.441.264-.95.428-1.46.327-1.024.715-2.104.958-2.767A1.985 1.985 0 0 1 6.456 3h11.01c.803 0 1.539.481 1.844 1.243.258.641.67 1.697 1.019 2.72a22.3 22.3 0 0 1 .457 1.487c.114.433.214.903.214 1.286 0 .412-.072.821-.214 1.207A3.288 3.288 0 0 1 20 12.16V19a2 2 0 0 1-2 2h-6a1 1 0 0 1-1-1v-4H8v4a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2v-6.888ZM13 15a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2Z" clip-rule="evenodd"/>
                             </svg>
 
                                 <span class="flex-1 ms-3 whitespace-nowrap">Toko</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex text-lg font-bold items-center hover:text-white p-2 text-black rounded-lg dark:text-black hover:bg-green-700 dark:hover:bg-green-700 group">
+                        <a href="#"class="flex text-lg font-bold items-center hover:text-dark p-2 text-green-700 rounded-lg group">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+                                <path stroke="darkgreen" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                             </svg>
                                 <span class="flex-1 ms-3 whitespace-nowrap">User</span>
                             </a>
@@ -65,7 +65,7 @@
             </aside>
 
             <div class="flex flex-col h-screen w-full px-6 py-8 bg-gray-100 overflow-auto">
-            <p class="text-black font-bold text-xl mb-8">Toko</p>
+            <p class="text-black font-bold text-xl mb-8">User</p>
             <div class="w-full flex flex-col">
 
                 <ul class="w-full text-sm font-medium text-gray-900 bg-white shadow shadow-lg border 
@@ -79,7 +79,7 @@
                                     <div class="relative w-full tracking-wide">
                                         <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-white-200 rounded-lg 
                                         border-1 border border-gray-300 focus:ring-white-200 focus:border-white-500 dark:bg-white-700 dark:border-s-white-700
-                                         dark:border-black-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-white" placeholder="Cari Toko" />
+                                         dark:border-black-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-white" placeholder="Cari User" />
                                         <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-green-800 rounded-e-lg 
                                         border border-white-700 hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 dark:hover:bg-green-800 
                                         dark:focus:ring-white-800">
@@ -98,7 +98,7 @@
                                     <tr class="">
                                         <th class="py-3 px-3 text-left tracking-wide text-black">No</th>
                                         <th class="py-3 px-3 text-left tracking-wide text-black">USERNAME</th>
-                                        <th class="py-3 px-3 text-left tracking-wide text-black">NAMA TOKO</th>
+                                        <th class="py-3 px-3 text-left tracking-wide text-black">NAMA LENGKAP</th>
                                         <th class="py-3 px-3 text-left tracking-wide text-black">EMAIL</th>
                                         <th class="py-3 px-3 text-left tracking-wide text-black">STATUS</th>
                                         <th class="py-3 px-3 text-left tracking-wide text-black">AKSI</th>
@@ -108,7 +108,7 @@
                                     <tr class="border-b-2 border-bg-black">
                                         <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">1</td>
                                         <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">pakdanang</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Toko pak danang</td>
+                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Pak danang aja</td>
                                         <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">pakdanang@mail.com</td>
                                         <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
                                             <p class="text-green-600 py-1 w-20 text-center rounded-md bg-green-100 font-lg text-sm">Aktif</p>
@@ -118,7 +118,7 @@
 
                                                 <div class="flex tracking-wide w-full gap-3">
                                                 <div class="flex">
-                                                    <button id="lookButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="block flex bg-white gap-1 items-center border border-slate-400
+                                                    <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="block flex bg-white gap-1 items-center border border-slate-400
                                                     rounded-lg px-4 py-2 hover:bg-grey-200 
                                                     focus:ring-4 focus:outline-none focus:ring-white dark:bg-green-700 dark:hover:bg-grey-200 
                                                     dark:focus:ring-grey-800" type="button">
@@ -132,7 +132,7 @@
                                                 </a>
 
                                                 <div class="flex">
-                                                    <button id="deactiveButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="block flex bg-white gap-1 items-center border border-red-800 
+                                                    <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="block flex bg-white gap-1 items-center border border-red-800 
                                                     rounded-lg px-4 py-2 hover:bg-red-200
                                                     focus:ring-4 focus:outline-none focus:ring-white dark:bg-green-700 dark:hover:bg-red-200 
                                                     dark:focus:ring-red-800" type="button">
@@ -167,7 +167,7 @@
 
                                                 <div class="flex tracking-wide w-full gap-3">
                                                 <div class="flex">
-                                                    <button id="lookButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="block flex bg-white gap-1 items-center border border-slate-400
+                                                    <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="block flex bg-white gap-1 items-center border border-slate-400
                                                     rounded-lg px-4 py-2 hover:bg-grey-200 
                                                     focus:ring-4 focus:outline-none focus:ring-white dark:bg-green-700 dark:hover:bg-grey-200 
                                                     dark:focus:ring-grey-800" type="button">
@@ -197,40 +197,6 @@
                                                             </svg></span>
                                                         <span class="text-sm font-medium text-red-800">Hapus</span>
                                                     </button>
-                                                    <div>
-                                                    <!-- Main modal -->
-                                                    <div id="deleteModal" tabindex="-1" aria-hidden="true" 
-                                                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
-                                                        justify-center items-center w-full md:inset-0 h-modal md:h-full">
-                                                        <div class="relative p-6 w-full max-w-sm h-full md:h-auto">
-                                                            <!-- Modal content -->
-                                                            <div class="relative md:p-6 sm:p-4 border-2 border-gray-300 text-center bg-white rounded-lg shadow dark:bg-gray-800 ">
-                                                                <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="deleteModal">
-                                                                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                                                    </svg>
-                                                                    <span class="sr-only">Close modal</span>
-                                                                </button>
-                                                                <p class="text-black font-bold text-lg mb-4">Hapus Kategori</p>
-                                                                <p class="mb-4 text-gray-500 dark:text-gray-300">Makanan</p>
-                                                                <div class="flex justify-center items-center space-x-4">
-                                                                    <button data-modal-toggle="deleteModal" type="button" 
-                                                                    class="py-2 px-5 text-sm font-medium text-black bg-white rounded-lg border 
-                                                                    border-gray-600 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 
-                                                                    hover:text-black focus:z-10 dark:bg-gray-700 dark:text-black dark:border-gray-500 
-                                                                    dark:hover:text-black dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-                                                                        Batal
-                                                                    </button>
-                                                                    <button type="submit" class="py-2 px-5 text-sm font-medium text-center text-white bg-red-600 
-                                                                    rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 
-                                                                    dark:hover:bg-red-600 dark:focus:ring-red-900">
-                                                                        Hapus
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 </div>
                                         </td>
 
