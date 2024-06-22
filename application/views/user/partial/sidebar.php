@@ -20,9 +20,9 @@
         </div>
 
         <ul class="ml-9 items-center">
-          <li><a href="<?php echo site_url('user/profil_user')?>" aria-current="page" class="text-green-600">Profil</a></li>
-          <li><a href="<?php echo site_url('user/address_user'); ?>" class="text-gray-600">Alamat</a></li>
-          <li><a href="<?php echo site_url('user/password_user'); ?>" class="text-gray-600">Ubah Password</a></li>
+          <li><a href="<?php echo site_url('user/profil_user') ?>" aria-current="page" class="text-gray-600" id="btnProfil">Profil</a></li>
+          <li><a href="<?php echo site_url('user/address_user'); ?>" class="text-gray-600" id="btnAddress">Alamat</a></li>
+          <li><a href="<?php echo site_url('user/password_user'); ?>" class="text-gray-600" id="btnPassword">Ubah Password</a></li>
         </ul>
       </div>
 
@@ -35,8 +35,8 @@
           <h3 class="text-xl font-bold">Pesanan Saya</h3>
         </div>
         <ul class="ml-9 items-center">
-          <li><a href="#" class="text-gray-600">Belum Bayar</a></li>
-          <li><a href="#" class="text-gray-600">Daftar Pesanan</a></li>
+          <li><a href="<?php echo site_url('user/cart')?>" class="text-gray-600">Belum Bayar</a></li>
+          <li><a href="<?php echo site_url('user/cart')?>" class="text-gray-600">Daftar Pesanan</a></li>
         </ul>
       </div>
 
@@ -45,7 +45,7 @@
           <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3" />
           </svg>
-          <a href="<?php echo site_url('user/logout')?>">
+          <a href="<?php echo site_url('user/logout') ?>">
             <h3 class="text-xl font-bold">Keluar</h3>
           </a>
         </div>
@@ -53,3 +53,25 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sideBar = document.querySelectorAll('ul li a');
+    const currentPath = window.location.pathname;
+
+    sideBar.forEach((item) => {
+      const itemPath = new URL(item.href).pathname;
+      if (itemPath === currentPath) {
+        item.classList.add('text-green-600');
+        item.classList.remove('text-gray-600');
+      }
+
+      item.addEventListener('click', (event) => {
+        sideBar.forEach((item) => {
+          item.classList.remove('text-gray-600');
+        });
+        item.classList.add('text-green-600');
+      });
+    });
+  });
+</script>

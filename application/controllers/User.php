@@ -9,13 +9,59 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('Muser');
-        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+
     }
 
     public function index()
     {
         // Redirect ke dashboard beranda
-        redirect('user/home_before_login');
+        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+        $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
+        $data['produk'] =  $this->Muser->get_all_data('tbl_produk')->result();
+        $currentDate = date('Y-m-d');
+        foreach ($data['produk'] as $produk) {
+            $tanggalExp = $produk->tanggal_Exp; 
+            $datetime1 = new DateTime($currentDate);
+            $datetime2 = new DateTime($tanggalExp);
+            $interval = $datetime1->diff($datetime2);
+            $sisaHari = $interval->format('%r%a'); 
+            $produk->sisaHari = $sisaHari; 
+        };
+        // method menghitung harga setelah didiskon
+        foreach($data['produk'] as $produk){
+            $sebelumDiskon = $produk->harga;
+            $diskon = $produk->diskon;
+            $hargaDiskon = $sebelumDiskon - ($sebelumDiskon * $diskon / 100);
+            $produk->hargaDiskon = $hargaDiskon;
+        }
+        $this->load->view('user/header/header_after_login', $data);
+        $this->load->view('user/home_after_login', $data);
+        $this->load->view('user/footer/footer');
+    }
+
+    public function kategori($idKat){
+        $data['produk'] = $this->Muser->get_by_id('tbl_produk',array('id_Kategori' => $idKat))->result();
+        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+        $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
+        $currentDate = date('Y-m-d');
+        foreach ($data['produk'] as $produk) {
+            $tanggalExp = $produk->tanggal_Exp;
+            $datetime1 = new DateTime($currentDate);
+            $datetime2 = new DateTime($tanggalExp);
+            $interval = $datetime1->diff($datetime2);
+            $sisaHari = $interval->format('%r%a');
+            $produk->sisaHari = $sisaHari;
+        };
+        // method menghitung harga setelah didiskon
+        foreach ($data['produk'] as $produk) {
+            $sebelumDiskon = $produk->harga;
+            $diskon = $produk->diskon;
+            $hargaDiskon = $sebelumDiskon - ($sebelumDiskon * $diskon / 100);
+            $produk->hargaDiskon = $hargaDiskon;
+        }
+        $this->load->view('user/header/header_after_login', $data);
+        $this->load->view('user/home_by_kategori', $data);
+        $this->load->view('user/footer/footer');
     }
 
     public function login()
@@ -30,19 +76,7 @@ class User extends CI_Controller
         $this->load->view('user/daftar_user');
     }
 
-    public function home_before_login()
-    {
-        // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_before_login');
-        $this->load->view('user/home_before_login');
-        $this->load->view('user/footer/footer');
-    }
-
-    public function header_before_login()
-    {
-        // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_before_login');
-    }
+    
 
     public function footer()
     {
@@ -52,15 +86,14 @@ class User extends CI_Controller
 
     public function home_after_login()
     {
-        // Method untuk menampilkan halaman dashboard beranda
-        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
-        $this->load->view('user/header/header_after_login', $data);
-        $this->load->view('user/home_after_login', $data);
-        $this->load->view('user/footer/footer');
+       
     }
 
     public function all_product()
     {
+        if (empty($this->session->userdata('id_user'))) {
+            redirect('user/login');
+        }
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login');
         $this->load->view('user/all_product');
@@ -69,6 +102,9 @@ class User extends CI_Controller
 
     public function cart()
     {
+        if (empty($this->session->userdata('id_user'))) {
+            redirect('user/login');
+        }
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login');
         $this->load->view('user/cart');
@@ -77,6 +113,9 @@ class User extends CI_Controller
 
     public function checkout()
     {
+        if (empty($this->session->userdata('id_user'))) {
+            redirect('user/login');
+        }
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login');
         $this->load->view('user/checkout');
@@ -85,6 +124,9 @@ class User extends CI_Controller
 
     public function product()
     {
+        if (empty($this->session->userdata('id_user'))) {
+            redirect('user/login');
+        }
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login');
         $this->load->view('user/product');
@@ -93,6 +135,9 @@ class User extends CI_Controller
 
     public function profil_user()
     {
+        if (empty($this->session->userdata('id_user'))) {
+            redirect('user/login');
+        }
         $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login', $data);
@@ -102,6 +147,9 @@ class User extends CI_Controller
 
     public function address_user()
     {
+        if (empty($this->session->userdata('id_user'))) {
+            redirect('user/login');
+        }
         $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login', $data);
@@ -111,6 +159,9 @@ class User extends CI_Controller
 
     public function password_user()
     {
+        if (empty($this->session->userdata('id_user'))) {
+            redirect('user/login');
+        }
         $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login', $data);
@@ -120,6 +171,9 @@ class User extends CI_Controller
 
     public function pesanan_user()
     {
+        if(empty($this->session->userdata('id_user'))){
+            redirect('user/login');
+        }
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login');
         $this->load->view('user/pesanan_user');
@@ -185,7 +239,7 @@ class User extends CI_Controller
                     'status' => 'login'
                 );
                 $this->session->set_userdata($data_session);
-                redirect('user/home_after_login');
+                redirect('user');
             }
         }
     }
@@ -193,7 +247,7 @@ class User extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('user/home_after_login');
+        redirect('user');
     }
 
     public function simpan_user()

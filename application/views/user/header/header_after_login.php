@@ -26,7 +26,7 @@
     <div class="w-4/5 mx-auto mt-2">
         <div class="flex md:flex-row md:items-center md:justify-between">
             <div class="mr-4">
-                <a href="#">
+                <a href="<?php echo site_url('user') ?>">
                     <img class="sm:invisible md:visible md:w-30 md:h-6 absolute-left transform -translate-y-1/2 mt-7" src="<?php echo base_url('assets/image/logo.png'); ?>" alt="logo">
                 </a>
             </div>
@@ -43,10 +43,10 @@
                     </button>
                     <div id="dropdown" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-200">
                         <ul class="py-2 text-sm text-white-700 dark:text-black-200 border border-bg-300 rounded-xl " aria-labelledby="dropdown-button">
-                            <li><button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800">Makanan</button></li>
-                            <li><button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800">Minuman</button></li>
-                            <li><button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800">Bumbu Masak</button></li>
-                            <li><button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800">Minuman Serbuk</button></li>
+
+                            <?php foreach ($kategori as $kat) { ?>
+                                <li><a href="<?php echo site_url('user/kategori/'.$kat->id_Kategori)?>" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800"><?php echo $kat->nama_Kat ?></a></li>
+                            <?php } ?>
                         </ul>
                     </div>
 

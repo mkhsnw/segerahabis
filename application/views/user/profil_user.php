@@ -71,7 +71,7 @@
 
                 <hr class="mt-4 h-px my-5 bg-gray-200 border-1 dark:bg-gray-700">
 
-                <form action="<?php echo site_url('user/simpan_user'); ?>" method="post">
+                <form action="<?php echo site_url('user/simpan_user'); ?>" method="post" id="profileForm">
                     <div class="flex flex-row justify-between">
                         <div class="flex flex-col gap-4 w-full">
 
@@ -102,7 +102,7 @@
                                 </div>
                 </form>
                 <!-- Main modal -->
-                <?php if ($this->session->flashdata('success')) { ?>
+
                     <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                             <!-- Modal content -->
@@ -129,7 +129,7 @@
                         </div>
 
                     </div>
-                <?php } ?>
+                
 
             </div>
         </div>
@@ -157,7 +157,7 @@
 
     </div>
     </div>
-    <script>
+    <script type="">
         $(document).ready(function() {
             $('#successButton').click(function() {
                 event.preventDefault();
