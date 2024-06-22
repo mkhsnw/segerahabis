@@ -7,7 +7,7 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
     }
-
+    
     public function index() {
         // Redirect ke dashboard beranda
         redirect('user/home_before_login');
