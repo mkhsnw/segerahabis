@@ -71,7 +71,7 @@
 
                 <hr class="mt-4 h-px my-5 bg-gray-200 border-1 dark:bg-gray-700">
 
-                <form action="<?php echo site_url('user/simpan_user'); ?>" method="post" id="profileForm">
+                <form action="<?php echo site_url('user/simpan_user'); ?>" method="post" id="profileForm" enctype="multipart/form-data">
                     <div class="flex flex-row justify-between">
                         <div class="flex flex-col gap-4 w-full">
 
@@ -102,7 +102,7 @@
                                 </div>
                 </form>
                 <!-- Main modal -->
-
+               
                     <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                             <!-- Modal content -->
@@ -129,50 +129,46 @@
                         </div>
 
                     </div>
-                
+
 
             </div>
         </div>
 
         <div class="row-span-3 flex justify-center items-center">
             <div class="flex flex-col items-center">
-                <img src="https://cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png" alt="Foto Profil" class="w-40 h-40 ml-5 bg-gray-300 rounded-full mt-5 mb-4">
+                <img id="profile-picture" src="<?php echo base_url('assets/image/profile/'.$user->foto)?>" alt="Foto Profil" class="w-40 h-40 ml-5 bg-gray-300 rounded-full mt-5 mb-4">
                 <label for="file-upload" class="file-label ml-5 px-10 py-2 border border-gray-300 rounded-md shadow-sm">
                     Pilih Foto
                 </label>
-                <input id="file-upload" type="file" class="file-input invisible" />
+                <input id="file-upload" name="profile" type="file" class="file-input invisible" />
                 <p class="ml-5 text-xs font-semibold text-gray-500 text-center">
                     Ukuran foto: maks. 10 MB<br>Format foto: .JPG, .JPEG, .PNG</p>
             </div>
         </div>
 
     </div>
-
-
-
-    </form>
+</form>
     </div>
     </div>
 
 
     </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="">
         $(document).ready(function() {
             $('#successButton').click(function() {
                 event.preventDefault();
-                var formData = $('#profileForm').serialize();
+                var formData = new FormData($('#profileForm')[0]);
                 $.ajax({
                     url: '<?php echo site_url('user/simpan_user'); ?>',
                     type: 'POST',
                     data: formData,
+                     processData: false,
+                    contentType: false,
                     success: function(response) {
                         // Check if the response indicates success
-                        if (response == 'success') {
-                            $('#successModal').removeClass('hidden');
-                        } else {
-                            alert('Failed to save profile');
-                        }
+                        
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('Error occurred: ' + textStatus);
@@ -186,6 +182,17 @@
                 }
             });
         });
+
+    document.getElementById('file-upload').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('profile-picture').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
     </script>
 </body>
 

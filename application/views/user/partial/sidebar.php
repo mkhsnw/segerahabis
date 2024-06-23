@@ -2,9 +2,9 @@
   <!-- Profile Card -->
   <div class="bg-white w-full rounded-lg border-2 border-bg-gray-600 shadow-lg py-6 px-4 overflow-auto whitespace-nowrap">
     <div class="flex items-center">
-      <img src="https://cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png" alt="Foto Profil" class="w-20 h-20 ml-3 bg-gray-300 rounded-full tracking-wide whitespace-nowrap">
+      <img src="<?php echo base_url('assets/image/Profile/'. $user->foto)?>" alt="Foto Profil" class="w-20 h-20 ml-3 bg-gray-300 rounded-full tracking-wide whitespace-nowrap">
       <div class="ml-4">
-        <h2 class="text-2xl font-bold whitespace-nowrap">Danang</h2>
+        <h2 class="text-2xl font-bold whitespace-nowrap"><?php echo $this->session->userdata('username')?></h2>
       </div>
     </div>
 

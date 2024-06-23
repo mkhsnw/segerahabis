@@ -42,12 +42,23 @@ class Muser extends CI_Model{
         return $q;
     }
 
-    public function get_kota_penjual($idToko){
-        $this->db->select('*');
-        $this->db->from('tbl_toko');
-        $this->db->join('tbl_member','tbl_member.idKonsumen = tbl_toko.idKonsumen');
-        $this->db->where('tbl_toko.idToko',$idToko);
-        $q = $this->db->get();
-        return $q;
+   
+
+    public function getProdukToko($idProduk){
+        $this->db->select('tbl_toko.nama_Toko, tbl_toko.alamat, tbl_toko.kota, tbl_toko.id_Toko');
+        $this->db->from('tbl_produk');
+        $this->db->join('tbl_toko', 'tbl_produk.id_Toko = tbl_toko.id_Toko');
+        $this->db->where('tbl_produk.id_Produk', $idProduk);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function getProdukByToko($idToko){
+        $this->db->select('tbl_toko.nama_Toko, tbl_toko.alamat, tbl_toko.kota, tbl_toko.id_Toko, tbl_produk.*');
+        $this->db->from('tbl_produk');
+        $this->db->join('tbl_toko', 'tbl_produk.id_Toko = tbl_toko.id_Toko');
+        $this->db->where('tbl_produk.id_Toko', $idToko);
+        $query = $this->db->get();
+        return $query;
     }
 }

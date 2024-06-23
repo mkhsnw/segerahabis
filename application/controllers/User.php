@@ -9,8 +9,9 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('Muser');
-
+        $this->load->library('cart');
     }
+
 
     public function index()
     {
@@ -20,15 +21,15 @@ class User extends CI_Controller
         $data['produk'] =  $this->Muser->get_all_data('tbl_produk')->result();
         $currentDate = date('Y-m-d');
         foreach ($data['produk'] as $produk) {
-            $tanggalExp = $produk->tanggal_Exp; 
+            $tanggalExp = $produk->tanggal_Exp;
             $datetime1 = new DateTime($currentDate);
             $datetime2 = new DateTime($tanggalExp);
             $interval = $datetime1->diff($datetime2);
-            $sisaHari = $interval->format('%r%a'); 
-            $produk->sisaHari = $sisaHari; 
+            $sisaHari = $interval->format('%r%a');
+            $produk->sisaHari = $sisaHari;
         };
         // method menghitung harga setelah didiskon
-        foreach($data['produk'] as $produk){
+        foreach ($data['produk'] as $produk) {
             $sebelumDiskon = $produk->harga;
             $diskon = $produk->diskon;
             $hargaDiskon = $sebelumDiskon - ($sebelumDiskon * $diskon / 100);
@@ -39,8 +40,9 @@ class User extends CI_Controller
         $this->load->view('user/footer/footer');
     }
 
-    public function kategori($idKat){
-        $data['produk'] = $this->Muser->get_by_id('tbl_produk',array('id_Kategori' => $idKat))->result();
+    public function kategori($idKat)
+    {
+        $data['produk'] = $this->Muser->get_by_id('tbl_produk', array('id_Kategori' => $idKat))->result();
         $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
         $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
         $currentDate = date('Y-m-d');
@@ -60,7 +62,7 @@ class User extends CI_Controller
             $produk->hargaDiskon = $hargaDiskon;
         }
         $this->load->view('user/header/header_after_login', $data);
-        $this->load->view('user/home_by_kategori', $data);
+        $this->load->view('user/home_after_login', $data);
         $this->load->view('user/footer/footer');
     }
 
@@ -76,26 +78,15 @@ class User extends CI_Controller
         $this->load->view('user/daftar_user');
     }
 
-    
-
-    public function footer()
-    {
-        // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/footer/footer');
-    }
-
-    public function home_after_login()
-    {
-       
-    }
 
     public function all_product()
     {
         if (empty($this->session->userdata('id_user'))) {
             redirect('user/login');
         }
+        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
         // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_after_login');
+        $this->load->view('user/header/header_after_login', $data);
         $this->load->view('user/all_product');
         $this->load->view('user/footer/footer');
     }
@@ -105,10 +96,20 @@ class User extends CI_Controller
         if (empty($this->session->userdata('id_user'))) {
             redirect('user/login');
         }
+        $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
+        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+        $data['cart'] = $this->cart->contents();
+        $data['total'] = $this->cart->total();
+        $data['qtyItem'] = $this->cart->total_items();
         // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_after_login');
-        $this->load->view('user/cart');
+        $this->load->view('user/header/header_after_login',$data);
+        $this->load->view('user/cart',$data);
         $this->load->view('user/footer/footer');
+    }
+
+     public function delete_cart($rowId){
+        $remove = $this->cart->remove($rowId);
+        redirect('user/cart');
     }
 
     public function checkout()
@@ -116,20 +117,56 @@ class User extends CI_Controller
         if (empty($this->session->userdata('id_user'))) {
             redirect('user/login');
         }
+        $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
+        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+        $data['cart'] = $this->cart->contents();
+        $data['total'] = $this->cart->total();
+        $data['qtyItem'] = $this->cart->total_items();
+        $grouped_cart = [];
+
+        foreach ($data['cart'] as $val) {
+            $grouped_cart[$val['toko']][] = $val;
+        }
+
+        $data['grouped_cart'] = $grouped_cart;
+
         // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_after_login');
-        $this->load->view('user/checkout');
+        $this->load->view('user/header/header_after_login',$data);
+        $this->load->view('user/checkout',$data);
         $this->load->view('user/footer/footer');
     }
 
-    public function product()
+    public function product($idProduk)
     {
         if (empty($this->session->userdata('id_user'))) {
             redirect('user/login');
         }
+        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+        $data['produk'] = $this->Muser->get_by_id('tbl_produk', array('id_Produk' => $idProduk))->row_object();
+        $currentDate = date('Y-m-d');
+
+        $currentDate = date('Y-m-d');
+        $tanggalExp = $data['produk']->tanggal_Exp;
+
+        // Menghitung sisa hari antara tanggal sekarang dan tanggal expired
+        $datetime1 = new DateTime($currentDate);
+        $datetime2 = new DateTime($tanggalExp);
+        $interval = $datetime1->diff($datetime2);
+        $sisaHari = $interval->format('%r%a');
+        $data['produk']->sisaHari = $sisaHari;
+
+        // Menghitung harga setelah diskon
+        $sebelumDiskon = $data['produk']->harga;
+        $diskon = $data['produk']->diskon;
+        $hargaDiskon = $sebelumDiskon - ($sebelumDiskon * $diskon / 100);
+        $data['produk']->hargaDiskon = $hargaDiskon;
+
+        $data['toko'] = $this->Muser->getProdukToko($idProduk)->row_object();
+        $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
+
         // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_after_login');
-        $this->load->view('user/product');
+        $this->load->view('user/header/header_after_login', $data);
+        $this->load->view('user/product', $data);
         $this->load->view('user/footer/footer');
     }
 
@@ -171,7 +208,7 @@ class User extends CI_Controller
 
     public function pesanan_user()
     {
-        if(empty($this->session->userdata('id_user'))){
+        if (empty($this->session->userdata('id_user'))) {
             redirect('user/login');
         }
         // Method untuk menampilkan halaman dashboard beranda
@@ -257,6 +294,9 @@ class User extends CI_Controller
         $email = $this->input->post('email');
         $noHP = $this->input->post('nomor');
         $id = $this->session->userdata('id_user');
+        $config['upload_path'] = './assets/image/profile/';
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $this->load->library('upload', $config);
 
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('namalengkap', 'Nama Lengkap', 'required');
@@ -266,20 +306,35 @@ class User extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('notValid', 'Data yang anda masukkan tidak valid!');
             $this->load->view('user/profil_user');
-        }else{
-            $data_edit = array(
-                'username' => $username,
-                'nama_User' => $namalengkap,
-                'email' => $email,
-                'noHP' => $noHP
-            );
-            $this->Muser->update('tbl_user',$data_edit,'id_User',$id);
-            $this->session->set_flashdata('success', 'Data berhasil diubah!');
-            redirect('user/profil_user');
+        } else {
+            if ($this->upload->do_upload('profile')) {
+                $data_file = $this->upload->data();
+                $data_edit = array(
+                    'username' => $username,
+                    'nama_User' => $namalengkap,
+                    'email' => $email,
+                    'noHP' => $noHP,
+                    'foto' => $data_file['file_name']
+                );
+                $this->Muser->update('tbl_user', $data_edit, 'id_User', $id);
+                $this->session->set_flashdata('success', 'Data berhasil diubah!');
+                redirect('user/profil_user');
+            } else {
+                $data_edit = array(
+                    'username' => $username,
+                    'nama_User' => $namalengkap,
+                    'email' => $email,
+                    'noHP' => $noHP
+                );
+                $this->Muser->update('tbl_user', $data_edit, 'id_User', $id);
+                $this->session->set_flashdata('success', 'Data berhasil diubah!');
+                redirect('user/profil_user');
+            }
         }
     }
 
-    public function simpan_alamat(){
+    public function simpan_alamat()
+    {
         $alamat = $this->input->post('alamat');
         $detail = $this->input->post('detail');
         $id = $this->session->userdata('id_user');
@@ -290,13 +345,85 @@ class User extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('notValid', 'Data yang anda masukkan tidak valid!');
             $this->load->view('user/address_user');
-        }else{
+        } else {
             $data_edit = array(
                 'alamat' => $alamat,
             );
-            $this->Muser->update('tbl_user',$data_edit,'id_User',$id);
+            $this->Muser->update('tbl_user', $data_edit, 'id_User', $id);
             $this->session->set_flashdata('success', 'Data berhasil diubah!');
             redirect('user/address_user');
         }
+    }
+
+    public function getProvince()
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "http://api.rajaongkir.com/starter/province",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "key: f78fa597cd709a40f735828c7409c764"
+            )
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        $data_json = json_decode($response, true);
+        echo "<option value=''>Pilih Provinsi</option>";
+        for ($i = 0; $i < count($data_json['rajaongkir']['results']); $i++) {
+            echo "<option value='" . $data_json['rajaongkir']['results'][$i]['province_id'] . "'>" . $data_json['rajaongkir']['results'][$i]['province'] . "</option>";
+        }
+    }
+
+    public function getCity($province)
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "http://api.rajaongkir.com/starter/city?province=" . $province,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "key: f78fa597cd709a40f735828c7409c764"
+            )
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        $data = json_decode($response, true);
+        echo "<option value=''>Pilih Kota</option>";
+        for ($i = 0; $i < count($data['rajaongkir']['results']); $i++) {
+            echo "<option value='" . $data['rajaongkir']['results'][$i]['city_id'] . "'>" . $data['rajaongkir']['results'][$i]['city_name'] . "</option>";
+        }
+    }
+
+    public function add_cart($idProduk)
+    {
+        $dataWhere = array('id_Produk' => $idProduk);
+        $produk = $this->Muser->get_by_id('tbl_produk', $dataWhere)->row_object();
+        $sebelumDiskon = $produk->harga;
+        $diskon = $produk->diskon;
+        $hargaDiskon = $sebelumDiskon - ($sebelumDiskon * $diskon / 100);
+        $produk->hargaDiskon = $hargaDiskon;
+        $data = array(
+            'id' => $produk->id_Produk,
+            'qty' => 1,
+            'price' => $produk->hargaDiskon,
+            'name' => $produk->nama_Produk,
+            'image' => $produk->foto_Produk,
+            'toko' => $produk->id_Toko
+        );
+        $this->cart->insert($data);
+        redirect('user/cart');
     }
 }
