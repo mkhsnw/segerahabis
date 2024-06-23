@@ -124,11 +124,11 @@
             <form>
                 <div class="flex flex-col gap-6 w-full">
                     <div class="w-full">
-                        <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
+                        <label class="ml-5 block text-sm font-bold text-gray-700">Kota</label>
                         <input type="text" value="55294 Yogyakarta, Indonesia" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                     </div>
                     <div class="w-full">
-                        <label class="ml-5 block text-sm font-bold text-gray-700">Detail Alamat</label>
+                        <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
                         <input type="text" value="Samping masjid al-amin" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                     </div>
                 </div>

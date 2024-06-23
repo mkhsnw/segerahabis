@@ -84,9 +84,9 @@
         </div>
 
 
-        <div class="flex gap-6 mt-6">
-            <a href="<?php echo site_url('user/login_user'); ?>" class="flex-1 text-center text-sm font-medium text-gray-500 bg-white border border-gray-500 rounded-lg px-4 py-2 focus:ring-4 focus:outline-none focus:ring-gray-100">Tolak Orderan</a>
-            <a href="<?php echo site_url('user/daftar_user'); ?>" class="flex-1 text-sm text-center font-medium text-white bg-green-800 border border-blue-700 rounded-lg px-4 py-2 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-green-800">Terima Orderan</a>
+        <div class="flex flex-row gap-6 mt-4 w-full justify-between">
+            <p class="text-xl font-bold text-black bg-white">Status Pesanan</p>
+            <p class="flex text-yellow-600 py-1 w-24 rounded-md bg-yellow-200 text-center justify-center font-lg text-sm">Pengiriman</p>
         </div>
     </div>
 
@@ -94,3 +94,4 @@
 </body>
 
 </html>
+
