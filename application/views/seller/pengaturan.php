@@ -121,6 +121,7 @@
 
         <div class="flex flex-col h-screen w-full px-6 py-8 bg-gray-100 overflow-auto">
             <p class="text-black font-bold text-xl mb-8">Dashboard</p>
+
             <!-- Profile Form -->
             <div class="flex-col grow">
                 <div class="flex-col rounded-lg shadow-lg w-full bg-white border-2 border-bg-gray-600 py-6 px-2 mb-6 ">
@@ -128,7 +129,7 @@
 
                     <hr class="mt-4 h-px my-5 bg-gray-200 border-1 dark:bg-gray-700">
 
-                    <form>
+                    <form action="" method="">
                         <div class="flex flex-row justify-between">
                             <div class="flex flex-col gap-4 w-full">
                                 <div class>
@@ -201,7 +202,7 @@
             <div class="flex-col grow bg-white border-2 border-bg-black rounded-lg shadow-lg mb-6">
                 <h2 class="ml-5 mt-7 text-2xl font-bold">Kontak Toko</h2>
                 <hr class="mt-4 h-px my-5 bg-gray-200 border-0">
-                <form>
+                <form action="" method="">
                     <div class="flex flex-col gap-6 w-full">
                         <div class="w-full">
                             <label class="ml-5 block text-sm font-bold text-gray-700">Email</label>
@@ -254,7 +255,7 @@
             <div class="flex-col grow bg-white border-2 border-bg-black rounded-lg shadow-lg">
                 <h2 class="ml-5 mt-7 text-2xl font-bold">Alamat Toko</h2>
                 <hr class="mt-4 h-px my-5 bg-gray-200 border-0">
-                <form>
+                <form action="" method="">
                     <div class="flex flex-col gap-6 w-full">
                         <div class="w-full">
                             <label class="ml-5 block text-sm font-bold text-gray-700">Kota</label>
@@ -309,32 +310,28 @@
                 <h2 class="ml-5 mt-4 mb-4 text-2xl font-bold mb-4">Password Saya</h2>
                 <hr class="h-px my-5 bg-gray-200 border-0">
 
-                <form class="w-full">
-                    <div class="flex-col gap-4 w-4/5">
-
+                <form action="" method="" class="w-full">
+                    <div class="flex flex-col gap-6 w-full">
                         <div class="w-full">
-                            <label class="ml-5 block text-sm font-bold text-gray-700">Kota</label>
-                            <input type="password" value="" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="********" required>
+                            <label class="ml-5 block text-sm font-bold text-gray-700">Password Lama</label>
+                            <input type="password" value="********" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
-                        <div class="flex flex-row mx-auto w-full items-center gap-2 py-2">
-                            <label class="ml-5 block text-sm font-medium text-gray-700 w-1/2">Password Baru</label>
-                            <input type="password" value="" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="********" required>
+                        <div class="w-full">
+                            <label class="ml-5 block text-sm font-bold text-gray-700">Password Baru</label>
+                            <input type="password" value="********" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
-                        <div class="flex flex-row mx-auto w-full items-center gap-2 py-2">
-                            <div class="flex flex-col w-1/2">
-                                <label class="ml-5 block text-sm font-medium text-gray-700 ">Tulis Ulang</label>
-                                <label class="ml-5 block text-sm font-medium text-gray-700 ">Password Baru</label>
-                            </div>
-                            <input type="password" value="" class="mt-1 ml-5 block w-full border border-gray-300 rounded-md shadow-sm" placeholder="********" required>
+                        <div class="w-full">
+                            <label class="ml-5 block text-sm font-bold text-gray-700">Tulis Ulang Password Baru</label>
+                            <input type="password" value="********" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
                     </div>
 
-                    <div class="w-6/12 mb-4">
-                        <div class="w-full flex justify-end py-2">
+                    <div class="flex justify-start">
+                        <div class="w-full flex justify-start py-5 px-5">
                             <!-- Modal toggle -->
                             <div class="flex justify-center">
                                 <button id="successButton" data-modal-target="successModal" data-modal-toggle="successModal" class="block text-white 
-                        bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-16 py-2.5 text-center mr-3" type="button">
+                            bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center mr-3" type="button">
                                     Simpan
                                 </button>
                             </div>
