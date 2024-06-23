@@ -11,62 +11,67 @@
 
 <body class="w-full">
     <div class="w-4/5 flex md:items-start mx-auto tracking-tight">
+
+
         <div class="p-4 whitespace-nowrap">
             <p class="text-black mr-4 md:mr-8 font-bold text-lg mb-6 mt-2">Filter</p>
-            <ul class="w-60 text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                <div class="w-full px-4 py-2">
-                    <p class="text-black mr-4 md:mr-8 mb-4 mt-4 font-bold text-md">Kategori</p>
-                    <div class="flex items-center mb-2">
-                        <input id="default-checkbox1" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class=" ms-2 text-xs font-small text-gray-700 dark:text-gray-700">Makanan</label>
+            <form action="" method="">
+                <ul class="w-60 text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <div class="w-full px-4 py-2">
+                        <p class="text-black mr-4 md:mr-8 mb-4 mt-4 font-bold text-md">Kategori</p>
+                        <div class="flex items-center mb-2">
+                            <input id="default-checkbox1" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class=" ms-2 text-xs font-small text-gray-700 dark:text-gray-700">Makanan</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input id="default-checkbox2" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">Menu</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input id="default-checkbox3" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class=" ms-2 text-xs font-small text-gray-700 dark:text-gray-700">Bumbu Masak</label>
+                        </div>
+                        <div class="flex items-center mb-2 ">
+                            <input id="default-checkbox4" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">Minuman Serbuk</label>
+                        </div>
                     </div>
-                    <div class="flex items-center mb-2">
-                        <input id="default-checkbox2" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">Menu</label>
-                    </div>
-                    <div class="flex items-center mb-2">
-                        <input id="default-checkbox3" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class=" ms-2 text-xs font-small text-gray-700 dark:text-gray-700">Bumbu Masak</label>
-                    </div>
-                    <div class="flex items-center mb-2 ">
-                        <input id="default-checkbox4" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">Minuman Serbuk</label>
-                    </div>
-                </div>
 
-                <div class="w-full px-4 py-2">
-                    <p class="border-t border-bg-black"></p>
-                    <p class="text-black mr-4 md:mr-8 mb-4 mt-4 font-bold text-md ">Kadaluwarsa</p>
-                    <div class="flex items-center mb-2">
-                        <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">7 Hari lagi</label>
+                    <div class="w-full px-4 py-2">
+                        <p class="border-t border-bg-black"></p>
+                        <p class="text-black mr-4 md:mr-8 mb-4 mt-4 font-bold text-md ">Kadaluwarsa</p>
+                        <div class="flex items-center mb-2">
+                            <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">7 Hari lagi</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">14 Hari lagi</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input id="default-radio-3" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">21 Hari lagi</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input id="default-radio-4" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">30 Hari lagi</label>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <input id="default-radio-5" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">60 Hari lagi</label>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <input id="default-radio-6" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">90 Hari lagi</label>
+                        </div>
+                        <button type="submit" class="text-white mb-2 bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-small rounded-lg text-xs  w-14 h-6  text-center dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-green-800">
+                            Submit
+                        </button>
                     </div>
-                    <div class="flex items-center mb-2">
-                        <input id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">14 Hari lagi</label>
-                    </div>
-                    <div class="flex items-center mb-2">
-                        <input id="default-radio-3" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">21 Hari lagi</label>
-                    </div>
-                    <div class="flex items-center mb-2">
-                        <input id="default-radio-4" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">30 Hari lagi</label>
-                    </div>
-                    <div class="flex items-center mb-2">
-                        <input id="default-radio-5" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">60 Hari lagi</label>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <input id="default-radio-6" type="radio" value="" name="default-radio" class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="" class="ms-2 text-xs font-small text-gray-700 dark:text-gray-700">90 Hari lagi</label>
-                    </div>
-                    <button type="submit" class="text-white mb-2 bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-small rounded-lg text-xs  w-14 h-6  text-center dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-green-800">
-                        Submit
-                    </button>
-                </div>
-            </ul>
+                </ul>
+            </form>
         </div>
+
 
         <div class="p-4 grow">
 
@@ -78,8 +83,8 @@
 
                 <button id="dropdownDefaultButton" data-dropdown-toggle="price" class="md:w-50 md:h-10 text-black bg-gray-200 hover:bg-gray-300 
                 focus:ring-2 focus:outline-gray-200 focus:ring-gray-200 font-normal rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center
-                 dark:bg-gray-600 dark:hover:bg-gray-600 dark:focus:ring-gray-600" type="button">Harga Terendah 
-                 <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                 dark:bg-gray-600 dark:hover:bg-gray-600 dark:focus:ring-gray-600" type="button">Harga Terendah
+                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
                     </svg>
                 </button>
@@ -236,7 +241,7 @@
 
                 </div>
 
-                
+
 
                 <div class="mt-4 mb-8">
                     <div class="inline-flex space-x-2">
@@ -270,7 +275,7 @@
             </div>
 
         </div>
-        
+
 
 
     </div>
