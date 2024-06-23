@@ -19,12 +19,12 @@
                         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-black text-center mb-1">
                             Masuk
                         </h1>
-                        <p class="text-sm">Belum punya akun Segerahabis? <a href="<?php echo site_url('user/daftar_user'); ?>" class="text-green-600">Daftar</a></p>
+                        <p class="text-sm">Belum punya akun Segerahabis? <a href="<?php echo site_url('user/daftar'); ?>" class="text-green-600">Daftar</a></p>
                     </div>
                 
-                    <form class="space-y-4 md:space-y-6" action="#">
+                    <form class="space-y-4 md:space-y-6" action="<?php echo site_url("user/login_user")?>" method="post">
                         <div>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-150 text-black-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white-700 dark:border-gray-300 dark:placeholder-gray-150 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email or Username" required="">
+                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-150 text-black-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white-700 dark:border-gray-300 dark:placeholder-gray-150 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required="">
                         </div>
                         <div>
                             <input type="password" name="password" id="password" placeholder="Password" class="bg-white-50 border border-gray-300 text-black-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white-700 dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
