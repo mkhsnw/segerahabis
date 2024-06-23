@@ -68,7 +68,7 @@
         <div class="flex-col grow bg-white border-2 border-bg-black rounded-lg shadow-lg">
             <h2 class="ml-5 mt-7 text-2xl font-bold">Alamat Saya</h2>
             <hr class="mt-4 h-px my-5 bg-gray-200 border-0 dark:bg-gray-700">
-            <form action="<?php echo site_url('user/simpan_alamat') ?>" method="post">
+            <form action="<?php echo site_url('user/simpan_alamat'); ?>" method="post" id="profileForm">
                 <div class="flex flex-col gap-6 w-full">
                     <div class="w-full">
                         <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
@@ -89,11 +89,11 @@
                     </div>
 
                     <!-- Main modal -->
-                    <?php if ($this->session->flashdata('success')) { ?>
+                  
                         <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                                 <!-- Modal content -->
-
+                            
                                 <div class="relative px-2 py-8 text-center bg-white rounded-lg shadow">
                                     <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="successModal" id="closeModalButton">
                                         <svg aria-hidden="true" class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -116,11 +116,13 @@
                             </div>
 
                         </div>
-                    <?php } ?>
+          
+                    <!-- End of modal -->
                 </div>
             </form>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // document.addEventListener("DOMContentLoaded", function(event) {
         //     document.getElementById('successButton').click();
@@ -130,16 +132,11 @@
                 event.preventDefault();
                 var formData = $('#profileForm').serialize();
                 $.ajax({
-                    url: '<?php echo site_url('user/simpan_user'); ?>',
+                    url: '<?php echo site_url('user/simpan_alamat'); ?>',
                     type: 'POST',
                     data: formData,
                     success: function(response) {
                         // Check if the response indicates success
-                        if (response == 'success') {
-                            $('#successModal').removeClass('hidden');
-                        } else {
-                            alert('Failed to save profile');
-                        }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('Error occurred: ' + textStatus);
@@ -149,7 +146,7 @@
             $('#closeModalButton, #continueButton').click(function() {
                 $('#successModal').addClass('hidden');
                 if (this.id == 'continueButton') {
-                    window.location.href = '<?php echo site_url('user/profil_user'); ?>';
+                    window.location.href = '<?php echo site_url('user/address_user'); ?>';
                 }
             });
         });
