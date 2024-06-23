@@ -62,7 +62,7 @@
                                                 <p class="text-black font-small sm:text-xs md:text-sm text-gray-900 md:w-full sm:w-1/12"><?php echo $item['name']?></p>
                                                 <!-- <p class="text-black font-small sm:text-xs md:text-sm text-gray-900 md:w-full sm:w-1/12">Produk - Subvariasi Produk</p> -->
                                             </div>
-                                            <p class="text-black font-bold sm:text-sm md:text-lg w-3/12 max-w-4/12"><?php echo $item['qty']?> x 24.000</p>
+                                            <p class="text-black font-bold sm:text-sm md:text-lg w-3/12 max-w-4/12"><?php echo $item['qty']?> x <?php echo $item['price'] ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -103,9 +103,9 @@
                             </div>
                             <?php } ?>
                         </div>
-                        <?php } ?>
                     </div>
                 </ul>
+                <?php } ?>
 
 
                 

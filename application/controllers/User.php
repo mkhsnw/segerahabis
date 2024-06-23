@@ -188,6 +188,7 @@ class User extends CI_Controller
             redirect('user/login');
         }
         $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+        $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('user/header/header_after_login', $data);
         $this->load->view('user/address_user', $data);
