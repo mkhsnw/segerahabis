@@ -41,6 +41,7 @@ class Admin extends CI_Controller {
     }
 
     public function toko_aksi_lihat_aktif(){
+        $this->load->view('admin/header/header_admin');
         $this->load->view('admin/admin_toko_aksi_lihat_aktif');
     }
 
