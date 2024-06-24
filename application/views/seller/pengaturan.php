@@ -148,18 +148,18 @@
                                 <div class="flex justify-start ">
                                     <!-- Modal toggle -->
                                     <div class="flex justify-center px-5">
-                                        <button id="successButton" data-modal-target="successModal" data-modal-toggle="successModal" class="block text-white 
+                                        <button id="profilButton" data-modal-target="profilToko" data-modal-toggle="profilToko" class="block text-white 
                                     bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center" type="button">
                                             Simpan
                                         </button>
                                     </div>
 
                                     <!-- Main modal -->
-                                    <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+                                    <div id="profilToko" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                                         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                                             <!-- Modal content -->
                                             <div class="relative px-2 py-8 text-center bg-white rounded-lg shadow">
-                                                <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="successModal">
+                                                <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="profilToko">
                                                     <svg aria-hidden="true" class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                                     </svg>
@@ -216,30 +216,30 @@
                     <div class="flex justify-start">
                         <!-- Modal toggle -->
                         <div class="flex justify-center m-5">
-                            <button id="successButton" data-modal-target="successModal" data-modal-toggle="successModal" class="block text-white 
+                            <button id="kontakButton" data-modal-target="kontakToko" data-modal-toggle="kontakToko" class="block text-white 
                                     bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center" type="button">
                                 Simpan
                             </button>
                         </div>
 
                         <!-- Main modal -->
-                        <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+                        <div id="kontakToko" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                                 <!-- Modal content -->
                                 <div class="relative px-2 py-8 text-center bg-white rounded-lg shadow">
-                                    <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="successModal">
+                                    <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="kontakToko">
                                         <svg aria-hidden="true" class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                         </svg>
                                         <span class="sr-only">Close modal</span>
                                     </button>
-                                    <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 p-2 flex items-center justify-center mx-auto mb-3.5">
-                                        <svg aria-hidden="true" class="w-8 h-8 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <div class="w-12 h-12 rounded-full bg-green-100 p-2 flex items-center justify-center mx-auto mb-3.5">
+                                        <svg aria-hidden="true" class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                         </svg>
                                         <span class="sr-only">Success</span>
                                     </div>
-                                    <p class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Berhasil Mengganti Alamat</p>
+                                    <p class="mb-4 text-lg font-bold text-gray-900">Berhasil Mengganti Kontak Toko Anda</p>
                                     <button data-modal-toggle="successModal" type="button" class="py-2 px-3 text-sm font-medium text-center 
                                             text-white rounded-lg bg-green-600 hover:bg-green-700">
                                         Lanjutkan
@@ -269,30 +269,30 @@
                     <div class="flex justify-start">
                         <!-- Modal toggle -->
                         <div class="flex justify-center m-5">
-                            <button id="successButton" data-modal-target="successModal" data-modal-toggle="successModal" class="block text-white 
+                            <button id="alamatButton" data-modal-target="alamatToko" data-modal-toggle="alamatToko" class="block text-white 
                                     bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center" type="button">
                                 Simpan
                             </button>
                         </div>
 
                         <!-- Main modal -->
-                        <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+                        <div id="alamatToko" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                                 <!-- Modal content -->
                                 <div class="relative px-2 py-8 text-center bg-white rounded-lg shadow">
-                                    <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="successModal">
+                                    <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="alamatToko">
                                         <svg aria-hidden="true" class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                         </svg>
                                         <span class="sr-only">Close modal</span>
                                     </button>
-                                    <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 p-2 flex items-center justify-center mx-auto mb-3.5">
-                                        <svg aria-hidden="true" class="w-8 h-8 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <div class="w-12 h-12 rounded-full bg-green-100 p-2 flex items-center justify-center mx-auto mb-3.5">
+                                        <svg aria-hidden="true" class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                         </svg>
                                         <span class="sr-only">Success</span>
                                     </div>
-                                    <p class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Berhasil Mengganti Alamat</p>
+                                    <p class="mb-4 text-lg font-bold text-gray-900">Berhasil Mengganti Alamat Toko Anda</p>
                                     <button data-modal-toggle="successModal" type="button" class="py-2 px-3 text-sm font-medium text-center 
                                             text-white rounded-lg bg-green-600 hover:bg-green-700">
                                         Lanjutkan
@@ -330,32 +330,32 @@
                         <div class="w-full flex justify-start py-5 px-5">
                             <!-- Modal toggle -->
                             <div class="flex justify-center">
-                                <button id="successButton" data-modal-target="successModal" data-modal-toggle="successModal" class="block text-white 
+                                <button id="passwordButton" data-modal-target="passwordToko" data-modal-toggle="passwordToko" class="block text-white 
                             bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center mr-3" type="button">
                                     Simpan
                                 </button>
                             </div>
 
                             <!-- Main modal -->
-                            <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+                            <div id="passwordToko" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                                 <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                                     <!-- Modal content -->
                                     <div class="relative px-2 py-8 text-center bg-white rounded-lg shadow">
-                                        <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="successModal">
+                                        <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="passwordToko">
                                             <svg aria-hidden="true" class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                                             </svg>
                                             <span class="sr-only">Close modal</span>
                                         </button>
-                                        <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 p-2 flex items-center justify-center mx-auto mb-3.5">
-                                            <svg aria-hidden="true" class="w-8 h-8 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <div class="w-12 h-12 rounded-full bg-green-100 p-2 flex items-center justify-center mx-auto mb-3.5">
+                                            <svg aria-hidden="true" class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                             </svg>
                                             <span class="sr-only">Success</span>
                                         </div>
-                                        <p class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Berhasil Mengganti Password</p>
+                                        <p class="mb-4 text-lg font-bold text-gray-900">Berhasil Mengganti Password Toko Anda</p>
                                         <button data-modal-toggle="successModal" type="button" class="py-2 px-3 text-sm font-medium text-center 
-                                text-white rounded-lg bg-green-600 hover:bg-green-700">
+                                            text-white rounded-lg bg-green-600 hover:bg-green-700">
                                             Lanjutkan
                                         </button>
                                     </div>
@@ -372,9 +372,21 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
-            document.getElementById('successButton').click();
+            document.getElementById('profilButton').click();
+        });
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('kontakButton').click();
+        });
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('alamatButton').click();
+        });
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('passwordButton').click();
         });
     </script>
+
 </body>
 
 </html>
