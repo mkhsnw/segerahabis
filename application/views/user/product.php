@@ -43,7 +43,7 @@
         <div class="w-full">
             <div class="flex flex-col p-5 w-3/4">
                 <div class="w-full">
-                    <h5 class="ml-10 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white w-full flex">
+                    <h5 class="ml-10 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white w-full flex   ">
                         <?php echo $produk->nama_Produk; ?>
                     </h5>
                 </div>
