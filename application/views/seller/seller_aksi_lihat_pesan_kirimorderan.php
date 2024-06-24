@@ -84,9 +84,8 @@
         </div>
 
 
-        <div class="flex gap-6 mt-6">
-            <a href="<?php echo site_url('seller/seller_pesanan'); ?>" class="flex-1 text-center text-sm font-medium text-gray-500 bg-white border border-gray-500 rounded-lg px-4 py-2 ">Tolak Orderan</a>
-            <a href="<?php echo site_url('seller/seller_pesanan'); ?>" class="flex-1 text-sm text-center font-medium text-white bg-green-800 border rounded-lg px-4 py-2 hover:bg-green-900 ">Terima Orderan</a>
+        <div class="flex mt-6">
+            <a href="<?php echo site_url('seller/seller_pesanan'); ?>" class="flex-1 text-sm text-center font-medium text-white bg-green-800 border rounded-lg px-4 py-2 hover:bg-green-900 ">Kirim Orderan</a>
         </div>
     </div>
 

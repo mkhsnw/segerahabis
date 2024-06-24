@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
@@ -45,7 +46,7 @@
                         <ul class="py-2 text-sm text-white-700 dark:text-black-200 border border-bg-300 rounded-xl " aria-labelledby="dropdown-button">
 
                             <?php foreach ($kategori as $kat) { ?>
-                                <li><a href="<?php echo site_url('user/kategori/'.$kat->id_Kategori)?>" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800"><?php echo $kat->nama_Kat ?></a></li>
+                                <li><a href="<?php echo site_url('user/kategori/' . $kat->id_Kategori) ?>" class="inline-flex w-full px-4 py-2 hover:bg-gray-300 dark:hover:bg-white-600 dark:hover:text-white-800"><?php echo $kat->nama_Kat ?></a></li>
                             <?php } ?>
                         </ul>
                     </div>
@@ -69,7 +70,7 @@
                 <div class="flex items-center space-x-4 ml-5 absolute-right-5ml-8">
 
                     <div class="flex items-center md:justify-between space-x-4  ml-8">
-                        <a href="<?php echo site_url('user/cart')?>" class="flex items-center gap-2">
+                        <a href="<?php echo site_url('user/cart') ?>" class="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mt-2 w-6 h-6 mx-auto mb-2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                             </svg>
@@ -79,16 +80,16 @@
 
                     <div class="flex items-center md:justify-between space-x-4">
                         <a href="<?php echo site_url('user/profil_user') ?>" class="flex items-center gap-2 ">
-                            <img class="rounded-full w-8 h-8" src="<?php echo base_url('assets/image/profile/'.$user->foto); ?>" alt="profille">
+                            <img class="relative overflow-hidden object-center object-cover rounded-full w-8 h-8" src="<?php echo base_url('assets/image/profile/' . $user->foto); ?>" alt="profille">
                             <p class="text-black mr-4 md:mr-8 font-lg text-sm"><?php echo $user->username ?></p>
                         </a>
                     </div>
 
                 </div>
             <?php } else { ?>
-                <div class="flex items-center space-x-4 ml-8 mt-4 absolute-right-5">
-                    <a href="<?php echo site_url('user/login'); ?>" class="ml-8 text-sm font-medium text-gray-900 dark:green-800 bg-gray-100 border border-green-800 rounded-lg px-4 py-2 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-white-200 dark:hover:bg-gray-400 dark:focus:ring-white">Masuk</a>
-                    <a href="<?php echo site_url('user/daftar'); ?>" class="text-sm font-medium text-white bg-green-800 border border-blue-700 rounded-lg px-4 py-2 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-green-800">Daftar</a>
+                <div class="flex items-center gap-4 ml-8 mt-1 absolute-right-5">
+                    <a href="<?php echo site_url('user/login'); ?>" class="ml-8 text-sm font-medium text-gray-900 dark:green-800 bg-gray-100 border border-green-800 rounded-lg px-4 py-2 hover:bg-gray-200">Masuk</a>
+                    <a href="<?php echo site_url('user/daftar'); ?>" class="text-sm font-medium text-white bg-green-800 rounded-lg px-4 py-2 hover:bg-green-900">Daftar</a>
                 </div>
             <?php } ?>
         </div>

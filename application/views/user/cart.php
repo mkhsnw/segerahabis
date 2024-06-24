@@ -16,7 +16,7 @@
             <div class="flex-col md:items-center mx-auto">
             <?php foreach($cart as $val){?>
                 <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white mb-2">
-                    <div class="w-full px-4 py-2">
+                    <div class="w-full px-2 py-2">
                         <div class="flex flex-row items-center mb-2 gap-6 px-6 py-3">
                             <a href="<?php echo site_url('user/delete_cart/'.$val['rowid'])?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
@@ -24,7 +24,7 @@
                                 </svg>
                             </a>
                             <img srcset="<?php echo base_url('assets/image/card/1.jpg'); ?> 2x" class="w-20 h-20 max-w-xl rounded-lg" alt="image description">
-                            <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 dark:text-white"><?php echo $val['name']?></h5>
+                            <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 w-80"><?php echo $val['name']?></h5>
 
                             <form class="max-w-xs mx-auto">
                                 <div class="relative flex items-center max-w-[8rem]">
@@ -41,7 +41,7 @@
                                     </button>
                                 </div>
                             </form>
-                            <p class="text-black mr-4 md:mr-8 font-bold text-lg">Rp. <?php echo $val['price']?></p>
+                            <p class="text-black font-bold text-lg mr-4 w-36 text-right">Rp. <?php echo $val['price']?></p>
                         </div>
                     </div>
                 </ul>
@@ -49,7 +49,7 @@
 
                 
             </div>
-            <div class="grow">
+            <div class="w-4/12">
                 <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white mb-2">
                     <div class="w-full px-8 py-2 flex flex-col">
                         <p class="text-black font-bold text-lg mb-6 mt-4">Ringkasan Belanja</p>

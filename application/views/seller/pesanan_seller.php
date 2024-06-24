@@ -307,7 +307,7 @@
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
 
                                                     <li class="block px-2 py-2 text-center">
-                                                        <a href="<?php echo site_url('seller/seller_aksi_lihat_pesanan'); ?>" class="">
+                                                        <a href="<?php echo site_url('seller/seller_aksi_lihat_pesanan/'); ?>" class="">
                                                             <div class="flex items-center justify-center">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-700 hover:text-yellow-400">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -373,7 +373,7 @@
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
 
                                                     <li class="block px-2 py-2 text-center">
-                                                        <a href="#" class="">
+                                                        <a href="seller_aksi_lihat_pesan_kirimorderan" class="">
                                                             <div class="flex items-center justify-center">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-700 hover:text-yellow-400">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -382,6 +382,19 @@
                                                                 <span class="ms-2 text-xs font-small text-gray-700 hover:text-yellow-400">Lihat Pesanan</span>
                                                             </div>
                                                         </a>
+                                                    </li>
+                                                    <li class="block px-2 py-2 ">
+                                                        <div class="flex justify-center items-center text-center">
+                                                            <button id="successButton" data-modal-target="terima-pesanan" data-modal-toggle="terima-pesanan" class="flex block items-center justify-center gap-2 text-center 
+                                                                hover:text-green-600 ms-2 text-xs font-small text-gray-700" type="button">
+                                                                <span>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hover:text-green-600 text-gray-700 size-5">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                                                    </svg>
+                                                                </span>
+                                                                <span>Kirim Pesanan</span>
+                                                            </button>
+                                                        </div>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -432,12 +445,12 @@
                                             <p class="text-blue-600 py-1 w-16 text-center rounded-md bg-blue-100 font-lg text-sm">Selesai</p>
                                         </td>
                                         <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="aksi3" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
+                                            <button id="dropdownDefaultButton" data-dropdown-toggle="aksi4" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
                                                 ...
                                             </button>
 
 
-                                            <div id="aksi3" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto border-2 border-bg-gray-400">
+                                            <div id="aksi4" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto border-2 border-bg-gray-400">
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
 
                                                     <li class="block px-2 py-2 text-center">
@@ -493,38 +506,38 @@
                             </table>
                         </div>
                         <div class="flex px-2 py-4 justify-between items-center whitespace-nowrap overflow-auto">
-                                <div class="flex gap-1">
-                                    <h1 class="font-normal text-xs text-gray-500">Menampilkan</h1>
-                                    <h1 class="font-semibold text-xs text-black ">1 - 10</h1>
-                                    <h1 class="font-normal text-xs text-gray-500">dari</h1>
-                                    <h1 class="font-semibold text-xs text-black">96</h1>
-                                </div>
-                                <nav aria-label="Page navigation example">
-                                    <ul class="inline-flex -space-x-px text-sm">
-                                        <li>
-                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 text-black-600 border border-gray-300 bg-green-700 dark:text-white">1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">...</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">10</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                            <div class="flex gap-1">
+                                <h1 class="font-normal text-xs text-gray-500">Menampilkan</h1>
+                                <h1 class="font-semibold text-xs text-black ">1 - 10</h1>
+                                <h1 class="font-normal text-xs text-gray-500">dari</h1>
+                                <h1 class="font-semibold text-xs text-black">96</h1>
                             </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="inline-flex -space-x-px text-sm">
+                                    <li>
+                                        <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 text-black-600 border border-gray-300 bg-green-700 dark:text-white">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">...</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">10</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
 
                     <div>
@@ -587,7 +600,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </ul>
             </div>
         </div>
