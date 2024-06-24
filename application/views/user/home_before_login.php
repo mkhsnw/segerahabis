@@ -110,7 +110,9 @@
 
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
+                    <div class="overflow-hidden relative">
+                        <img class="aspect-square max-w-full h-full rounded-lg object-cover object-center" src="https://berita.99.co/wp-content/uploads/2022/11/gambar-mewarnai-taman.jpg" alt="Gambar yang di-crop">
+                    </div>
                     </a>
                     <div class="p-5">
                         <a href="#">
