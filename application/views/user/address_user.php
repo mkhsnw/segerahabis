@@ -72,12 +72,23 @@
                 <div class="flex flex-col gap-6 w-full">
                     <div class="w-full">
 
+                        <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
+                        <input type="text" value="<?php echo $user->alamat; ?>" name="alamat" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                    </div>
+                    <div class="w-full">
+                        <label class="ml-5 block text-sm font-bold text-gray-700">Detail Alamat</label>
+                        <input type="text" name="detail" value="Samping masjid al-amin" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+
+
                         <label class="ml-5 block text-sm font-bold text-gray-700">Kota</label>
-                        <input type="text" value="55294 Yogyakarta, Indonesia" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                        <input type="text" value="<?php $this->load->helper('toko');
+                        $city = getDetailCity($user->id_Kota);
+                        echo $city['rajaongkir']['results']['city_name'].", ". $city['rajaongkir']['results']['province'];?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                     </div>
                     <div class="w-full">
                         <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
-                        <input type="text" value="Samping masjid al-amin" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                        <input type="text" value="<?php echo $user->alamat?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+
 
                     </div>
                 </div>

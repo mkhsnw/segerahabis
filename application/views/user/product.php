@@ -37,6 +37,7 @@
                     <?php echo $produk->deskripsi ?>
                 </p>
             </div>
+
         </div>
 
         <div class="w-full">
@@ -72,6 +73,7 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                             </svg>
                         </button>
+
                     </div>
                 </form>
                 <a href="<?php echo site_url('user/add_cart/' . $produk->id_Produk) ?>" id="addCart" class="flex flex-row tracking-wide ml-10 mt-5 text-base font-bold text-white 

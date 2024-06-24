@@ -173,7 +173,7 @@
                             </div>
                             <div class="flex flex-row justify-between mb-1 ">
                                 <p class="text-gray-600 font-md text-md">Ongkos Kirim</p>
-                                <p class="text-black font-bold text-md ">Rp. 15.000</p>
+                                <p class="text-black font-bold text-md ">Rp. <?php echo $ongkos;?></p>
                             </div>
                             <div class="flex flex-row justify-between mb-1 ">
                                 <p class="text-gray-600 font-md text-md">Admin Pembayaran</p>

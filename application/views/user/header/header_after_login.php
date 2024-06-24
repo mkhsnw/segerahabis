@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
@@ -80,7 +81,9 @@
 
                     <div class="flex items-center md:justify-between space-x-4">
                         <a href="<?php echo site_url('user/profil_user') ?>" class="flex items-center gap-2 ">
+
                             <img class="relative overflow-hidden object-center object-cover rounded-full w-8 h-8" src="<?php echo base_url('assets/image/profile/' . $user->foto); ?>" alt="profille">
+
                             <p class="text-black mr-4 md:mr-8 font-lg text-sm"><?php echo $user->username ?></p>
                         </a>
                     </div>
