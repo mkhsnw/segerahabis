@@ -65,6 +65,18 @@ class Seller extends CI_Controller {
         $this->load->view('seller/pengaturan');
     }
     
+    public function seller_aksi_lihat_pesan_setelahterimapesanan() {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('seller/header/header_seller');
+        $this->load->view('seller/seller_aksi_lihat_pesan_setelahterimapesanan');
+    }
+
+    public function seller_aksi_lihat_pesan_kirimorderan() {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('seller/header/header_seller');
+        $this->load->view('seller/seller_aksi_lihat_pesan_kirimorderan');
+    }
+
 
 
 

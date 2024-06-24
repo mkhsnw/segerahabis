@@ -22,8 +22,8 @@
         </div>
     </div>
 
-    <div class="relative sm:w-4/5 mx-auto items-center">
-        <div class="flex md:flex-row items-center md:justify-between">
+    <div class="w-4/5 mx-auto mt-2">
+        <div class="flex md:flex-row md:items-center md:justify-between">
             <div class="mr-4">
                 <a href="#">
                     <img class="w-30 h-6 absolute-left transform -translate-y-1/2 mt-10" src="<?php echo base_url('assets/image/logo.png'); ?>" alt="logo">
@@ -59,9 +59,9 @@
                 </div>
             </form>
 
-            <div class="flex items-center space-x-4 ml-8 mt-4 absolute-right-5">
-                <a href="<?php echo site_url('user/login'); ?>" class="ml-8 text-sm font-medium text-gray-900 dark:green-800 bg-gray-100 border border-green-800 rounded-lg px-4 py-2 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-white-200 dark:hover:bg-gray-400 dark:focus:ring-white">Masuk</a>
-                <a href="<?php echo site_url('user/daftar'); ?>" class="text-sm font-medium text-white bg-green-800 border border-blue-700 rounded-lg px-4 py-2 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-green-800">Daftar</a>
+            <div class="flex justify-center items-center gap-4 ">
+                <a href="<?php echo site_url('user/login'); ?>" class="ml-8 text-sm font-medium text-gray-900 dark:green-800 bg-gray-100 border border-green-800 rounded-lg px-4 py-2 hover:bg-gray-200">Masuk</a>
+                <a href="<?php echo site_url('user/daftar'); ?>" class="text-sm font-medium text-white bg-green-800  rounded-lg px-4 py-2 hover:bg-green-900">Daftar</a>
             </div>
         </div>
     </div>

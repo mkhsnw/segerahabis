@@ -136,7 +136,7 @@
 
         <div class="row-span-3 flex justify-center items-center">
             <div class="flex flex-col items-center">
-                <img id="profile-picture" src="<?php echo base_url('assets/image/profile/'.$user->foto)?>" alt="Foto Profil" class="w-40 h-40 ml-5 bg-gray-300 rounded-full mt-5 mb-4">
+                <img id="profile-picture" src="<?php echo base_url('assets/image/profile/'.$user->foto)?>" alt="Foto Profil" class="overflow-hidden relative w-40 h-40 object-cover object-center ml-5 bg-gray-300 rounded-full mt-5 mb-4">
                 <label for="file-upload" class="file-label ml-5 px-10 py-2 border border-gray-300 rounded-md shadow-sm">
                     Pilih Foto
                 </label>
