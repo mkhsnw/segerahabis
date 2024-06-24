@@ -122,6 +122,9 @@ class User extends CI_Controller
         $data['cart'] = $this->cart->contents();
         $data['total'] = $this->cart->total();
         $data['qtyItem'] = $this->cart->total_items();
+        $this->load->helper('toko');
+        $ongkos = getOngkir(501, $this->session->userdata('id_kota_tujuan'), 1000, 'jne');
+        $data['ongkos'] = $ongkos['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'];
         $grouped_cart = [];
 
         foreach ($data['cart'] as $val) {
@@ -226,7 +229,8 @@ class User extends CI_Controller
         $namalengkap = $this->input->post('namalengkap');
         $password = $this->input->post('password');
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $kota = null;
+        $idKota = $this->input->post('city');
+        $alamat = $this->input->post('alamat');
 
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('username', 'Username', 'required');
@@ -243,7 +247,8 @@ class User extends CI_Controller
                 'username' => $username,
                 'nama_User' => $namalengkap,
                 'password' => $password,
-                'id_kota' => $kota
+                'id_kota' => $idKota,
+                'alamat' => $alamat 
             );
 
             $this->Muser->insert('tbl_user', $data);
@@ -273,11 +278,14 @@ class User extends CI_Controller
                     'email' => $result->email,
                     'username' => $result->username,
                     'nama_User' => $result->nama_User,
-                    'id_kota' => $result->id_Kota,
+                    'id_kota_tujuan' => $result->id_Kota,
                     'status' => 'login'
                 );
                 $this->session->set_userdata($data_session);
                 redirect('user');
+            }else{
+                $this->session->set_flashdata('failed', 'Email atau Password salah! Silahkan coba lagi.');
+                redirect('user/login');
             }
         }
     }
@@ -410,6 +418,7 @@ class User extends CI_Controller
 
     public function add_cart($idProduk)
     {
+        $qty = $this->input->post('qty');
         $dataWhere = array('id_Produk' => $idProduk);
         $produk = $this->Muser->get_by_id('tbl_produk', $dataWhere)->row_object();
         $sebelumDiskon = $produk->harga;
@@ -418,13 +427,25 @@ class User extends CI_Controller
         $produk->hargaDiskon = $hargaDiskon;
         $data = array(
             'id' => $produk->id_Produk,
-            'qty' => 1,
+            'qty' => $qty,
             'price' => $produk->hargaDiskon,
             'name' => $produk->nama_Produk,
             'image' => $produk->foto_Produk,
             'toko' => $produk->id_Toko
         );
         $this->cart->insert($data);
+        redirect('user/cart');
+    }
+
+    public function update_cart()
+    {
+        $qty = $this->input->post('qty');
+        $rowId = $this->input->post('rowId');
+        $data = array(
+            'rowid' => $rowId,
+            'qty' => $qty
+        );
+        $this->cart->update($data);
         redirect('user/cart');
     }
 }
