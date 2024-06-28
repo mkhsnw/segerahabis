@@ -10,9 +10,16 @@ class User extends CI_Controller
         $this->load->helper('url');
         $this->load->model('Muser');
         $this->load->library('cart');
+        $params = array('server_key' => 'SB-Mid-server-IuU__eOhyKnWulK6BeyzstEt', 'production' => false);
+        $this->load->library('midtrans');
+        $this->midtrans->config($params);
+        $this->load->helper('url');
     }
 
-
+    public function test()
+    {
+        $this->load->view('user/cart');
+    }
     public function index()
     {
         // Redirect ke dashboard beranda
@@ -102,12 +109,13 @@ class User extends CI_Controller
         $data['total'] = $this->cart->total();
         $data['qtyItem'] = $this->cart->total_items();
         // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_after_login',$data);
-        $this->load->view('user/cart',$data);
+        $this->load->view('user/header/header_after_login', $data);
+        $this->load->view('user/cart', $data);
         $this->load->view('user/footer/footer');
     }
 
-     public function delete_cart($rowId){
+    public function delete_cart($rowId)
+    {
         $remove = $this->cart->remove($rowId);
         redirect('user/cart');
     }
@@ -123,8 +131,7 @@ class User extends CI_Controller
         $data['total'] = $this->cart->total();
         $data['qtyItem'] = $this->cart->total_items();
         $this->load->helper('toko');
-        $ongkos = getOngkir(501, $this->session->userdata('id_kota_tujuan'), 1000, 'jne');
-        $data['ongkos'] = $ongkos['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'];
+        $data['ongkos'] = 0;
         $grouped_cart = [];
 
         foreach ($data['cart'] as $val) {
@@ -134,8 +141,8 @@ class User extends CI_Controller
         $data['grouped_cart'] = $grouped_cart;
 
         // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_after_login',$data);
-        $this->load->view('user/checkout',$data);
+        $this->load->view('user/header/header_after_login', $data);
+        $this->load->view('user/checkout', $data);
         $this->load->view('user/footer/footer');
     }
 
@@ -229,8 +236,7 @@ class User extends CI_Controller
         $namalengkap = $this->input->post('namalengkap');
         $password = $this->input->post('password');
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $idKota = $this->input->post('city');
-        $alamat = $this->input->post('alamat');
+        $kota = null;
 
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('username', 'Username', 'required');
@@ -247,8 +253,7 @@ class User extends CI_Controller
                 'username' => $username,
                 'nama_User' => $namalengkap,
                 'password' => $password,
-                'id_kota' => $idKota,
-                'alamat' => $alamat 
+                'id_kota' => $kota
             );
 
             $this->Muser->insert('tbl_user', $data);
@@ -278,14 +283,11 @@ class User extends CI_Controller
                     'email' => $result->email,
                     'username' => $result->username,
                     'nama_User' => $result->nama_User,
-                    'id_kota_tujuan' => $result->id_Kota,
+                    'id_kota' => $result->id_Kota,
                     'status' => 'login'
                 );
                 $this->session->set_userdata($data_session);
                 redirect('user');
-            }else{
-                $this->session->set_flashdata('failed', 'Email atau Password salah! Silahkan coba lagi.');
-                redirect('user/login');
             }
         }
     }
@@ -345,7 +347,6 @@ class User extends CI_Controller
     public function simpan_alamat()
     {
         $alamat = $this->input->post('alamat');
-        $detail = $this->input->post('detail');
         $id = $this->session->userdata('id_user');
 
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
@@ -421,10 +422,14 @@ class User extends CI_Controller
         $qty = $this->input->post('qty');
         $dataWhere = array('id_Produk' => $idProduk);
         $produk = $this->Muser->get_by_id('tbl_produk', $dataWhere)->row_object();
+        $user = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+        $kota = $this->Muser->get_id_kota_by_toko($produk->id_Toko)->row_object();
         $sebelumDiskon = $produk->harga;
         $diskon = $produk->diskon;
         $hargaDiskon = $sebelumDiskon - ($sebelumDiskon * $diskon / 100);
         $produk->hargaDiskon = $hargaDiskon;
+        $this->session->set_userdata('idpenjual', $kota->id_Kota);
+        $this->session->set_userdata('tokoProduk', $produk->id_Toko);
         $data = array(
             'id' => $produk->id_Produk,
             'qty' => $qty,
@@ -437,15 +442,221 @@ class User extends CI_Controller
         redirect('user/cart');
     }
 
-    public function update_cart()
+    public function update_ongkir()
     {
-        $qty = $this->input->post('qty');
-        $rowId = $this->input->post('rowId');
+        $this->load->helper('toko');
+        $kurir = $this->input->post('kurir');
+        $toko = $this->input->post('toko');
+        $origin = $this->session->userdata('idpenjual');
+        $total = 0;
+        $ongkos = getOngkir($origin, $this->session->userdata('id_kota'), 1000, $kurir);
+        $ongkosValue = $ongkos['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'];
+        $this->session->set_userdata('ongkos_'.$toko, $ongkosValue);
+        foreach ($this->cart->contents() as $item) {
+            $total += $item['subtotal'];
+        }
+        $totalOngkos = 0;
+
+        $grouped_cart = [];
+
+        foreach ($this->cart->contents() as $val) {
+            $grouped_cart[$val['toko']][] = $val;
+        }
+
+        foreach ($grouped_cart as $key => $val) {
+            $ongkos = $this->session->userdata('ongkos_'.$key);
+            $totalOngkos += $ongkos;
+        }
+
+        $total = $this->cart->total() + $totalOngkos + 1000 + 2000;
+
         $data = array(
-            'rowid' => $rowId,
-            'qty' => $qty
+            'ongkos' => $totalOngkos,
+            'total' => $total
         );
-        $this->cart->update($data);
-        redirect('user/cart');
+        $this->session->set_userdata('total_ongkos', $totalOngkos);
+        $this->session->set_userdata('kurir', $kurir);
+        echo json_encode($data);
+    }
+
+    // public function proses_transaksi(){
+    //     $user = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+    //     $kotaAsal = $this->session->userdata('idKotaPenjual');
+    //     $kotaTujuan = $this->session->userdata('idKotaPembeli');
+    //     $this->load->helper('toko');
+
+    //     $ongkir = getOngkir($kotaAsal, $kotaTujuan, 1000, 'jne');
+
+    //     $ongkir_value = $ongkir['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'];
+
+    //     $dataInput = array(
+    //         'id_User' => $user->id_User,
+    //         'id_toko' => $user->id_Kota,
+    //         'tanggal_Order' => date('Y-m-d H:i:s'),
+    //         'status_Order' => 'Menunggu Pembayaran',
+    //         'kurir' => 'jne',
+    //         'ongkir' => $ongkir_value,
+    //     );
+    //     $this->Muser->insert('tbl_order',$dataInput);
+    //     $insert_id = $this->db->insert_id();
+
+    //     $transaction_details = array(
+    //         'order_id' => $insert_id,
+    //         'gross_amount' => $this->cart->total() + $ongkir_value + 1000 + 2000
+    //     );
+
+    //     $item_details = [];
+    //     foreach($this->cart->contents() as $item){
+    //         $item_details[] = array(
+    //             'id' => $item['id'],
+    //             'price' => $item['price'],
+    //             'quantity' => $item['qty'],
+    //             'name' => $item['name']
+    //         );
+    //     }
+
+    //     $item_details[] = array(
+    //         'id' => 'ongkir',
+    //         'price' => $ongkir_value,
+    //         'quantity' => $item['qty'],
+    //         'name' => 'Ongkir'
+    //     );
+
+    //     $credit_card['secure'] = true;
+
+    //     $time = time();
+    //     $custom_expiry = array(
+    //         'start_time' => date("Y-m-d H:i:s O",$time),
+    //         'unit' => 'hour',
+    //         'duration' => 2
+    //     );
+
+    //     $transaction_data = array(
+    //         'transaction_details' => $transaction_details,
+    //         'item_details' => $item_details,
+    //         'customer_details' => array(
+    //             'first_name' => $user->nama_User,
+    //             'email' => $user->email,
+    //             'phone' => $user->noHP
+    //         ),
+    //         'expiry' => $custom_expiry
+    //     );
+
+    //     error_log(json_encode($transaction_data));
+    // try {
+    //     $snapToken = $this->midtrans->getSnapToken($transaction_data);
+    //     if (!$snapToken) {
+    //         throw new Exception('Failed to get Snap Token');
+    //     }
+    // } catch (Exception $e) {
+    //     error_log($e->getMessage());
+    //     echo json_encode(['error' => 'Failed to get Snap Token']);
+    //     return;
+    // }
+    //     error_log($snapToken);
+    //     return $snapToken;
+    // }
+
+    public function token()
+    {
+        try {
+            $user = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+            $ongkos = $this->session->userdata('total_ongkos');
+            $this->load->helper('toko');
+
+
+            $item_details = [];
+            $items_total = 0;
+
+            // Add items from the cart to item details
+            foreach ($this->cart->contents() as $item) {
+                $item_details[] = array(
+                    'id' => $item['id'],
+                    'price' => $item['price'],
+                    'quantity' => $item['qty'],
+                    'name' => $item['name']
+                );
+                $items_total += $item['price'] * $item['qty'];
+            }
+
+            // Add shipping cost as an item detail
+           
+
+            // Add additional costs as item details
+            $admin_fee = 1000;
+            $application_fee = 2000;
+
+            $item_details[] = array(
+                'id' => 'admin_fee',
+                'price' => $admin_fee,
+                'quantity' => 1,
+                'name' => 'Admin Fee'
+            );
+
+            $item_details[] = array(
+                'id' => 'ongkos',
+                'price' => $ongkos,
+                'quantity' => 1,
+                'name' => 'ongkos'
+            );
+
+            $item_details[] = array(
+                'id' => 'application_fee',
+                'price' => $application_fee,
+                'quantity' => 1,
+                'name' => 'Application Fee'
+            );
+
+            // Calculate the total gross amount
+            $gross_amount = $items_total + $admin_fee + $application_fee + $ongkos;
+
+            $transaction_details = array(
+                'order_id' => rand(),
+                'gross_amount' => $gross_amount // no decimal allowed for credit card
+            );
+
+            // Prepare transaction data
+            $transaction_data = array(
+                'transaction_details' => $transaction_details,
+                'item_details' => $item_details,
+                'customer_details' => array(
+                    'first_name' => $user->nama_User,
+                    'email' => $user->email,
+                    'phone' => $user->noHP
+                ),
+            );
+
+            $insert_data = array(
+                'id_User' => $user->id_User,
+                'id_Toko' => $this->session->userdata('tokoProduk'),
+                'tanggal_Order' => date('Y-m-d H:i:s'),
+                'status_Order' => 'Menunggu Pembayaran',
+                'kurir' => $this->session->userdata('kurir'),
+                'ongkir' => $ongkos,
+            );
+            $this->Muser->insert('tbl_order', $insert_data);
+
+            // Get Midtrans snap token
+            $snapToken = $this->midtrans->getSnapToken($transaction_data);
+            error_log($snapToken);
+            echo $snapToken;
+        } catch (Exception $e) {
+            error_log('Error: ' . $e->getMessage());
+            show_error($e->getMessage(), 500);
+        }
+    }
+
+
+    public function finish()
+    {
+        $result = json_decode($this->input->post('result_data'));
+        if ($result->transaction_status == 'settlement') {
+            $id = $result->order_id;
+            $dataUpdate = array(
+                'status_Order' => 'Pembayaran Berhasil',
+            );
+            $this->Muser->update('tbl_order', $dataUpdate, 'id_Order', $id);
+            redirect('user');
+        }
     }
 }
