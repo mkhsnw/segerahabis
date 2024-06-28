@@ -46,8 +46,10 @@
             </div>
         </div>
         <div class="w-full">
+
             <div class="px-5 w-3/4">
                 <h5 class=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $produk->nama_Produk; ?></h5>
+
                 </a>
                 <div class=" flex items-center space-x-2 mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-yellow-600">

@@ -338,7 +338,7 @@
                                                 </div>
 
                                                 <div>
-                                                    <!-- Main modal 
+
                                                     <div id="deleteModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
                                                         justify-center items-center w-full md:inset-0 h-modal md:h-full">
                                                         <div class="relative p-6 w-full max-w-sm h-full md:h-auto">
@@ -363,7 +363,7 @@
 
                                                                     <div id="gagal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                                                                         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-                                                                            <!-- Modal content -
+
                                                                             <div class="relative px-2 py-6 text-center bg-white rounded-lg shadow">
                                                                                 <div class="w-12 h-12 rounded-full bg-red-200 p-2 flex items-center justify-center mx-auto mb-3.5">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-red-700">

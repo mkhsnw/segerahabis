@@ -88,8 +88,10 @@
         <div class="flex">
           <a href="<?php echo site_url('seller/seller_add_product'); ?>" class="mr-5 text-sm font-medium text-gray-900 dark:green-800 bg-gray-100 border border-green-800 rounded-lg px-14 
                 py-3 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-white-200 dark:hover:bg-gray-400 dark:focus:ring-white">Batal</a>
+
           <button type="submit" class="text-sm font-medium text-white bg-green-800 border border-green-700 rounded-lg px-14 
                 py-3 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-white dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-white">+ Tambah Produk</button>
+
         </div>
       </form>
     </div>
