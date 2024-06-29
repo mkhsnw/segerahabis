@@ -2,9 +2,9 @@
   <!-- Profile Card -->
   <div class="bg-white w-full rounded-lg border-2 border-bg-gray-600 shadow-lg py-6 px-4 overflow-auto whitespace-nowrap">
     <div class="flex items-center">
-      <img src="<?php echo base_url('assets/image/Profile/'. $user->foto)?>" alt="Foto Profil" class="relative overflow-hidden object-center object-cover w-20 h-20 ml-3 bg-gray-300 rounded-full tracking-wide whitespace-nowrap">
+      <img src="<?php echo base_url('assets/image/Profile/' . $user->foto) ?>" alt="Foto Profil" class="relative overflow-hidden object-center object-cover w-20 h-20 ml-3 bg-gray-300 rounded-full tracking-wide whitespace-nowrap">
       <div class="ml-4">
-        <h2 class="text-2xl font-bold whitespace-nowrap"><?php echo $this->session->userdata('username')?></h2>
+        <h2 class="text-2xl font-bold whitespace-nowrap"><?php echo $this->session->userdata('username') ?></h2>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
           <h3 class="text-xl font-bold">Akun Saya</h3>
         </div>
 
-        <ul class="ml-9 items-center">
+        <ul class="sidebarprof ml-9 items-center">
           <li><a href="<?php echo site_url('user/profil_user') ?>" aria-current="page" class="text-gray-600" id="btnProfil">Profil</a></li>
           <li><a href="<?php echo site_url('user/address_user'); ?>" class="text-gray-600" id="btnAddress">Alamat</a></li>
           <li><a href="<?php echo site_url('user/password_user'); ?>" class="text-gray-600" id="btnPassword">Ubah Password</a></li>
@@ -35,8 +35,8 @@
           <h3 class="text-xl font-bold">Pesanan Saya</h3>
         </div>
         <ul class="ml-9 items-center">
-          <li><a href="<?php echo site_url('user/cart')?>" class="text-gray-600">Belum Bayar</a></li>
-          <li><a href="<?php echo site_url('user/cart')?>" class="text-gray-600">Daftar Pesanan</a></li>
+          <li><a href="<?php echo site_url('user/cart') ?>" class="text-gray-600">Belum Bayar</a></li>
+          <li><a href="<?php echo site_url('user/cart') ?>" class="text-gray-600">Daftar Pesanan</a></li>
         </ul>
       </div>
 
@@ -56,7 +56,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const sideBar = document.querySelectorAll('ul li a');
+    const sideBar = document.querySelectorAll('.sidebarprof.ml-9.items-center li a');
     const currentPath = window.location.pathname;
 
     sideBar.forEach((item) => {
