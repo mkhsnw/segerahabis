@@ -71,23 +71,14 @@
             <form action="<?php echo site_url('user/simpan_alamat'); ?>" method="post" id="profileForm">
                 <div class="flex flex-col gap-6 w-full">
                     <div class="w-full">
-
-                        <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
-                        <input type="text" value="<?php echo $user->alamat; ?>" name="alamat" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
-                    </div>
-                    <div class="w-full">
-                        <label class="ml-5 block text-sm font-bold text-gray-700">Detail Alamat</label>
-                        <input type="text" name="detail" value="Samping masjid al-amin" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
-
-
                         <label class="ml-5 block text-sm font-bold text-gray-700">Kota</label>
                         <input type="text" value="<?php $this->load->helper('toko');
                         $city = getDetailCity($user->id_Kota);
-                        echo $city['rajaongkir']['results']['city_name'].", ". $city['rajaongkir']['results']['province'];?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                        echo $city['rajaongkir']['results']['city_name'] . ", " . $city['rajaongkir']['results']['province']; ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                     </div>
                     <div class="w-full">
                         <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
-                        <input type="text" value="<?php echo $user->alamat?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                        <input type="text" value="<?php echo $user->alamat ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
 
 
                     </div>
@@ -102,34 +93,34 @@
                     </div>
 
                     <!-- Main modal -->
-                  
-                        <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-                            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-                                <!-- Modal content -->
-                            
-                                <div class="relative px-2 py-8 text-center bg-white rounded-lg shadow">
-                                    <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="successModal" id="closeModalButton">
-                                        <svg aria-hidden="true" class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="sr-only">Close modal</span>
-                                    </button>
-                                    <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 p-2 flex items-center justify-center mx-auto mb-3.5">
-                                        <svg aria-hidden="true" class="w-8 h-8 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="sr-only">Success</span>
-                                    </div>
-                                    <p class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Berhasil Mengganti Profil</p>
-                                    <button data-modal-toggle="successModal" id="continueButton" type="button" class="py-2 px-3 text-sm font-medium text-center 
-                                            text-white rounded-lg bg-green-600 hover:bg-green-700">
-                                        Lanjutkan
-                                    </button>
-                                </div>
-                            </div>
 
+                    <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+                        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                            <!-- Modal content -->
+
+                            <div class="relative px-2 py-8 text-center bg-white rounded-lg shadow">
+                                <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="successModal" id="closeModalButton">
+                                    <svg aria-hidden="true" class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                                <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 p-2 flex items-center justify-center mx-auto mb-3.5">
+                                    <svg aria-hidden="true" class="w-8 h-8 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="sr-only">Success</span>
+                                </div>
+                                <p class="mb-4 text-lg font-bold text-gray-900 dark:text-white">Berhasil Mengganti Profil</p>
+                                <button data-modal-toggle="successModal" id="continueButton" type="button" class="py-2 px-3 text-sm font-medium text-center 
+                                            text-white rounded-lg bg-green-600 hover:bg-green-700">
+                                    Lanjutkan
+                                </button>
+                            </div>
                         </div>
-          
+
+                    </div>
+
                     <!-- End of modal -->
                 </div>
             </form>
