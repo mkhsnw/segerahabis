@@ -10,7 +10,7 @@
 
 <body class="w-full">
 
-    <div class="w-4/5 flex flex-col md:items-start mx-auto">
+    <div class="w-4/5 flex flex-col md:items-start mx-auto mb-40">
         <p class="text-black mr-4 md:mr-8 font-bold text-xl mb-2 mt-4">Keranjang</p>
         <div class="flex flex-row gap-3 w-full">
             <div class="flex-col md:items-center mx-auto">
@@ -46,7 +46,6 @@
                         </div>
                     </ul>
                 <?php } ?>
-
 
             </div>
             <div class="w-4/12">

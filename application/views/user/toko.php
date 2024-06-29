@@ -22,11 +22,11 @@
     <body class="w-full">
         <div class="w-4/5 mx-auto py-10 border-b-2 border-gray-200 mb-6">
             <div class="flex flex-row gap-10">
-                <img src="<?php echo base_url('assets/image/card/1.jpg'); ?>" class="w-64 h-auto rounded-full" alt="profiltoko">
+                <img src="<?php echo base_url('assets/image/card/1.jpg'); ?>" class="w-56 h-56 rounded-full" alt="profiltoko">
                 <div class="flex flex-col justify-center w-8/12 font-sans">
                     <h1 class="font-bold text-4xl text-black">Toko Pak Danang</h1>
                     <h1 class="text-gray-600 font-md text-lg mb-4">Ngemplak, Sleman</h1>
-                    <h1 class="text-black font-normal text-lg">Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang.</h1>
+                    <h1 class="text-black font-normal text-sm">Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang. Berikut ini adalah deskripsi Toko Pak Danang.</h1>
                 </div>
             </div>
         </div>
