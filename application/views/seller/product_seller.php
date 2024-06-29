@@ -155,7 +155,7 @@
 
                                 <div class="flex flex-row gap-3 items-center h-auto">
                                     <div class="flex w-full items-center overflow-auto">
-                                        <a href="<?php echo site_url('user/daftar_user'); ?>" class="overflow-auto w-full tracking-wide flex items-center gap-2 bg-green-800 border border-green-700 rounded-lg px-3 py-0 
+                                        <a href="<?php echo site_url('seller/seller_add_product'); ?>" class="overflow-auto w-full tracking-wide flex items-center gap-2 bg-green-800 border border-green-700 rounded-lg px-3 py-0 
                                             hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-green-800">
                                             <p class="text-2xl mb-1 font-bold text-white ">+</p>
                                             <p class="text-sm font-medium text-white tracking-wide">Tambah</p>
@@ -286,19 +286,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php $no=1; foreach($produk as $val){?>
                                         <tr class="border-b-2 border-bg-black">
-                                            <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">1</td>
-                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Nama Produk - Variasi Produk - Subvariasi Produk</td>
-                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Makanan</td>
-                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">120</td>
-                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Rp. 30.000</td>
-                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">20%</td>
-                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">2024-09-15</td>
+                                            <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $no++?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->nama_Produk?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->nama_Kat?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->stock?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->harga?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->diskon?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->tanggal_Exp?></td>
                                             <td class="px-3 py-5 ">
-
-                                                <a href="#">
+                                                <div class="flex flex-row gap-5">
+                                                <a href="<?php echo site_url('seller/seller_edit_product/' . $val->id_Produk); ?>">
                                                     <div class="flex tracking-wide w-full gap-3">
-
                                                         <div class="flex bg-green-800 gap-1 items-center border border-green-800 rounded-lg px-4 py-2 hover:bg-green-900 
                                                     focus:ring-4 focus:outline-none focus:ring-white-300 dark:bg-green-700 dark:hover:bg-green-800 
                                                     dark:focus:ring-green-800">
@@ -307,34 +307,42 @@
                                                             </svg>
                                                             <h1 class="text-sm font-medium text-white">Edit</h1>
                                                         </div>
+                                                    </div>
                                                 </a>
-
-
-
-
-
-
-
-
-
-                                                <div class="flex">
+                                                <!--<div class="flex">
+                                                   <a href="" onclick="return confirm('Yakin Akan Hapus Data Ini?')">
                                                     <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="block flex bg-white gap-1 items-center border border-red-800 
                                                     rounded-lg px-4 py-2 hover:bg-red-200 
+                                                    focus:ring-4 focus:outline-none focus:ring-white dark:bg-green-700 dark:hover:bg-red-200 
+                                                    dark:focus:ring-red-800" type="button" >
+                                                    <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-red-800">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                                            </svg></span>
+                                                        <span class="text-sm font-medium text-red-800">Hapus</span>
+                                                </a>
+                                                </div>-->
+
+                                                <div class="flex">
+                                                 <a href="<?php echo site_url('seller/delete/' . $val->id_Produk); ?>" onclick="return confirm('Yakin Akan Hapus Data Ini?')">
+                                                    <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="block flex bg-white gap-2 items-center border border-red-800 
+                                                    rounded-lg px-5 py-1 hover:bg-red-200 
                                                     focus:ring-4 focus:outline-none focus:ring-white dark:bg-green-700 dark:hover:bg-red-200 
                                                     dark:focus:ring-red-800" type="button">
                                                         <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-red-800">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                                             </svg></span>
                                                         <span class="text-sm font-medium text-red-800">Hapus</span>
-                                                    </button>
+                                                        </a>
+                                                </div>
+                                              
                                                 </div>
 
                                                 <div>
-                                                    <!-- Main modal -->
+
                                                     <div id="deleteModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
                                                         justify-center items-center w-full md:inset-0 h-modal md:h-full">
                                                         <div class="relative p-6 w-full max-w-sm h-full md:h-auto">
-                                                            <!-- Modal content -->
+                                                            <!-- Modal content --
                                                             <div class="relative md:p-6 sm:p-4 border-2 border-gray-300 text-center bg-white rounded-lg shadow dark:bg-gray-800 ">
                                                                 <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="deleteModal">
                                                                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -355,7 +363,7 @@
 
                                                                     <div id="gagal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                                                                         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-                                                                            <!-- Modal content -->
+
                                                                             <div class="relative px-2 py-6 text-center bg-white rounded-lg shadow">
                                                                                 <div class="w-12 h-12 rounded-full bg-red-200 p-2 flex items-center justify-center mx-auto mb-3.5">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-red-700">
@@ -369,11 +377,14 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div>-->
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
+                                        <?php }?>
+                                        
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -411,20 +422,11 @@
                                     </ul>
                                 </nav>
                             </div>
-
                         </div>
-
-
-
                     </div>
+                </ul>
             </div>
-            </ul>
-
-
-
-
         </div>
-
     </div>
     </div>
 
