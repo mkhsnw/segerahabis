@@ -26,21 +26,21 @@
                                 <img srcset="<?php echo base_url('assets/image/card/1.jpg'); ?> 2x" class="w-20 h-20 max-w-xl rounded-lg" alt="image description">
                                 <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 dark:text-white w-60"><?php echo $val['name'] ?></h5>
 
-                                <form class="max-w-xs mx-auto">
+                                <div class="max-w-xs mx-auto">
                                     <div class="relative flex items-center max-w-[8rem]">
-                                        <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                        <button type="button" class="decrement-button bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none" data-rowid="<?php echo $val['rowid']; ?>">
                                             <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                             </svg>
                                         </button>
-                                        <input type="text" id="quantity-input" data-input-counter data-input-counter-min="0" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="<?php echo $val['qty'] ?>" required />
-                                        <button type="button" id="increment-button" data-input-counter-increment="quantity-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                        <input type="text" id="quantity-input-<?php echo $val['rowid']; ?>" data-rowid="<?php echo $val['rowid']; ?>" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="<?php echo $val['qty'] ?>" required />
+                                        <button type="button" class="increment-button bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none" data-rowid="<?php echo $val['rowid']; ?>">
                                             <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                                             </svg>
                                         </button>
                                     </div>
-                                </form>
+                                </div>
                                 <p class="text-black mr-4 md:mr-8 font-bold text-lg w-36 text-right">Rp. <?php echo $val['price'] ?></p>
                             </div>
                         </div>
@@ -69,6 +69,45 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.increment-button').click(function() {
+                var rowid = $(this).data('rowid');
+                var input = $('#quantity-input-' + rowid);
+                var qty = parseInt(input.val()) + 1;
+                updateCartItem(rowid, qty);
+            });
+
+            $('.decrement-button').click(function() {
+                var rowid = $(this).data('rowid');
+                var input = $('#quantity-input-' + rowid);
+                var qty = parseInt(input.val()) - 1;
+                if (qty > 0) {
+                    updateCartItem(rowid, qty);
+                }
+            });
+
+            function updateCartItem(rowid, qty) {
+                $.ajax({
+                    url: '<?php echo base_url("user/update_cart"); ?>',
+                    type: 'POST',
+                    data: {
+                        rowid: rowid,
+                        qty: qty
+                    },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+                        if (data.status == 'success') {
+                            location.reload(); // Reload the page to reflect updated cart
+                        } else {
+                            alert('Failed to update cart');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
