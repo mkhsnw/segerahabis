@@ -1,24 +1,28 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Seller extends CI_Controller {
-
-    public function __construct() {
+class Seller extends CI_Controller
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('Madmin');
         $this->load->model('Muser');
     }
 
+
     public function daftar() {
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('seller/daftar_seller');
     }
 
+
     public function index() {
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('seller/login_seller');
     }
+
 
     public function header() {
         $data['user'] = $this->Madmin->get_by_id('tbl_toko',array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
@@ -35,6 +39,7 @@ class Seller extends CI_Controller {
         $this->load->view('seller/dashboard_seller',$data);
     }
 
+
     /*
     public function product_seller() {
         $data['user'] = $this->Madmin->joinToko($this->session->userdata('id_Toko'))->result();
@@ -47,6 +52,7 @@ class Seller extends CI_Controller {
         $this->load->view('seller/product_seller',$data);
     }
     */
+
 
     public function product_seller() {
         $data['user'] = $this->Madmin->get_by_id('tbl_toko', array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
@@ -62,6 +68,7 @@ class Seller extends CI_Controller {
         $this->load->view('seller/header/header_seller',$data);
         $this->load->view('seller/seller_add_product',$data);
     }
+
     
     public function seller_edit_product($id) {
         $dataWhere = array('id_Produk' => $id);
@@ -75,6 +82,7 @@ class Seller extends CI_Controller {
         $this->load->view('seller/header/header_seller',$data);
         $this->load->view('seller/seller_edit_product',$data);
     }
+
 
     public function seller_pesanan() {
         $data['user'] = $this->Madmin->get_by_id('tbl_toko',array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
@@ -97,11 +105,13 @@ class Seller extends CI_Controller {
         redirect('seller/product_seller');
     }
 
-    public function seller_aksi_lihat_pesanan() {
+    public function seller_aksi_lihat_pesanan()
+    {
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('seller/header/header_seller');
         $this->load->view('seller/seller_aksi_lihat_pesanan');
     }
+
 
     public function pengaturan() {
         //$datawhere = array('id_kategori' => $id);
@@ -113,13 +123,20 @@ class Seller extends CI_Controller {
         $this->load->view('seller/header/header_seller',$data);
         $this->load->view('seller/pengaturan',$data);
     }
+
+    public function seller_aksi_lihat_pesan_setelahterimapesanan()
+    {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('seller/header/header_seller');
+        $this->load->view('seller/seller_aksi_lihat_pesan_setelahterimapesanan');
+    }
     
     public function kategori()
     {
         $data['user'] = $this->madmin->get_by_id('tbl_toko', array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
         $this->load->view('seller/header/header_seller', $data);
         $this->load->view('seller/seller_add_product', $data);
-        
+      
     }
   
     public function login_seller()
@@ -129,7 +146,7 @@ class Seller extends CI_Controller {
         $password = $this->input->post('password');
         $this->form_validation->set_rules('email', 'email' , 'required');
         $this->form_validation->set_rules('password', 'password' , 'required');
-
+    
         $cek = $this->Madmin->get_by_id('tbl_toko', array('email' => $email))->num_rows();
         $result = $this->Madmin->get_by_id('tbl_toko', array('email' => $email, 'password' => $password))->row_object();
         
@@ -151,6 +168,20 @@ class Seller extends CI_Controller {
         
             }
         }
+  public function seller_aksi_lihat_pesan_kirimorderan()
+    {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('seller/header/header_seller');
+        $this->load->view('seller/seller_aksi_lihat_pesan_kirimorderan');
+    }
+
+    public function landing_seller()
+    {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('seller/landing/header/header');
+        $this->load->view('seller/landing/landing_seller');
+        $this->load->view('seller/landing/footer/footer');
+    }
 
 
 
