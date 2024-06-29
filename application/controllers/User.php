@@ -8,6 +8,8 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->helper('html');
+        $this->load->helper('form');
         $this->load->model('Muser');
         $this->load->library('cart');
     }
@@ -447,5 +449,19 @@ class User extends CI_Controller
         );
         $this->cart->update($data);
         redirect('user/cart');
+    }
+
+    public function landing_user() {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('user/landing/header/header');
+        $this->load->view('user/landing/landing_user');
+        $this->load->view('user/landing/footer/footer');
+    }
+
+    public function toko() {
+        // Method untuk menampilkan halaman dashboard beranda
+        $this->load->view('user/header/header_after_login');
+        $this->load->view('user/toko');
+        $this->load->view('user/footer/footer');
     }
 }

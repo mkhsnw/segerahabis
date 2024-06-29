@@ -10,12 +10,11 @@
 
     <footer class="w-full flex bg-white dark:bg-white-700 mt-auto border-t border-gray-300 bottom-0">
         <div class="mx-auto w-full max-w-screen-lg">
-            <div class="w-3/4 grid grid-cols-1 gap-8 px-4 py-6 lg:py-8 lg:grid-cols-3">
+            <div class="grid grid-cols-1 gap-8 px-4 py-6 lg:py-8 lg:grid-cols-3">
                 <div>
                     <a href="#"><img class="w-30 h-7 mb-6" src="<?php echo base_url('assets/image/logo.png');?>" alt="logo"></a>
-                    <p class="text-gray-500 dark:text-gray-500 text-sm font-small">Segerahabis adalah marketplace diskon eksklusif
-                        untuk produk berkualitas yang mendekati tanggal
-                        kadaluwarsa. Dapatkan penawaran menarik dengan harga terbaik sebelum kehabisan!
+                    <p class="text-gray-500 dark:text-gray-500 w-10/12 text-sm font-small">
+                        Segerahabis adalah marketplace diskon eksklusif untuk produk berkualitas yang mendekati tanggal kadaluwarsa. Dapatkan penawaran menarik dengan harga terbaik sebelum kehabisan!
                     </p>
                 </div>
                 <div>
