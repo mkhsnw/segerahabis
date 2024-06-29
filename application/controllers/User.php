@@ -236,7 +236,9 @@ class User extends CI_Controller
         $namalengkap = $this->input->post('namalengkap');
         $password = $this->input->post('password');
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $kota = null;
+        $kota = $this->input->post('city');
+        $nohp = $this->input->post('nohp');
+        $alamat = $this->input->post('alamat');
 
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('username', 'Username', 'required');
@@ -253,7 +255,9 @@ class User extends CI_Controller
                 'username' => $username,
                 'nama_User' => $namalengkap,
                 'password' => $password,
-                'id_kota' => $kota
+                'alamat' => $alamat,
+                'id_Kota' => $kota,
+                'noHP' => $nohp
             );
 
             $this->Muser->insert('tbl_user', $data);
@@ -288,6 +292,9 @@ class User extends CI_Controller
                 );
                 $this->session->set_userdata($data_session);
                 redirect('user');
+            }else{
+                $this->session->set_flashdata('notValid', 'Email atau Password yang anda masukkan salah!');
+                $this->load->view('user/login_user');
             }
         }
     }
