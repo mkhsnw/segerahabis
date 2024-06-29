@@ -114,6 +114,25 @@ class User extends CI_Controller
         $this->load->view('user/footer/footer');
     }
 
+    public function update_cart()
+    {
+        $rowid = $this->input->post('rowid');
+        $qty = $this->input->post('qty');
+
+        log_message('debug', 'Update Cart: Rowid - ' . $rowid . ', Qty - ' . $qty);
+
+        $data = array(
+            'rowid' => $rowid,
+            'qty' => $qty
+        );
+
+        if ($this->cart->update($data)) {
+            echo json_encode(['status' => 'success']);
+        } else {
+            echo json_encode(['status' => 'error']);
+        }
+    }
+
     public function delete_cart($rowId)
     {
         $remove = $this->cart->remove($rowId);
@@ -292,7 +311,7 @@ class User extends CI_Controller
                 );
                 $this->session->set_userdata($data_session);
                 redirect('user');
-            }else{
+            } else {
                 $this->session->set_flashdata('notValid', 'Email atau Password yang anda masukkan salah!');
                 $this->load->view('user/login_user');
             }
@@ -458,7 +477,7 @@ class User extends CI_Controller
         $total = 0;
         $ongkos = getOngkir($origin, $this->session->userdata('id_kota'), 1000, $kurir);
         $ongkosValue = $ongkos['rajaongkir']['results'][0]['costs'][0]['cost'][0]['value'];
-        $this->session->set_userdata('ongkos_'.$toko, $ongkosValue);
+        $this->session->set_userdata('ongkos_' . $toko, $ongkosValue);
         foreach ($this->cart->contents() as $item) {
             $total += $item['subtotal'];
         }
@@ -471,7 +490,7 @@ class User extends CI_Controller
         }
 
         foreach ($grouped_cart as $key => $val) {
-            $ongkos = $this->session->userdata('ongkos_'.$key);
+            $ongkos = $this->session->userdata('ongkos_' . $key);
             $totalOngkos += $ongkos;
         }
 
@@ -587,7 +606,7 @@ class User extends CI_Controller
             }
 
             // Add shipping cost as an item detail
-           
+
 
             // Add additional costs as item details
             $admin_fee = 1000;
