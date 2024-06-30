@@ -19,8 +19,8 @@
         </div>
 
         <div class="mr-5">
-            <a href="#" class="text-black mr-4 md:mr-8">Tentang Segerahabis</a>
-            <a href="#" class="text-black">Buka Toko</a>
+            <a href="<?php echo site_url('user/landing_user')?>" class="text-black mr-4 md:mr-8">Tentang Segerahabis</a>
+            <a href="<?php echo site_url('seller/landing_seller')?>" class="text-black">Buka Toko</a>
         </div>
     </div>
 

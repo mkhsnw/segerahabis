@@ -77,7 +77,7 @@
                 <?php
                 foreach ($kategori as $val) {
                 ?>
-                    <a href="<?php echo site_url('user/kategori/' . $val->id_Kategori) ?>"><img class="flex relative h-40 object-cover object-center w-72 aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/' . $val->id_Kategori . '.jpg'); ?>" alt="image description"></a>
+                    <a href="<?php echo site_url('user/kategori/' . $val->id_Kategori) ?>"><img class="flex relative h-40 object-cover object-center w-72 aspect-video rounded-lg hover:scale-105 duration-75" src="<?php echo base_url('assets/image/slider/' . $val->id_Kategori . '.jpg'); ?>" alt="image description"></a>
                 <?php
                 }
                 ?>
@@ -90,7 +90,7 @@
             <h1 class="mb-4 text-sm text-gray-900 uppercase dark:text-gray-500 font-black" style="font-family: 'Inter', sans-serif;">Produk Terlaris</h1>
             <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 sm:grid-cols-2 items-start">
                 <?php foreach ($produk as $val) { ?>
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 container">
+                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 container hover:scale-105 duration-75">
                         <a href="<?php echo site_url('user/product/' . $val->id_Produk) ?>">
                             <div class="overflow-hidden relative">
                                 <img class="aspect-square max-w-full h-full rounded-t-lg object-cover object-center" src="<?php echo base_url('assets/image/slider/2.jpg'); ?>" alt="" />
