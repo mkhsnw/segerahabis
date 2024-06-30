@@ -93,7 +93,7 @@
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 container">
                         <a href="<?php echo site_url('user/product/' . $val->id_Produk) ?>">
                             <div class="overflow-hidden relative">
-                                <img class="aspect-square max-w-full h-full rounded-t-lg object-cover object-center" src="<?php echo base_url('assets/image/slider/2.jpg'); ?>" alt="" />
+                                <img class="aspect-square max-w-full h-full rounded-t-lg object-cover object-center" src="<?php echo base_url('assets/image/foto_produk/'.$val->foto_Produk); ?>" alt="" />
                             </div>
                             <div class="p-5">
                                 <div>
