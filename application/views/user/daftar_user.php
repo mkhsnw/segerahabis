@@ -11,7 +11,7 @@
 <body>
     <section class="bg-white-50 dark:bg-white-50">
 
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto">
             <a href="#" class="flex items-center mt-12 mb-10 text-2xl font-semibold text-gray-900 dark:text-white">
                 <img class="w-43 h-10 mr-2" src="<?php echo base_url('assets/image/logo.png'); ?>" alt="logo">
             </a>

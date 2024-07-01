@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Register Seller</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body class="w-full">
-        <section class="bg-white-50 dark:bg-white-50">
-        
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Seller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="w-full">
+    <section class="bg-white-50 dark:bg-white-50">
+
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="#" class="flex items-center mt-12 mb-10 text-2xl font-semibold text-gray-900 dark:text-white">
-                <img class="w-43 h-10 mr-2" src="<?php echo base_url('assets/image/logo_seller.png'); ?>" alt="logo">  
+                <img class="w-43 h-10 mr-2" src="<?php echo base_url('assets/image/logo_seller.png'); ?>" alt="logo">
             </a>
 
             <div class="w-full bg-white-50 rounded-lg shadow-xl dark:border md:mt-0 sm:max-w-sm xl:p-0 dark:bg-white dark:border-gray-150">
@@ -58,6 +60,7 @@
                 </div>
             </div>
 
+
       
   </div>
 </section>
@@ -66,4 +69,38 @@
     <footer class="text-center text-gray-500 text-xs mt-12 mb-4">
         &copy; 2024 Segerahabis. All rights reserved.
     </footer>
+
+
+        </div>
+    </section>
+</body>
+
+<footer class="text-center text-gray-500 text-xs mt-12 mb-4">
+    &copy; 2024 Segerahabis. All rights reserved.
+</footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function getProvince() {
+        $.ajax({
+            url: "<?php echo site_url('user/getProvince'); ?>",
+            type: "GET",
+            success: function(result) {
+                $("#province").html(result);
+            }
+        })
+    }
+    $('#province').change(function() {
+        $.ajax({
+            url: "<?php echo site_url('user/getCity/'); ?>" + $('#province').val(),
+            type: "GET",
+            success: function(result) {
+                $("#city").html(result);
+            }
+        })
+    });
+
+    getProvince();
+</script>
+
+
 </html>
