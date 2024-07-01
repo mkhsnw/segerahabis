@@ -9,62 +9,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <style>
-        tailwind.config= {
 
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            "50": "#eff6ff", "100":"#dbeafe", "200":"#bfdbfe", "300":"#93c5fd", "400":"#60a5fa", "500":"#3b82f6", "600":"#2563eb", "700":"#1d4ed8", "800":"#1e40af", "900":"#1e3a8a", "950":"#172554"
-                        }
-                    }
-                }
-
-                ,
-                fontFamily: {
-                    'body': [ 'Inter',
-                        'ui-sans-serif',
-                        'system-ui',
-                        '-apple-system',
-                        'system-ui',
-                        'Segoe UI',
-                        'Roboto',
-                        'Helvetica Neue',
-                        'Arial',
-                        'Noto Sans',
-                        'sans-serif',
-                        'Apple Color Emoji',
-                        'Segoe UI Emoji',
-                        'Segoe UI Symbol',
-                        'Noto Color Emoji'
-                        ],
-                        'sans': [ 'Inter',
-                        'ui-sans-serif',
-                        'system-ui',
-                        '-apple-system',
-                        'system-ui',
-                        'Segoe UI',
-                        'Roboto',
-                        'Helvetica Neue',
-                        'Arial',
-                        'Noto Sans',
-                        'sans-serif',
-                        'Apple Color Emoji',
-                        'Segoe UI Emoji',
-                        'Segoe UI Symbol',
-                        'Noto Color Emoji'
-                        ]
-                }
-            }
-        }
     </style>
 </head>
 
 <body class="bg-gray-100">
 
     <div class="flex flex-row w-full mx-auto">
-
         <aside id="default-sidebar" class="flex-col left-0 z-10 xs:invisible md:visible md:w-64 h-screen sticky" aria-label="Sidebar">
             <div class="h-full px-3 py-4 bg-white dark:bg-white border-r-2 border-bg-gray-600 shadow shadow-lg">
                 <ul class="space-y-0 font-medium">
@@ -121,8 +72,8 @@
             </div>
         </aside>
 
-        <div class="flex flex-col h-screen w-full px-6 py-8 bg-gray-100 overflow-auto">
-            <p class="text-black font-bold text-xl mb-8">Produk</p>
+        <div class="flex flex-col h-screen w-full px-6 py-8 bg-gray-100 overflow-y-auto">
+            <p class="text-black font-bold text-3xl mb-8">Produk</p>
             <div class="w-full flex flex-col">
                 <ul class="w-full text-sm font-medium text-gray-900 bg-white shadow shadow-lg border 
                 border-bg-gray-600 rounded-lg dark:bg-white dark:text-white">

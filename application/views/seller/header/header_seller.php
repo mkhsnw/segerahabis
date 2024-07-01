@@ -31,12 +31,11 @@
         </div>
 
         <div class="mr-5 flex flex-row items-center gap-2">
-            <img class="rounded-full w-10 h-10" src="<?php echo base_url('assets/image/Profille/1.jpg'); ?>" alt="profile">
-            <a href="<?php echo site_url('seller/pengaturan'); ?>" class="text-black font-semibold text-base"><?php echo $user->nama_Toko?></a>
+            <img class="rounded-full w-10 h-10" src="<?php echo base_url('assets/image/profile/' . $user->logo_Toko); ?>" alt="profile">
+            <a href="<?php echo site_url('seller/pengaturan'); ?>" class="text-black font-semibold text-base"><?php echo $user->nama_Toko ?></a>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
 </html>
-    

@@ -174,6 +174,7 @@ class User extends CI_Controller
         }
         $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
         $data['produk'] = $this->Muser->get_by_id('tbl_produk', array('id_Produk' => $idProduk))->row_object();
+        $data['produkall'] = $this->Muser->get_all_data('tbl_produk')->result();
         $currentDate = date('Y-m-d');
 
         $currentDate = date('Y-m-d');
@@ -191,6 +192,22 @@ class User extends CI_Controller
         $diskon = $data['produk']->diskon;
         $hargaDiskon = $sebelumDiskon - ($sebelumDiskon * $diskon / 100);
         $data['produk']->hargaDiskon = $hargaDiskon;
+
+        foreach ($data['produkall'] as $produk) {
+            $tanggalExp = $produk->tanggal_Exp;
+            $datetime1 = new DateTime($currentDate);
+            $datetime2 = new DateTime($tanggalExp);
+            $interval = $datetime1->diff($datetime2);
+            $sisaHari = $interval->format('%r%a');
+            $produk->sisaHari = $sisaHari;
+        };
+        // method menghitung harga setelah didiskon
+        foreach ($data['produkall'] as $produk) {
+            $sebelumDiskon = $produk->harga;
+            $diskon = $produk->diskon;
+            $hargaDiskon = $sebelumDiskon - ($sebelumDiskon * $diskon / 100);
+            $produk->hargaDiskon = $hargaDiskon;
+        }
 
         $data['toko'] = $this->Muser->getProdukToko($idProduk)->row_object();
         $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
@@ -243,9 +260,12 @@ class User extends CI_Controller
         if (empty($this->session->userdata('id_user'))) {
             redirect('user/login');
         }
+        $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
+        $data['user'] = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
+        $data['order'] = $this->Muser->get_by_id('tbl_order', array('id_User' => $this->session->userdata('id_user')))->result();
         // Method untuk menampilkan halaman dashboard beranda
-        $this->load->view('user/header/header_after_login');
-        $this->load->view('user/pesanan_user');
+        $this->load->view('user/header/header_after_login', $data);
+        $this->load->view('user/pesanan_user', $data);
         $this->load->view('user/footer/footer');
     }
     // Tambahkan method lain sesuai kebutuhan seperti login, register, dll.
@@ -303,18 +323,24 @@ class User extends CI_Controller
             $this->load->view('user/login_user');
         } else {
             if ($q > 0) {
-                $data_session = array(
-                    'id_user' => $result->id_User,
-                    'email' => $result->email,
-                    'username' => $result->username,
-                    'nama_User' => $result->nama_User,
-                    'id_kota' => $result->id_Kota,
-                    'status' => 'login'
-                );
-                $this->session->set_userdata($data_session);
-                redirect('user');
+                if ($result->password == $password) {
+
+                    $data_session = array(
+                        'id_user' => $result->id_User,
+                        'email' => $result->email,
+                        'username' => $result->username,
+                        'nama_User' => $result->nama_User,
+                        'id_kota' => $result->id_Kota,
+                        'status' => 'login'
+                    );
+                    $this->session->set_userdata($data_session);
+                    redirect('user');
+                } else {
+                    $this->session->set_flashdata('notValid', 'Password yang anda masukkan salah!');
+                    $this->load->view('user/login_user');
+                }
             } else {
-                $this->session->set_flashdata('notValid', 'Email atau Password yang anda masukkan salah!');
+                $this->session->set_flashdata('notValid', 'Email yang anda masukkan salah!');
                 $this->load->view('user/login_user');
             }
         }
@@ -458,6 +484,9 @@ class User extends CI_Controller
         $produk->hargaDiskon = $hargaDiskon;
         $this->session->set_userdata('idpenjual', $kota->id_Kota);
         $this->session->set_userdata('tokoProduk', $produk->id_Toko);
+        $this->session->set_userdata('jumlah', $qty);
+        $this->session->set_userdata('harga', $produk->hargaDiskon);
+        $this->session->set_userdata('idproduk', $produk->id_Produk);
         $data = array(
             'id' => $produk->id_Produk,
             'qty' => $qty,
@@ -591,6 +620,8 @@ class User extends CI_Controller
             $user = $this->Muser->get_by_id('tbl_user', array('id_User' => $this->session->userdata('id_user')))->row_object();
             $ongkos = $this->session->userdata('total_ongkos');
             $this->load->helper('toko');
+            $jumlah = $this->session->userdata('jumlah');
+            $harga = $this->session->userdata('harga');
 
 
             $item_details = [];
@@ -637,9 +668,9 @@ class User extends CI_Controller
 
             // Calculate the total gross amount
             $gross_amount = $items_total + $admin_fee + $application_fee + $ongkos;
-
+            $orderId = rand();
             $transaction_details = array(
-                'order_id' => rand(),
+                'order_id' => $orderId,
                 'gross_amount' => $gross_amount // no decimal allowed for credit card
             );
 
@@ -655,14 +686,25 @@ class User extends CI_Controller
             );
 
             $insert_data = array(
+                'id_Order' => $orderId,
                 'id_User' => $user->id_User,
                 'id_Toko' => $this->session->userdata('tokoProduk'),
                 'tanggal_Order' => date('Y-m-d H:i:s'),
                 'status_Order' => 'Menunggu Pembayaran',
                 'kurir' => $this->session->userdata('kurir'),
+                'total' => $gross_amount,
                 'ongkir' => $ongkos,
             );
             $this->Muser->insert('tbl_order', $insert_data);
+
+            $id = $this->session->userdata('idproduk');
+            $insert_data2 = array(
+                'id_Order' => $orderId,
+                'id_Produk' => $id,
+                'jumlah' => $jumlah,
+                'harga' => $harga,
+            );
+            $this->Muser->insert('tbl_detail_order', $insert_data2);
 
             // Get Midtrans snap token
             $snapToken = $this->midtrans->getSnapToken($transaction_data);
@@ -678,13 +720,17 @@ class User extends CI_Controller
     public function finish()
     {
         $result = json_decode($this->input->post('result_data'));
+        error_log('Transaction Result: ' . print_r($result, true));
         if ($result->transaction_status == 'settlement') {
             $id = $result->order_id;
             $dataUpdate = array(
-                'status_Order' => 'Pembayaran Berhasil',
+                'status_Order' => 'Pesanan Baru',
             );
             $this->Muser->update('tbl_order', $dataUpdate, 'id_Order', $id);
-            redirect('user');
+            redirect('user/pesanan_user');
+            error_log('Order updated: ' . $id);
+        } else {
+            error_log('Transaction failed or pending: ' . $result->transaction_status);
         }
     }
 

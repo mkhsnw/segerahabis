@@ -60,6 +60,7 @@ class Seller extends CI_Controller
     {
         $data['user'] = $this->Madmin->get_by_id('tbl_toko', array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
         $data['produk'] = $this->Madmin->getDataProduk($this->session->userdata('id_Toko'))->result();
+        //print_r($data['produk']);exit();
         $this->load->view('seller/header/header_seller', $data);
         $this->load->view('seller/product_seller', $data);
     }
@@ -120,8 +121,10 @@ class Seller extends CI_Controller
     }
 
 
+
     public function pengaturan()
     {
+
         //$datawhere = array('id_kategori' => $id);
         // $data['kategori'] = $this->Madmin->get_by_id('tbl_kategori', $datawhere)->row_object();
         $data['user'] = $this->Madmin->get_by_id('tbl_toko', array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
@@ -203,7 +206,7 @@ class Seller extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('emptyForm', 'Form tidak boleh kosong');
-            redirect('seller/daftar_seller');
+            redirect('seller/');
         } else {
             $dataInput = array(
                 'email' => $email,
@@ -446,5 +449,14 @@ class Seller extends CI_Controller
         } else {
             redirect('produk/tambah/' . $idToko);
         }
+    }
+
+    public function batal_pesanan($idOrder)
+    {
+        $dataUpdate = array(
+            'status_Order' => 'Dibatalkan',
+        );
+        $this->Muser->update('tbl_order', $dataUpdate, 'id_Order', $idOrder);
+        redirect('seller/seller_pesanan');
     }
 }

@@ -61,6 +61,16 @@
             </div>
 
 
+      
+  </div>
+</section>
+    </body>
+
+    <footer class="text-center text-gray-500 text-xs mt-12 mb-4">
+        &copy; 2024 Segerahabis. All rights reserved.
+    </footer>
+
+
         </div>
     </section>
 </body>
@@ -91,5 +101,6 @@
 
     getProvince();
 </script>
+
 
 </html>

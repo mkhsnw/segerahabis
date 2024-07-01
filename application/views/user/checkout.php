@@ -11,12 +11,13 @@
 <body>
     <div class="w-4/5 flex flex-col md:items-start mx-auto mb-4 overflow-auto tracking-wide">
         <p class="text-black mr-4 md:mr-8 font-bold text-xl mt-4">Pengiriman</p>
+
         <div class="flex flex-row md:items-start mx-auto mt-2 gap-4 w-full">
 
 
             <div class="w-8/12 flex-col mx-auto">
 
-                <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white mb-2">
+                <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg mb-2">
                     <div class="w-full px-4 py-2">
 
                         <div class="w-full flex flex-row justify-between items-center">
@@ -35,7 +36,7 @@
                                     <?php echo $user->alamat ?>
                                 </p>
                             </div>
-                            <a href="#" class="h-10 w-20 text-sm text-center font-bold text-black bg-gray-300 border border-black-700 rounded-lg px-4 py-2 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-600 dark:bg-green-700 dark:hover:bg-gray-400 dark:focus:ring-gray-600">
+                            <a href="#" class="h-10 w-20 text-sm text-center font-bold text-black bg-gray-300 border border-black-700 rounded-lg px-4 py-2 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-600">
                                 Ubah</a>
                         </div>
                     </div>
@@ -45,11 +46,11 @@
                     $no = 1;
                     $produk = $this->Muser->getProdukByToko($toko)->row();
                 ?>
-                    <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white mb-2">
+                    <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg mb-10 mt-2">
                         <div class="w-full px-4 py-2 ">
                             <div class="w-full flex flex-col mt-1">
                                 <div class="w-full flex flex-row gap-2 items-center">
-                                    <img class="rounded-full w-6 h-6" src="<?php echo base_url('assets/image/Profille/1.jpg'); ?>" alt="profille">
+                                    <img class="rounded-full w-6 h-6 " src="<?php echo base_url('assets/image/profile/' . $produk->logo_Toko); ?>" alt="profille">
                                     <p class="text-black font-bold text-lg"><?php echo $produk->nama_Toko; ?></p>
                                 </div>
                                 <?php foreach ($items as $item) { ?>
@@ -57,7 +58,7 @@
 
                                         <!-- Per/product -->
                                         <div class="w-full flex flex-row gap-2 mt-2">
-                                            <img srcset="<?php echo base_url('assets/image/card/1.jpg'); ?> 2x" class="w-16 h-16 max-w-xl rounded-lg" alt="image description">
+                                            <img srcset="<?php echo base_url('assets/foto_produk/' . $item['image']); ?> 2x" class="object-cover object-center w-16 h-16 rounded-lg" alt="image description">
                                             <div class="w-full flex flex-col">
                                                 <div class="w-full flex flex-row justify-between">
                                                     <div class="w-full flex flex-col">
@@ -73,7 +74,7 @@
                                         <div class="flex mb-2 w-full">
                                             <div class="flex w-full justify-end">
                                                 <form class="mx-auto w-full" method="post" action="<?php echo site_url('user/proses_transaksi') ?>">
-                                                    <select id="kurir_<?php echo $toko ?>" name="kurir_<?php echo $toko ?>" class="kurir w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
+                                                    <select id="kurir_<?php echo $toko ?>" name="kurir_<?php echo $toko ?>" class="kurir w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 mt-10">
                                                         <option>Pilih Pengiriman</option>
                                                         <option value="jne">JNE</option>
                                                         <option value="tiki">Tiki</option>
@@ -128,7 +129,7 @@
                             <p class="text-black font-bold text-md " id="total">Rp. <?php echo $total + $ongkos + 1000 + 2000; ?></p>
                         </div>
 
-                        <button type="button" id="pay-button" class="mt-4 mb-4 text-sm text-center font-medium text-white bg-green-600 border border-blue-700 rounded-lg px-4 py-2 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-blue-800">
+                        <button type="button" id="pay-button" class="mt-4 mb-4 text-sm text-center font-medium text-white bg-green-600 border border-green-700 rounded-lg px-4 py-2 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-300">
                             Bayar</button>
 
                     </div>
@@ -136,6 +137,10 @@
             </div>
         </div>
     </div>
+    <form id="payment-form" method="post" action="<?php echo site_url('user/finish') ?>">
+        <input type="hidden" name="result_type" id="result-type" value=""></div>
+        <input type="hidden" name="result_data" id="result-data" value=""></div>
+    </form>
     </div>
 
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="<SB-Mid-client-R6GcZAp2YZd1UyKj>"></script>

@@ -73,8 +73,11 @@
                     <div class="w-full">
                         <label class="ml-5 block text-sm font-bold text-gray-700">Kota</label>
                         <input type="text" value="<?php $this->load->helper('toko');
-                        $city = getDetailCity($user->id_Kota);
-                        echo $city['rajaongkir']['results']['city_name'] . ", " . $city['rajaongkir']['results']['province']; ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+
+                                                    $city = getDetailCity($user->id_Kota);
+                                                    echo $city['rajaongkir']['results']['city_name'] . ", " . $city['rajaongkir']['results']['province']; ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+
+
                     </div>
                     <div class="w-full">
                         <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>

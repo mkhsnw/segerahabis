@@ -55,7 +55,7 @@ class Muser extends CI_Model
 
     public function getProdukToko($idProduk)
     {
-        $this->db->select('tbl_toko.nama_Toko, tbl_toko.alamat, tbl_toko.kota, tbl_toko.id_Toko');
+        $this->db->select('tbl_toko.nama_Toko, tbl_toko.alamat, tbl_toko.kota, tbl_toko.id_Toko,tbl_toko.id_Kota,');
         $this->db->from('tbl_produk');
         $this->db->join('tbl_toko', 'tbl_produk.id_Toko = tbl_toko.id_Toko');
         $this->db->where('tbl_produk.id_Produk', $idProduk);
@@ -65,7 +65,7 @@ class Muser extends CI_Model
 
     public function getProdukByToko($idToko)
     {
-        $this->db->select('tbl_toko.nama_Toko, tbl_toko.alamat, tbl_toko.kota, tbl_toko.id_Toko, tbl_produk.*');
+        $this->db->select('tbl_toko.nama_Toko, tbl_toko.alamat, tbl_toko.kota, tbl_toko.id_Toko, tbl_produk.*,tbl_toko.logo_Toko');
         $this->db->from('tbl_produk');
         $this->db->join('tbl_toko', 'tbl_produk.id_Toko = tbl_toko.id_Toko');
         $this->db->where('tbl_produk.id_Toko', $idToko);
@@ -83,5 +83,25 @@ class Muser extends CI_Model
 
         // Return multiple result rows
         return $query;
+    }
+
+    public function joinUser($idOrder)
+    {
+        $this->db->select('tbl_user.nama_User,tbl_user.noHP,tbl_user.alamat,tbl_order.id_Order,tbl_order.tanggal_Order,tbl_order.kurir,tbl_order.status_Order');
+        $this->db->from('tbl_user');
+        $this->db->join('tbl_order', 'tbl_order.id_User = tbl_user.id_User');
+        $this->db->where('tbl_order.id_Order', $idOrder);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function joinDetailOrder($idOrder)
+    {
+       $this->db->select('tbl_produk.foto_Produk,tbl_produk.nama_Produk,tbl_detail_order.jumlah,tbl_detail_order.harga');
+        $this->db->from('tbl_detail_order');
+        $this->db->join('tbl_produk', 'tbl_detail_order.id_Produk = tbl_produk.id_Produk');
+        $this->db->where('tbl_detail_order.id_Order', $idOrder);
+            $query = $this->db->get();
+            return $query;
     }
 }
