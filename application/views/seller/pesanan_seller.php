@@ -55,6 +55,56 @@
                 }
             }
         }
+
+        tailwind.config= {
+
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            "50": "#eff6ff", "100":"#dbeafe", "200":"#bfdbfe", "300":"#93c5fd", "400":"#60a5fa", "500":"#3b82f6", "600":"#2563eb", "700":"#1d4ed8", "800":"#1e40af", "900":"#1e3a8a", "950":"#172554"
+                        }
+                    }
+                }
+
+                ,
+                fontFamily: {
+                    'body': [ 'Inter',
+                        'ui-sans-serif',
+                        'system-ui',
+                        '-apple-system',
+                        'system-ui',
+                        'Segoe UI',
+                        'Roboto',
+                        'Helvetica Neue',
+                        'Arial',
+                        'Noto Sans',
+                        'sans-serif',
+                        'Apple Color Emoji',
+                        'Segoe UI Emoji',
+                        'Segoe UI Symbol',
+                        'Noto Color Emoji'
+                        ],
+                        'sans': [ 'Inter',
+                        'ui-sans-serif',
+                        'system-ui',
+                        '-apple-system',
+                        'system-ui',
+                        'Segoe UI',
+                        'Roboto',
+                        'Helvetica Neue',
+                        'Arial',
+                        'Noto Sans',
+                        'sans-serif',
+                        'Apple Color Emoji',
+                        'Segoe UI Emoji',
+                        'Segoe UI Symbol',
+                        'Noto Color Emoji'
+                        ]
+                }
+            }
+        }
     </style>
 </head>
 
@@ -238,243 +288,138 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b-2 border-bg-black">
-                                        <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">1</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">#2406190089</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">19 Juni 2024, 18:30</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Ananda Bagus</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Rp. 230.00</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <p class="text-green-600 py-1 w-28 text-center rounded-md bg-green-100 font-lg text-sm">Pesanan Baru</p>
-                                        </td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="aksi" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
-                                                ...
-                                            </button>
+                                    <?php $no = 1;
+                                    foreach ($order as $val) { ?>
+
+                                        <tr class="border-b-2 border-bg-black">
+                                            <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $no++ ?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->id_Order ?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->tanggal_Order ?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ..."><?php echo $val->nama_User ?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Rp.<?php echo $val->total ?></td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
+                                                <?php if ($val->status_Order == 'Pesanan Baru') { ?>
+                                                    <p class="text-green-600 py-1 w-28 text-center rounded-md bg-green-100 font-lg text-sm">Pesanan Baru</p>
+                                                <?php } elseif ($val->status_Order == 'Siap Dikirim') { ?>
+                                                    <p class="text-gray-600 py-1 w-24 text-center rounded-md bg-gray-100 font-lg text-sm">Siap Dikirim</p>
+                                                <?php } ?>
+                                                <?php if ($val->status_Order == 'Pengiriman') { ?>
+                                                    <p class="flex text-yellow-600 py-1 w-24 rounded-md bg-yellow-200 text-center justify-center font-lg text-sm">Pengiriman</p>
+                                                <?php } ?>
+                                                <?php if ($val->status_Order == 'Selesai') { ?>
+                                                    <p class="text-blue-600 py-1 w-16 text-center rounded-md bg-blue-100 font-lg text-sm">Selesai</p>
+                                                <?php } ?>
+                                                <?php if ($val->status_Order == 'Dibatalkan') { ?>
+                                                    <p class="text-red-600 py-1 w-16 text-center rounded-md bg-red-100 font-lg text-sm">Dibatalkan</p>
+                                                <?php } ?>
+                                            </td>
+                                            <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
+                                                <button id="dropdownDefaultButton" data-dropdown-toggle="aksi<?php echo $no ?>" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
+                                                    ...
+                                                </button>
 
 
-                                            <div id="aksi" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto border-2 border-bg-gray-400">
-                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
-
-                                                    <li class="block px-2 py-2 text-center">
-                                                        <a href="<?php echo site_url('seller/seller_aksi_lihat_pesanan'); ?>" class="">
-                                                            <div class="flex items-center justify-center">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-700 hover:text-yellow-400">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                                                </svg>
-                                                                <span class="ms-2 text-xs font-small text-gray-700 hover:text-yellow-400">Lihat Pesanan</span>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="block px-2 py-2 ">
-                                                        <div class="flex justify-center items-center text-center">
-                                                            <button id="successButton" data-modal-target="terima-pesanan" data-modal-toggle="terima-pesanan" class="flex block items-center justify-center gap-2 text-center 
-                                                                hover:text-green-600 ms-2 text-xs font-small text-gray-700" type="button">
-                                                                <span>
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hover:text-green-600 text-gray-700 size-5">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                                <div id="aksi<?php echo $no ?>" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto border-2 border-bg-gray-400">
+                                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
+                                                        <li class="block px-2 py-2 text-center">
+                                                            <a href="<?php echo site_url('seller/seller_aksi_lihat_pesanan/' . $val->id_Order); ?>" class="">
+                                                                <div class="flex items-center justify-center">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-700 hover:text-yellow-400">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                                                     </svg>
-                                                                </span>
-                                                                <span>Terima Pesanan</span>
-                                                            </button>
-                                                        </div>
-                                                    </li>
+                                                                    <span class="ms-2 text-xs font-small text-gray-700 hover:text-yellow-400">Lihat Pesanan</span>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                        <?php if ($val->status_Order == 'Siap Dikirim') { ?>
+                                                            <li class="block px-2 py-2 ">
+                                                                <div class="flex justify-center items-center text-center">
+                                                                    <a href="<?php echo site_url('seller/kirim_order/' . $val->id_Order) ?>" id="successButton" data-modal-target="terima-pesanan" data-modal-toggle="terima-pesanan" class="flex block items-center justify-center gap-2 text-center 
+                                                                hover:text-green-600 ms-2 text-xs font-small text-gray-700">
+                                                                        <span>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span>Kirim Pesanan</span>
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                        <?php } elseif ($val->status_Order == 'Pesanan Baru') { ?>
+                                                            <li class="block px-2 py-2 ">
+                                                                <div class="flex justify-center items-center text-center">
+                                                                    <a href="<?php echo site_url('seller/terima_order/' . $val->id_Order) ?>" id="successButton" data-modal-target="terima-pesanan" data-modal-toggle="terima-pesanan" class="flex block items-center justify-center gap-2 text-center 
+                                                                hover:text-green-600 ms-2 text-xs font-small text-gray-700">
+                                                                        <span>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hover:text-green-600 text-gray-700 size-5">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span>Terima Pesanan</span>
+                                                                    </a>
+                                                                </div>
+                                                            </li>
 
-                                                    <li class="block px-2 py-2">
-                                                        <div class="flex justify-center items-center text-center">
-                                                            <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex block items-center justify-center gap-2 text-center 
-                                                                hover:text-red-600 ms-2 text-xs font-small text-gray-700" type="button">
-                                                                <span>
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-gray-700 size-5 hover:text-red-600">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                                                                    </svg>
-                                                                </span>
-                                                                <span>Tolak Pesanan</span>
-                                                            </button>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-
-                                            </div>
-
-
-
-                                        </td>
-                                    </tr>
-
-                                    <tr class="border-b-2 border-bg-black">
-                                        <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">1</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">#2406190089</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">19 Juni 2024, 18:30</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Ananda Bagus</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Rp. 230.00</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <p class="text-gray-600 py-1 w-24 text-center rounded-md bg-gray-200 font-lg text-sm">Siap Dikirim</p>
-                                        </td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="aksi3" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
-                                                ...
-                                            </button>
-
-
-                                            <div id="aksi3" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto border-2 border-bg-gray-400">
-                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
-
-                                                    <li class="block px-2 py-2 text-center">
-                                                        <a href="#" class="">
-                                                            <div class="flex items-center justify-center">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-700 hover:text-yellow-400">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                                                </svg>
-                                                                <span class="ms-2 text-xs font-small text-gray-700 hover:text-yellow-400">Lihat Pesanan</span>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="border-b-2 border-bg-black">
-                                        <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">1</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">#2406190089</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">19 Juni 2024, 18:30</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Ananda Bagus</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Rp. 230.00</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <p class="text-yellow-600 py-1 w-24 text-center rounded-md bg-yellow-200 font-lg text-sm">Pengiriman</p>
-                                        </td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="aksi2" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
-                                                ...
-                                            </button>
+                                                            <li class="block px-2 py-2">
+                                                                <div class="flex justify-center items-center text-center">
+                                                                    <a href="<?php echo site_url('seller/batal_pesanan/' . $val->id_Order) ?>" class="flex block items-center justify-center gap-2 text-center hover:text-red-600 ms-2 text-xs font-small text-gray-700">
+                                                                        <span>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-gray-700 size-5 hover:text-red-600">
+                                                                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span>Tolak Pesanan</span>
+                                                                    </a>
+                                                                </div>
 
 
-                                            <div id="aksi2" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto border-2 border-bg-gray-400">
-                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
+                                                            </li>
+                                                    </ul>
 
-                                                    <li class="block px-2 py-2 text-center">
-                                                        <a href="#" class="">
-                                                            <div class="flex items-center justify-center">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-700 hover:text-yellow-400">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                                                </svg>
-                                                                <span class="ms-2 text-xs font-small text-gray-700 hover:text-yellow-400">Lihat Pesanan</span>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="border-b-2 border-bg-black">
-                                        <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">1</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">#2406190089</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">19 Juni 2024, 18:30</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Ananda Bagus</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Rp. 230.00</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <p class="text-blue-600 py-1 w-16 text-center rounded-md bg-blue-100 font-lg text-sm">Selesai</p>
-                                        </td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="aksi3" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
-                                                ...
-                                            </button>
+                                                </div>
+                                            <?php } ?>
 
 
-                                            <div id="aksi3" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto border-2 border-bg-gray-400">
-                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
-
-                                                    <li class="block px-2 py-2 text-center">
-                                                        <a href="#" class="">
-                                                            <div class="flex items-center justify-center">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-700 hover:text-yellow-400">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                                                </svg>
-                                                                <span class="ms-2 text-xs font-small text-gray-700 hover:text-yellow-400">Lihat Pesanan</span>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="border-b-2 border-bg-black">
-                                        <td class="px-5 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">1</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">#2406190089</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">19 Juni 2024, 18:30</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Ananda Bagus</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">Rp. 230.00</td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <p class="text-red-600 py-1 w-20 text-center rounded-md bg-red-100 font-lg text-sm">Dibatalkan</p>
-                                        </td>
-                                        <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="aksi4" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
-                                                ...
-                                            </button>
-
-
-                                            <div id="aksi4" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-auto border-2 border-bg-gray-400">
-                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 items-center" aria-labelledby="dropdownDefaultButton">
-
-                                                    <li class="block px-2 py-2 text-center">
-                                                        <a href="#" class="">
-                                                            <div class="flex items-center justify-center">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 text-gray-700 hover:text-yellow-400">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                                                </svg>
-                                                                <span class="ms-2 text-xs font-small text-gray-700 hover:text-yellow-400">Lihat Pesanan</span>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
                         <div class="flex px-2 py-4 justify-between items-center whitespace-nowrap overflow-auto">
-                                <div class="flex gap-1">
-                                    <h1 class="font-normal text-xs text-gray-500">Menampilkan</h1>
-                                    <h1 class="font-semibold text-xs text-black ">1 - 10</h1>
-                                    <h1 class="font-normal text-xs text-gray-500">dari</h1>
-                                    <h1 class="font-semibold text-xs text-black">96</h1>
-                                </div>
-                                <nav aria-label="Page navigation example">
-                                    <ul class="inline-flex -space-x-px text-sm">
-                                        <li>
-                                            <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 ">Previous</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 text-white border border-gray-300 bg-green-700 ">1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">...</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 ">10</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 ">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                            <div class="flex gap-1">
+                                <h1 class="font-normal text-xs text-gray-500">Menampilkan</h1>
+                                <h1 class="font-semibold text-xs text-black ">1 - 10</h1>
+                                <h1 class="font-normal text-xs text-gray-500">dari</h1>
+                                <h1 class="font-semibold text-xs text-black">96</h1>
                             </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="inline-flex -space-x-px text-sm">
+                                    <li>
+                                        <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 text-black-600 border border-gray-300 bg-green-700 dark:text-white">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">...</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">10</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
 
                     <div>
@@ -503,22 +448,11 @@
                                                                     hover:text-black focus:z-10 ">
                                             Batal
                                         </button>
-                                        <button id="gagalButton" data-modal-target="gagal" data-modal-toggle="gagal" class="block text-sm font-medium text-white bg-red-800 border rounded-lg px-4 py-2 hover:bg-red-900" type="button">Hapus</button>
-
-                                        <div id="gagal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-                                            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-                                                <!-- Modal content -->
-                                                <div class="relative px-2 py-6 text-center bg-white rounded-lg shadow">
-                                                    <div class="w-12 h-12 rounded-full bg-red-200 p-2 flex items-center justify-center mx-auto mb-3.5">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-red-700">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                                                        </svg>
-                                                        <span class="sr-only">Gagal</span>
-                                                    </div>
-                                                    <p class=" text-lg font-bold text-gray-900">Gagal Menolak Pesanan</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <button type="submit" class="py-2 px-5 text-sm font-medium text-center text-white bg-red-600 
+                                                                    rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 
+                                                                    dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                            Hapus
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -526,43 +460,14 @@
                     </div>
 
                     <!-- Main modal Sukses-->
-                    <div id="terima-pesanan" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 
-                                                            right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-                        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-                            <!-- Modal content -->
-                            <div class="relative py-8 px-1 text-center bg-white rounded-lg shadow bg-white border-2 border-gray-300">
-                                <div class="w-16 h-16 rounded-full bg-green-100 p-2 flex items-center justify-center mx-auto mb-3.5">
-                                    <svg aria-hidden="true" class="w-20 h-20 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="sr-only ">Success</span>
-                                </div>
-                                <p class="mb-4 text-xl font-bold text-black">Sukses Menerima Pesanan</p>
-                                <p class="text-base font-medium text-gray-500">ID Order: #240619089</p>
-                                <p class="text-base font-medium text-gray-500">Waktu: 19 Juni 2024, 18:30</p>
-                                <p class="text-base font-medium text-gray-500">Nama: Ananda Bagus</p>
-                                <p class="text-base font-medium text-gray-500">Total: Rp. 230.000</p>
-                                <button data-modal-toggle="successModal" type="button" class="mt-8 py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-green-800 hover:bg-green-900">
-                                    Lanjutkan
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
+
+
                 </ul>
             </div>
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-            document.getElementById('successButton').click();
-        });
-
-        document.addEventListener("DOMContentLoaded", function(event) {
-            document.getElementById('deleteButton').click();
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -34,9 +34,13 @@
 
           <h3 class="text-xl font-bold">Pesanan Saya</h3>
         </div>
-        <ul class="ml-9 items-center">
-          <li><a href="<?php echo site_url('user/cart')?>" class="text-gray-600">Belum Bayar</a></li>
-          <li><a href="<?php echo site_url('user/cart')?>" class="text-gray-600">Daftar Pesanan</a></li>
+
+      
+
+        <ul class="sidebarprof ml-9 items-center">
+          <li><a href="<?php echo site_url('user/cart') ?>" class="text-gray-600">Belum Bayar</a></li>
+          <li><a href="<?php echo site_url('user/pesanan_user') ?>" class="text-gray-600">Daftar Pesanan</a></li>
+
         </ul>
       </div>
 

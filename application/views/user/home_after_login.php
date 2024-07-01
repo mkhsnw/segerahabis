@@ -28,27 +28,14 @@
             <div id="gallery" class="relative mx-auto w-full fixed" data-carousel="slide">
 
                 <!-- Carousel wrapper -->
-                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                <div class="relative h-96 w-full overflow-hidden rounded-xl ">
                     <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="<?php echo base_url('assets/image/slider/1.jpg'); ?>" class="absolute block max-w-full h-auto 
-                        -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="1">
+                        <img src="<?php echo base_url('assets/image/slider/Segerahabis_Slider_01.png'); ?>" class="absolute block object-cover object-center w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="1">
                     </div>
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                        <img src="<?php echo base_url('assets/image/slider/2.jpg'); ?>" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="2">
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="<?php echo base_url('assets/image/slider/3.jpg'); ?>" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="3">
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="<?php echo base_url('assets/image/slider/4.jpg'); ?>" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="4">
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="<?php echo base_url('assets/image/slider/5.jpg'); ?>" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="5">
+                        <img src="<?php echo base_url('assets/image/slider/Segerahabis_Slider_02.png'); ?>" class="absolute block object-cover object-center w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="2">
                     </div>
                 </div>
                 <!-- Slider controls -->
@@ -71,15 +58,18 @@
             </div>
         </div>
 
-        <div class="w-full items-start mt-4">
-            <h1 class="mb-6 text-sm text-gray-900 uppercase dark:text-gray-500 font-black" style="font-family: 'Inter', sans-serif;">Kategori</h1>
+        <div class=" w-full items-start mt-4 ">
+            <h1 class="mb-4 text-sm text-gray-900 uppercase dark:text-gray-500 font-bold text-xl" style="font-family: 'Inter', sans-serif;">Kategori</h1>
             <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 xs:grid-cols-2 w-full">
                 <?php
+                $no = 1;
                 foreach ($kategori as $val) {
                 ?>
-                    <a href="<?php echo site_url('user/kategori/' . $val->id_Kategori) ?>"><img class="flex relative h-40 object-cover object-center w-72 aspect-video rounded-lg hover:scale-75 duration-75" src="<?php echo base_url('assets/image/slider/' . $val->id_Kategori . '.jpg'); ?>" alt="image description"></a>
+
+                    <a href="<?php echo site_url('user/kategori/' . $val->id_Kategori) ?>"><img class="flex relative h-28 object-cover object-center w-full aspect-video rounded-lg hover:scale-105 duration-75" src="<?php echo base_url('assets/image/Kategori/slide'. $no . '.png'); ?>" alt="image description"></a>
+
                 <?php
-                }
+                $no++; }
                 ?>
             </div>
         </div>
@@ -87,13 +77,13 @@
 
         <!-- Produk Terlaris --->
         <div class="mt-4 mb-4">
-            <h1 class="mb-4 text-sm text-gray-900 uppercase dark:text-gray-500 font-black" style="font-family: 'Inter', sans-serif;">Produk Terlaris</h1>
+            <h1 class="mb-4 text-xl text-gray-900 uppercase dark:text-gray-500 font-bold" style="font-family: 'Inter', sans-serif;">Semua Produk</h1>
             <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 sm:grid-cols-2 items-start">
                 <?php foreach ($produk as $val) { ?>
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 container">
                         <a href="<?php echo site_url('user/product/' . $val->id_Produk) ?>">
                             <div class="overflow-hidden relative">
-                                <img class="aspect-square max-w-full h-full rounded-t-lg object-cover object-center" src="<?php echo base_url('assets/image/foto_produk/'.$val->foto_Produk); ?>" alt="" />
+                                <img class="aspect-square w-full h-full rounded-t-lg object-cover object-center" src="<?php echo base_url('assets/foto_produk/' . $val->foto_Produk); ?>" alt="" />
                             </div>
                             <div class="p-5">
                                 <div>

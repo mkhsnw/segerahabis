@@ -15,7 +15,7 @@
         <div class="flex flex-row gap-3 w-full">
             <div class="flex-col md:items-center mx-auto">
                 <?php foreach ($cart as $val) { ?>
-                    <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white mb-2">
+                    <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg mb-2">
                         <div class="w-full px-4 py-2">
                             <div class="flex flex-row items-center mb-2 gap-6 px-6 py-3">
                                 <a href="<?php echo site_url('user/delete_cart/' . $val['rowid']) ?>">
@@ -24,18 +24,18 @@
                                     </svg>
                                 </a>
                                 <img srcset="<?php echo base_url('assets/image/card/1.jpg'); ?> 2x" class="w-20 h-20 max-w-xl rounded-lg" alt="image description">
-                                <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 dark:text-white w-60"><?php echo $val['name'] ?></h5>
+                                <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 w-60"><?php echo $val['name'] ?></h5>
 
                                 <div class="max-w-xs mx-auto">
                                     <div class="relative flex items-center max-w-[8rem]">
-                                        <button type="button" class="decrement-button bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none" data-rowid="<?php echo $val['rowid']; ?>">
-                                            <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                        <button type="button" class="decrement-button bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none" data-rowid="<?php echo $val['rowid']; ?>">
+                                            <svg class="w-3 h-3 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                             </svg>
                                         </button>
-                                        <input type="text" id="quantity-input-<?php echo $val['rowid']; ?>" data-rowid="<?php echo $val['rowid']; ?>" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="<?php echo $val['qty'] ?>" required />
-                                        <button type="button" class="increment-button bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none" data-rowid="<?php echo $val['rowid']; ?>">
-                                            <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <input type="text" id="quantity-input-<?php echo $val['rowid']; ?>" data-rowid="<?php echo $val['rowid']; ?>" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-green-500 focus:border-green-500 block w-full py-2.5" value="<?php echo $val['qty'] ?>" required />
+                                        <button type="button" class="increment-button bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none" data-rowid="<?php echo $val['rowid']; ?>">
+                                            <svg class="w-3 h-3 text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
                                             </svg>
                                         </button>
@@ -50,7 +50,7 @@
 
             </div>
             <div class="w-4/12">
-                <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white mb-2">
+                <ul class="w-full text-sm font-medium text-gray-900 bg-white border-2 border-gray-200 rounded-lg mb-2">
                     <div class="w-full px-8 py-2 flex flex-col">
                         <p class="text-black font-bold text-lg mb-6 mt-4">Ringkasan Belanja</p>
 
@@ -59,7 +59,7 @@
                             <p class="text-black font-md text-md ">Rp. <?php echo $total ?></p>
                         </div>
                         <p class="border-2 border-t border-bg-black"></p>
-                        <a href="<?php echo site_url('user/checkout'); ?>" class="mt-4 mb-4 text-sm text-center font-medium text-white bg-green-800 border border-blue-700 rounded-lg px-4 py-2 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-blue-800">
+                        <a href="<?php echo site_url('user/checkout'); ?>" class="mt-4 mb-4 text-sm text-center font-medium text-white bg-green-800 border border-green-700 rounded-lg px-4 py-2 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-green-300">
                             Beli (<?php echo $qtyItem ?>)</a>
                     </div>
                 </ul>

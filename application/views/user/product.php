@@ -10,11 +10,10 @@
 </head>
 
 <body>
-    <br> </br>
-    <div class="flex flex-row mx-auto sm:w-4/5">
+    <div class="flex flex-row mx-auto sm:w-4/5 mt-4">
         <div class="grid gap-4 sm:w-full">
             <div>
-                <img class="aspect-square h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" alt="">
+                <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" alt="">
             </div>
             <div class="grid grid-cols-5 gap-4">
                 <div>
@@ -27,10 +26,10 @@
                     <img class="aspect-square h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
                 </div>
                 <div>
-                    <img class="aspect-square h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
+                    <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
                 </div>
                 <div>
-                    <img class="aspect-square h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
+                    <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
                 </div>
             </div>
             <div class="flex mx-auto w-full">
@@ -63,7 +62,7 @@
                 </div>
                 <p class=" text-[40px] font-bold tracking-tight text-gray-900 dark:text-white mb-4">Rp. <?php echo $produk->hargaDiskon ?></p>
                 <p class=" text-l font-bold tracking-tight text-gray-900 dark:text-white">Kuantitas</p>
-                <form class="" method="post" action="<?php echo site_url('user/add_cart/'.$produk->id_Produk)?>">
+                <form class="" method="post" action="<?php echo site_url('user/add_cart/' . $produk->id_Produk) ?>">
                     <div class="relative flex items-center max-w-[8rem]">
                         <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                             <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
@@ -86,16 +85,21 @@
                 </form>
                 <hr class=" mt-10 h-px my-5 bg-gray-200 border-0 dark:bg-gray-700">
                 <div class=" flex grid">
-                    <div class="flex">
-                        <div class="w-15 h-15 bg-gray-400 rounded-full flex items-center justify-center">
-                            <img src="https://cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png" alt="Foto Profil" class="w-20 h-20 rounded-full">
+                    <a href="<?php echo site_url('user/toko/' . $toko->id_Toko) ?>">
+                        <div class="flex">
+                            <div class="w-15 h-15 bg-gray-400 rounded-full flex items-center justify-center">
+                                <img src="https://cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png" alt="Foto Profil" class="w-20 h-20 rounded-full">
+                            </div>
+                            <div class="ml-5">
+                                <h2 class="text-lg font-bold"><?php echo $toko->nama_Toko ?></h2>
+                                <p class="text-sm text-gray-600"><?php $this->load->helper('toko');
+                                                                    $city = getDetailCity($toko->id_Kota);
+                                                                    echo $city['rajaongkir']['results']['city_name'] . ", " . $city['rajaongkir']['results']['province']; ?></h1>
+                                </p>
+                            </div>
                         </div>
-                        <div class="ml-5">
-                            <h2 class="text-lg font-bold"><?php echo $toko->nama_Toko ?></h2>
-                            <p class="text-sm text-gray-600"><?php echo $toko->alamat ?>, <?php echo $toko->kota ?></p>
-                        </div>
-                    </div>
                 </div>
+                </a>
                 <hr class=" h-px my-5 bg-gray-200 border-0 dark:bg-gray-700">
             </div>
         </div>
@@ -106,97 +110,36 @@
 
     <br> </br>
     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700 mx-auto sm:w-4/5">
-    <h2 class="ml-40 mb-6 text-sm text-gray-900 dark:text-gray-500 font-bold" style="font-family: 'Inter', sans-serif;">Produk Untuk Kamu</h2>
-    <div class="grid gap-9 mx-auto sm:w-4/5 mb-10">
-        <div class="grid grid-cols-4 gap-9">
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 dark:text-white">Nama Produkssss - Variasi Produk - Sub Varian Produk</h5>
+    <h2 class="ml-40 mb-6 text-xl text-gray-900 font-bold">Produk Untuk Kamu</h2>
+    <div class=" grid gap-9 mx-auto sm:w-4/5 mb-10">
+        <div class="flex flex-row items-center gap-4 grid md:grid-cols-4 sm:grid-cols-2 items-start">
+            <?php foreach ($produkall as $val) { ?>
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 container hover:scale-105 duration-75">
+                    <a href="<?php echo site_url('user/product/' . $val->id_Produk) ?>">
+                        <img class="aspect-square w-full h-full rounded-t-lg object-cover object-center" src="<?php echo base_url('assets/foto_produk/' . $val->foto_Produk); ?>" alt="" />
                     </a>
-                    <p class=" text-xl font-bold tracking-tight text-gray-900 dark:text-white">Rp. 24.000</p>
-                    <div class="flex items-center space-x-2 mb-2">
-                        <p class="mb-0 text-sm font-bold tracking-tight text-gray-400 dark:text-gray-400 line-through">Rp. 30.000</p>
-                        <p class="text-sm font-bold text-red-500">20%</p>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-yellow-600">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                        </svg>
-                        <h1 class="font-semibold text-xs tracking-tight text-gray-500 dark:text-gray-500" style="font-family: 'Inter', sans-serif;">21 Hari lagi | 1rb+ Terjual</h1>
+                    <div class="p-5">
+                        <a href="<?php echo site_url('user/product/' . $val->id_Produk) ?>">
+                            <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 dark:text-white"><?php echo $val->nama_Produk ?></h5>
+                        </a>
+                        <p class=" text-xl font-bold tracking-tight text-gray-900 dark:text-white">Rp. <?php echo $val->hargaDiskon ?></p>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <p class="mb-0 text-sm font-bold tracking-tight text-gray-400 dark:text-gray-400 line-through">Rp. <?php echo $val->harga ?></p>
+                            <p class="text-sm font-bold text-red-500"><?php echo $val->diskon ?>%</p>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-yellow-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                            <h1 class="font-semibold text-xs tracking-tight text-gray-500 dark:text-gray-500" style="font-family: 'Inter', sans-serif;"><?php echo $val->sisaHari ?> Hari lagi | 1rb+ Terjual</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 dark:text-white">Nama Produk - Variasi Produk - Sub Varian Produk</h5>
-                    </a>
-                    <p class=" text-xl font-bold tracking-tight text-gray-900 dark:text-white">Rp. 24.000</p>
-                    <div class="flex items-center space-x-2 mb-2">
-                        <p class="mb-0 text-sm font-bold tracking-tight text-gray-400 dark:text-gray-400 line-through">Rp. 30.000</p>
-                        <p class="text-sm font-bold text-red-500">20%</p>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-yellow-600">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                        </svg>
-                        <h1 class="font-semibold text-xs tracking-tight text-gray-500 dark:text-gray-500" style="font-family: 'Inter', sans-serif;">21 Hari lagi | 1rb+ Terjual</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 dark:text-white">Nama Produk - Variasi Produk - Sub Varian Produk</h5>
-                    </a>
-                    <p class=" text-xl font-bold tracking-tight text-gray-900 dark:text-white">Rp. 24.000</p>
-                    <div class="flex items-center space-x-2 mb-2">
-                        <p class="mb-0 text-sm font-bold tracking-tight text-gray-400 dark:text-gray-400 line-through">Rp. 30.000</p>
-                        <p class="text-sm font-bold text-red-500">20%</p>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-yellow-600">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                        </svg>
-                        <h1 class="font-semibold text-xs tracking-tight text-gray-500 dark:text-gray-500" style="font-family: 'Inter', sans-serif;">21 Hari lagi | 1rb+ Terjual</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="<?php echo base_url('assets/image/card/1.jpg'); ?>" alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-sm font-medium tracking-tight text-gray-900 dark:text-white">Nama Produk - Variasi Produk - Sub Varian Produk</h5>
-                    </a>
-                    <p class=" text-xl font-bold tracking-tight text-gray-900 dark:text-white">Rp. 24.000</p>
-                    <div class="flex items-center space-x-2 mb-2">
-                        <p class="mb-0 text-sm font-bold tracking-tight text-gray-400 dark:text-gray-400 line-through">Rp. 30.000</p>
-                        <p class="text-sm font-bold text-red-500">20%</p>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-yellow-600">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-                        </svg>
-                        <h1 class="font-semibold text-xs tracking-tight text-gray-500 dark:text-gray-500" style="font-family: 'Inter', sans-serif;">21 Hari lagi | 1rb+ Terjual</h1>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
+
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#addCart').click(function() {
@@ -217,8 +160,6 @@
                 });
             });
         });
-
-       
     </script>
 
 </body>

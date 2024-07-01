@@ -9,62 +9,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <style>
-        tailwind.config= {
 
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            "50": "#eff6ff", "100":"#dbeafe", "200":"#bfdbfe", "300":"#93c5fd", "400":"#60a5fa", "500":"#3b82f6", "600":"#2563eb", "700":"#1d4ed8", "800":"#1e40af", "900":"#1e3a8a", "950":"#172554"
-                        }
-                    }
-                }
-
-                ,
-                fontFamily: {
-                    'body': [ 'Inter',
-                        'ui-sans-serif',
-                        'system-ui',
-                        '-apple-system',
-                        'system-ui',
-                        'Segoe UI',
-                        'Roboto',
-                        'Helvetica Neue',
-                        'Arial',
-                        'Noto Sans',
-                        'sans-serif',
-                        'Apple Color Emoji',
-                        'Segoe UI Emoji',
-                        'Segoe UI Symbol',
-                        'Noto Color Emoji'
-                        ],
-                        'sans': [ 'Inter',
-                        'ui-sans-serif',
-                        'system-ui',
-                        '-apple-system',
-                        'system-ui',
-                        'Segoe UI',
-                        'Roboto',
-                        'Helvetica Neue',
-                        'Arial',
-                        'Noto Sans',
-                        'sans-serif',
-                        'Apple Color Emoji',
-                        'Segoe UI Emoji',
-                        'Segoe UI Symbol',
-                        'Noto Color Emoji'
-                        ]
-                }
-            }
-        }
     </style>
 </head>
 
 <body class="bg-gray-100">
 
     <div class="flex flex-row w-full mx-auto">
-
         <aside id="default-sidebar" class="flex-col left-0 z-10 xs:invisible md:visible md:w-64 h-screen sticky" aria-label="Sidebar">
             <div class="h-full px-3 py-4 bg-white dark:bg-white border-r-2 border-bg-gray-600 shadow shadow-lg">
                 <ul class="space-y-0 font-medium">
@@ -121,8 +72,8 @@
             </div>
         </aside>
 
-        <div class="flex flex-col h-screen w-full px-6 py-8 bg-gray-100 overflow-auto">
-            <p class="text-black font-bold text-xl mb-8">Produk</p>
+        <div class="flex flex-col h-screen w-full px-6 py-8 bg-gray-100 overflow-y-auto">
+            <p class="text-black font-bold text-3xl mb-8">Produk</p>
             <div class="w-full flex flex-col">
                 <ul class="w-full text-sm font-medium text-gray-900 bg-white shadow shadow-lg border 
                 border-bg-gray-600 rounded-lg dark:bg-white dark:text-white">
@@ -341,39 +292,46 @@
 
                                                     <div id="deleteModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 
                                                         justify-center items-center w-full md:inset-0 h-modal md:h-full">
-                                                        <div class="relative p-6 w-full max-w-sm h-full md:h-auto">
-                                                            <!-- Modal content --
-                                                            <div class="relative md:p-6 sm:p-4 border-2 border-gray-300 text-center bg-white rounded-lg shadow dark:bg-gray-800 ">
-                                                                <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="deleteModal">
-                                                                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                                                    </svg>
-                                                                    <span class="sr-only">Close modal</span>
-                                                                </button>
-                                                                <p class="text-black font-bold text-lg mb-4">Hapus Produk</p>
-                                                                <p class="mb-4 text-gray-500 dark:text-gray-300">INDOMIE Goreng Jumbo Rasa Odading Mang Oleh</p>
-                                                                <div class="flex justify-center items-center space-x-4">
-                                                                    <button data-modal-toggle="deleteModal" type="button" class="py-2 px-5 text-sm font-medium text-black bg-white rounded-lg border 
+                                                            <div class="relative p-6 w-full max-w-sm h-full md:h-auto">
+                                                                
+                                                                <div class="relative md:p-6 sm:p-4 border-2 border-gray-300 text-center bg-white rounded-lg shadow dark:bg-gray-800 ">
+                                                                    <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="deleteModal">
+                                                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                                                        </svg>
+                                                                        <span class="sr-only">Close modal</span>
+                                                                    </button>
+                                                                    <p class="text-black font-bold text-lg mb-4">Hapus Produk</p>
+                                                                    <p class="mb-4 text-gray-500 dark:text-gray-300">INDOMIE Goreng Jumbo Rasa Odading Mang Oleh</p>
+                                                                    <div class="flex justify-center items-center space-x-4">
+                                                                        <button data-modal-toggle="deleteModal" type="button" class="py-2 px-5 text-sm font-medium text-black bg-white rounded-lg border 
                                                                     border-gray-600 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 
                                                                     hover:text-black focus:z-10 dark:bg-gray-700 dark:text-black dark:border-gray-500 
                                                                     dark:hover:text-black dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-                                                                        Batal
-                                                                    </button>
-                                                                    <button id="gagalButton" data-modal-target="gagal" data-modal-toggle="gagal" class="block text-sm font-medium text-white bg-red-800 border rounded-lg px-4 py-2 hover:bg-red-900" type="button">Hapus</button>
+                                                                            Batal
+                                                                        </button>
+                                                                        <a href="<?php echo site_url('seller/delete/' . $val->id_Produk); ?>">
+                                                                            <button id="gagalButton" data-modal-target="gagal" data-modal-toggle="gagal" class="block text-sm font-medium text-white bg-red-800 border rounded-lg px-4 py-2 hover:bg-red-900" type="button">
+                                                                                Hapus</button>
+                                                                        </a>
 
-                                                                    <div id="gagal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-                                                                        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-
-                                                                            <div class="relative px-2 py-6 text-center bg-white rounded-lg shadow">
-                                                                                <div class="w-12 h-12 rounded-full bg-red-200 p-2 flex items-center justify-center mx-auto mb-3.5">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-red-700">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                                                                                    </svg>
-                                                                                    <span class="sr-only">Gagal</span>
+                                                                        
+                                                                        <!--
+                                                                        <div id="gagal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+                                                                            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                                                                                Modal content -
+                                                                                <div class="relative px-2 py-6 text-center bg-white rounded-lg shadow">
+                                                                                    <div class="w-12 h-12 rounded-full bg-red-200 p-2 flex items-center justify-center mx-auto mb-3.5">
+                                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-red-700">
+                                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                                                                                        </svg>
+                                                                                        <span class="sr-only">Gagal</span>
+                                                                                    </div>
+                                                                                    <p class=" text-lg font-bold text-gray-900">Gagal Menambahkan Produk</p>
                                                                                 </div>
-                                                                                <p class=" text-lg font-bold text-gray-900">Gagal Menambahkan Produk</p>
                                                                             </div>
-                                                                        </div>
+                                                                        </div> -->
+                                                                        
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -51,6 +51,7 @@ class Seller extends CI_Controller {
     public function product_seller() {
         $data['user'] = $this->Madmin->get_by_id('tbl_toko', array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
         $data['produk'] = $this->Madmin->getDataProduk($this->session->userdata('id_Toko'))->result();
+        //print_r($data['produk']);exit();
         $this->load->view('seller/header/header_seller', $data);
         $this->load->view('seller/product_seller', $data);
     }
@@ -76,8 +77,9 @@ class Seller extends CI_Controller {
         $this->load->view('seller/seller_edit_product',$data);
     }
 
-    public function seller_pesanan() {
-        $data['user'] = $this->Madmin->get_by_id('tbl_toko',array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
+    public function seller_pesanan()
+    {
+        $data['user'] = $this->Madmin->get_by_id('tbl_toko', array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('seller/header/header_seller',$data);
         $this->load->view('seller/pesanan_seller',$data);
@@ -97,11 +99,13 @@ class Seller extends CI_Controller {
         redirect('seller/product_seller');
     }
 
-    public function seller_aksi_lihat_pesanan() {
+    public function seller_aksi_lihat_pesanan()
+    {
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('seller/header/header_seller');
         $this->load->view('seller/seller_aksi_lihat_pesanan');
     }
+
 
     public function pengaturan() {
         //$datawhere = array('id_kategori' => $id);
@@ -168,7 +172,7 @@ class Seller extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('emptyForm', 'Form tidak boleh kosong');
-            redirect('seller/daftar_seller');
+            redirect('seller/');
         } else {
             $dataInput = array(
                 'email' => $email,
@@ -412,5 +416,14 @@ class Seller extends CI_Controller {
         } else {
             redirect('produk/tambah/' . $idToko);
         }
+    }
+
+    public function batal_pesanan($idOrder)
+    {
+        $dataUpdate = array(
+            'status_Order' => 'Dibatalkan',
+        );
+        $this->Muser->update('tbl_order', $dataUpdate, 'id_Order', $idOrder);
+        redirect('seller/seller_pesanan');
     }
 }

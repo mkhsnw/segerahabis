@@ -1,55 +1,76 @@
 <?php
 
-class Madmin extends CI_Model{
-    
+class Madmin extends CI_Model
+{
 
-    public function cek_login($u, $p){
-        $q = $this->db->get_where('tbl_admin',array('username'=>$u, 'password'=>$p));
+
+    public function cek_login($u, $p)
+    {
+        $q = $this->db->get_where('tbl_admin', array('username' => $u, 'password' => $p));
         return $q;
     }
 
-    public function daftar($u, $p){
-        $this->db->insert('tbl_admin',array('username'=>$u, 'password'=>$p));
+    public function daftar($u, $p)
+    {
+        $this->db->insert('tbl_admin', array('username' => $u, 'password' => $p));
     }
 
-    public function get_all_data($tabel) {
-        $q=$this->db->get($tabel);
+    public function get_all_data($tabel)
+    {
+        $q = $this->db->get($tabel);
         return $q;
     }
 
-    public function insert($tabel, $data){
+    public function insert($tabel, $data)
+    {
         $this->db->insert($tabel, $data);
     }
 
-    public function get_by_id($tabel, $id) {
+    public function get_by_id($tabel, $id)
+    {
         return $this->db->get_where($tabel, $id);
     }
 
-    public function update($tabel, $data, $pk, $id){
+    public function getDetailOrder($idOrder)
+    {
+        $this->db->select('tbl_user.nama_User,tbl_user.noHP,tbl_user.alamat,tbl_order.id_Order,tbl_order.tanggal_Order,tbl_order.kurir');
+        $this->db->from('tbl_user');
+        $this->db->join('tbl_order', 'tbl_order.id_User = tbl_user.id_User');
+        $this->db->where('tbl_order.id_Order', $idOrder);
+        $query = $this->db->get();
+        return $query;
+    }
+
+
+    public function update($tabel, $data, $pk, $id)
+    {
         $this->db->where($pk, $id);
         $this->db->update($tabel, $data);
     }
 
-    public function delete($tabel, $id, $val){
+    public function delete($tabel, $id, $val)
+    {
         $this->db->delete($tabel, array($id => $val));
     }
 
-   /* public function joinToko($idToko){
+    /* public function joinToko($idToko){
         //$this->db->query("SELECT tbl_toko.* ,tbl_produk.* FROM tbl_produk JOIN tbl_toko on tbl_produk.id_Toko = tbl_toko.id_Toko WHERE tbl_produk.id_Toko = $idToko");
         $this->db->query("SELECT p.*, t.nama_Toko, t.username,  t.alamat, t.email, t.noHP, t.kota FROM  tbl_produk p JOIN tbl_toko t ON p.id_Toko = t.id_Toko");
         $this->db->get();
     }*/
 
-    public function get_produk_seller($idToko) {
+
+    public function get_produk_seller($idToko)
+    {
         $this->db->select('tbl_produk.id_Produk, tbl_produk.nama_Produk, tbl_kategori.nama_Kat, tbl_produk.harga, tbl_produk.stock, tbl_produk.diskon, tbl_produk.tanggal_Exp');
         $this->db->from('tbl_produk');
         $this->db->join('tbl_kategori', 'tbl_produk.id_Kategori = tbl_kategori.id_Kategori');
-        $this->db->where('tbl_produk.id_Toko',$idToko);
+        $this->db->where('tbl_produk.id_Toko', $idToko);
         $query = $this->db->get();
         return $query;
     }
-    
-    
+
+
     /*public function get_produk($id_Produk) {
         // Menentukan kolom yang akan dipilih
         $this->db->select('tbl_produk.nama_Produk, tbl_produk.id_Kategori, tbl_produk.stock, tbl_produk.diskon');
@@ -66,7 +87,8 @@ class Madmin extends CI_Model{
         return $q->result(); // Mengembalikan hasil sebagai array objek
     }*/
 
-    public function get_produk() {
+    public function get_produk()
+    {
         $this->db->select('*');
         $this->db->from('tbl_produk');
         $this->db->join('tbl_toko', 'tbl_toko.id_Toko = tbl_produk.id_Produk');
@@ -74,14 +96,34 @@ class Madmin extends CI_Model{
         return $q;
     }
 
-    public function getDataProduk($idToko){
+    public function getDataProduk($idToko)
+    {
         $this->db->select('tbl_kategori.nama_Kat,tbl_produk.*');
         $this->db->from('tbl_produk');
-        $this->db->join('tbl_kategori','tbl_produk.id_Kategori = tbl_kategori.id_Kategori');
+        $this->db->join('tbl_kategori', 'tbl_produk.id_Kategori = tbl_kategori.id_Kategori');
         $this->db->where('tbl_produk.id_Toko', $idToko);
         $q = $this->db->get();
         return $q;
     }
- 
 
+    public function getDataOrder($idToko)
+    {
+        $this->db->select('tbl_user.nama_User,tbl_order.*');
+        $this->db->from('tbl_order');
+        $this->db->join('tbl_user', 'tbl_order.id_User = tbl_user.id_User');
+        $this->db->where('tbl_order.id_Toko', $idToko);
+        $q = $this->db->get();
+        return $q;
+    }
+
+    public function getDatailDataOrder($idOrder)
+    {
+        $this->db->select('tbl_produk.foto_Produk,tbl_produk.nama_Produk,tbl_order.total,tbl_order.status_Order,tbl_detail_order.*');
+        $this->db->from('tbl_detail_order');
+        $this->db->join('tbl_produk', 'tbl_detail_order.id_Produk = tbl_produk.id_Produk');
+        $this->db->join('tbl_order', 'tbl_order.id_Order = tbl_detail_order.id_Order');
+        $this->db->where('tbl_detail_order.id_Order', $idOrder);
+        $q = $this->db->get();
+        return $q;
+    }
 }
