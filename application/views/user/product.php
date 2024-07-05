@@ -13,19 +13,16 @@
     <div class="flex flex-row mx-auto sm:w-4/5 mt-4">
         <div class="grid gap-4 sm:w-full">
             <div>
-                <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" alt="">
+                <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="<?php echo base_url('assets/foto_produk/' . $produk->foto_Produk) ?>" alt="">
             </div>
-            <div class="grid grid-cols-2 gap-4">
+
+            <div class="grid grid-cols-5 gap-4">
                 <div>
-                    <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+                    <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="<?php echo base_url('assets/foto_produk/' . $produk->foto_Produk2) ?>" alt="">
                 </div>
                 <div>
+                    <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="<?php echo base_url('assets/foto_produk/' . $produk->foto_Produk1) ?>" alt="">
 
-                    <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
-                </div>
-                <div>
-
-                    <img class="aspect-square h-auto max-w-full rounded-lg object-cover object-center" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
                 </div>
             </div>
             <div class="flex mx-auto w-full">
@@ -72,7 +69,9 @@
                             </svg>
                         </button>
                     </div>
-                    <button type="submit" id="addCart" class=" mt-5 text-sm font-medium text-white bg-green-800 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center me-2">
+
+                    <button type="submit" id="addCart" class=" mt-5 text-sm font-medium text-white bg-green-800 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+
                         <svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
                             <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
                         </svg>
@@ -135,27 +134,7 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#addCart').click(function() {
-                event.preventDefault();
-                $.ajax({
-                    url: '<?php echo site_url('user/add_cart/' . $val->id_Produk); ?>',
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        // Check if the response indicates success
-
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        alert('Error occurred: ' + textStatus);
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </body>
 
