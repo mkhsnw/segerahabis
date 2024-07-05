@@ -15,12 +15,12 @@
     <div class="border-b-2 border-gray-200 w-full">
         <div class="flex justify-between font-sans w-3/4 mx-auto items-center py-4">
             <a href="">
-                <img class="w-48 h-auto mr-2" src="<?php echo base_url('assets/image/logo_seller.png'); ?>" alt="logo">
+                <h1 class="font-bold text-2xl text-green-700 font-sans tracking-tight">
+                    Segerahabis
+                </h1>
                 <div class="flex items-center gap-4">
-
-                    <a href="<?php echo site_url('seller/'); ?>" class="ml-8 text-sm font-medium text-green-900 bg-gray-100 border border-green-800 rounded-lg px-4 py-2 hover:bg-gray-200">Masuk</a>
-                    <a href="<?php echo site_url('seller/daftar'); ?>" class="text-sm font-medium text-white bg-green-800 rounded-lg px-4 py-2 hover:bg-green-900">Daftar</a>
-
+                    <a href="<?php echo site_url('user/login'); ?>" class="ml-8 text-sm font-medium text-green-900 bg-gray-100 border border-green-800 rounded-lg px-4 py-2 hover:bg-gray-200">Masuk</a>
+                    <a href="<?php echo site_url('user/daftar'); ?>" class="text-sm font-medium text-white bg-green-800 rounded-lg px-4 py-2 hover:bg-green-900">Daftar</a>
                 </div>
             </a>
         </div>

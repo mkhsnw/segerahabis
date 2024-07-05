@@ -88,11 +88,11 @@
                             <div class="flex flex-col gap-4 w-full">
                                 <div class>
                                     <label class="ml-5 block text-sm font-bold text-gray-700">Username</label>
-                                    <input type="text" name="username" value="<?php echo $user->username?>" class="ml-5 mt-1 block w-10/12 border border-gray-300 rounded-md shadow-sm p-2">
+                                    <input type="text" name="username" value="<?php echo $user->username ?>" class="ml-5 mt-1 block w-10/12 border border-gray-300 rounded-md shadow-sm p-2">
                                 </div>
                                 <div class>
                                     <label class="ml-5 block text-sm font-bold text-gray-700">Nama Toko</label>
-                                    <input type="text" name="nama_Toko" value="<?php echo $user->nama_Toko?>" class="ml-5 mt-1 block w-10/12 border border-gray-300 rounded-md shadow-sm p-2">
+                                    <input type="text" name="nama_Toko" value="<?php echo $user->nama_Toko ?>" class="ml-5 mt-1 block w-10/12 border border-gray-300 rounded-md shadow-sm p-2">
                                 </div>
                                 <div class>
                                     <label class="ml-5 block text-sm font-bold text-gray-700">Deskripsi Toko</label>
@@ -126,7 +126,7 @@
 
                             <div class="row-span-3 flex justify-center items-center">
                                 <div class="flex flex-col items-center">
-                                    <img id="profile-picture"src="<?php echo base_url('assets/image/profile/'.$user->logo_Toko)?>"  alt="Foto Profil" class="w-40 h-40 ml-5 bg-gray-300 rounded-full mt-5 mb-4">
+                                    <img id="profile-picture" src="<?php echo base_url('assets/image/profile/' . $user->logo_Toko) ?>" alt="Foto Profil" class="w-40 h-40 ml-5 bg-gray-300 rounded-full mt-5 mb-4">
                                     <label for="file-upload" class="file-label ml-5 px-10 py-2 border border-gray-300 rounded-md shadow-sm">
                                         Pilih Foto
                                     </label>
@@ -150,11 +150,11 @@
                     <div class="flex flex-col gap-6 w-full">
                         <div class="w-full">
                             <label class="ml-5 block text-sm font-bold text-gray-700">Email</label>
-                            <input type="text" value="<?php echo $user->email?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                            <input type="text" value="<?php echo $user->email ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
                         <div class="w-full">
                             <label class="ml-5 block text-sm font-bold text-gray-700">No. HP</label>
-                            <input type="text" value="<?php echo $user->noHP?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                            <input type="text" value="<?php echo $user->noHP ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
                     </div>
                     <div class="flex justify-start">
@@ -164,7 +164,7 @@
                                     bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center" type="button">
                                 Simpan
                             </button>
-                        </div>  
+                        </div>
 
                         <!-- Main modal -->
                         <div id="kontakToko" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
@@ -193,11 +193,11 @@
                     <div class="flex flex-col gap-6 w-full">
                         <div class="w-full">
                             <label class="ml-5 block text-sm font-bold text-gray-700">Kota</label>
-                            <input type="text" value="<?php echo $user->kota?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                            <input type="text" value="<?php echo $user->kota ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
                         <div class="w-full">
                             <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
-                            <input type="text" value="<?php echo $user->alamat?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                            <input type="text" value="<?php echo $user->alamat ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
                     </div>
                     <div class="flex justify-start">
@@ -308,16 +308,16 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="">
         document.getElementById('file-upload').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('profile-picture').src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
-});
-         $(document).ready(function() {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-picture').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        $(document).ready(function() {
             $('#successButton').click(function() {
                 event.preventDefault();
                 var formData = new FormData($('#profileForm')[0]);
@@ -325,11 +325,11 @@
                     url: '<?php echo site_url('seller/pengaturan'); ?>',
                     type: 'POST',
                     data: formData,
-                     processData: false,
+                    processData: false,
                     contentType: false,
                     success: function(response) {
                         // Check if the response indicates success
-                        
+
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('Error occurred: ' + textStatus);
@@ -358,8 +358,6 @@
         document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById('passwordButton').click();
         });
-
-        
     </script>
 
 </body>

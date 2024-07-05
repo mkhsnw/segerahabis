@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.css" rel="stylesheet" />
 </head>
 
 <body class="w-full">
@@ -19,8 +19,8 @@
         </div>
 
         <div class="mr-5">
-            <a href="#" class="text-black mr-4 md:mr-8">Tentang Segerahabis</a>
-            <a href="#" class="text-black">Buka Toko</a>
+            <a href="<?php echo site_url('user/landing_user')?>" class="text-black mr-4 md:mr-8">Tentang Segerahabis</a>
+            <a href="<?php echo site_url('seller/landing_seller')?>" class="text-black">Buka Toko</a>
         </div>
     </div>
 
@@ -96,7 +96,7 @@
             <?php } ?>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.js"></script>
 </body>
 
 </html>
