@@ -102,8 +102,7 @@
                                 <div class="flex justify-start ">
                                     <!-- Modal toggle -->
                                     <div class="flex justify-center px-5">
-                                        <button type="submit" class="text-sm font-medium text-white bg-green-800 border border-green-700 rounded-lg px-20 
-                                    py-3 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-white dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-white">Simpan</button>
+                                        <button type="submit" class="block text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center">Simpan</button>
                                     </div>
 
                                     <!-- Main modal 
@@ -146,30 +145,30 @@
             <div class="flex-col grow bg-white border-2 border-bg-black rounded-lg shadow-lg mb-6">
                 <h2 class="ml-5 mt-7 text-xl font-bold">Kontak Toko</h2>
                 <hr class="mt-4 h-px my-5 bg-gray-200 border-0">
-                <form action="<?php echo site_url('seller/simpan_seller_kontak'); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo site_url('seller/simpan_kontak'); ?>" id="kontakForm" method="post">
                     <div class="flex flex-col gap-6 w-full">
                         <div class="w-full">
                             <label class="ml-5 block text-sm font-bold text-gray-700">Email</label>
-                            <input type="text" value="<?php echo $user->email ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                            <input type="text" name="email" value="<?php echo $user->email; ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
                         <div class="w-full">
                             <label class="ml-5 block text-sm font-bold text-gray-700">No. HP</label>
-                            <input type="text" value="<?php echo $user->noHP ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                            <input type="text" name="noHP" value="<?php echo $user->noHP; ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
                     </div>
                     <div class="flex justify-start">
-                        <!-- Modal toggle -->
+                        <!-- Submit button -->
                         <div class="flex justify-center m-5">
-                            <button id="kontakButton" data-modal-target="kontakToko" data-modal-toggle="kontakToko" class="block text-white 
-                                    bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center" type="button">
+                            <button type="submit" class="block text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center">
                                 Simpan
                             </button>
                         </div>
 
-                        <!-- Main modal -->
+
+                        <!-- Main modal
                         <div id="kontakToko" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-                                <!-- Modal content -->
+                                <!-- Modal content
                                 <div class="relative px-2 py-6 text-center bg-white rounded-lg shadow">
                                     <div class="w-12 h-12 rounded-full bg-red-200 p-2 flex items-center justify-center mx-auto mb-3.5">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-red-700">
@@ -180,7 +179,7 @@
                                     <p class=" text-lg font-bold text-gray-900">Gagal Menyimpan Kontak Toko</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>
@@ -189,30 +188,35 @@
             <div class="flex-col grow bg-white border-2 border-bg-black rounded-lg shadow-lg">
                 <h2 class="ml-5 mt-7 text-xl font-bold">Alamat Toko</h2>
                 <hr class="mt-4 h-px my-5 bg-gray-200 border-0">
-                <form>
+                <form action="<?php echo site_url('seller/simpan_alamat'); ?>" id="alamatForm" method="post">
                     <div class="flex flex-col gap-6 w-full">
-                        <div class="w-full">
-                            <label class="ml-5 block text-sm font-bold text-gray-700">Kota</label>
-                            <input type="text" value="<?php echo $user->kota ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                        <div>
+                            <select required id="province" name="province" class="ml-5 bg-gray-50 border border-gray-150 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-11/12 p-2.5 dark:bg-white-700 dark:border-gray-300 dark:placeholder-gray-400 dark:text-black   dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option>pilih provinsi</option>
+                            </select>
                         </div>
-                        <div class="w-full">
+                        <div>
+                            <select required id="city" name="city" class="ml-5 bg-gray-50 border border-gray-150 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-11/12 p-2.5 dark:bg-white-700 dark:border-gray-300 dark:placeholder-gray-400 dark:text-black   dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option>Pilih Kota</option>
+                            </select>
+                        </div>
+                        <div>
                             <label class="ml-5 block text-sm font-bold text-gray-700">Alamat</label>
-                            <input type="text" value="<?php echo $user->alamat ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
+                            <input type="text" name="alamat" value="<?php echo $user->alamat ?>" class="ml-5 mt-1 block w-11/12 border border-gray-300 rounded-md shadow-sm p-2">
                         </div>
                     </div>
                     <div class="flex justify-start">
                         <!-- Modal toggle -->
                         <div class="flex justify-center m-5">
-                            <button id="alamatButton" data-modal-target="alamatToko" data-modal-toggle="alamatToko" class="block text-white 
-                                    bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center" type="button">
+                            <button type="submit" class="block text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center">
                                 Simpan
                             </button>
                         </div>
 
-                        <!-- Main modal -->
+                        <!-- Main modal 
                         <div id="successModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-                                <!-- Modal content -->
+                                <!-- Modal content 
 
                                 <div class="relative px-2 py-8 text-center bg-white rounded-lg shadow">
                                     <button type="button" class="text-gray-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="successModal" id="closeModalButton">
@@ -235,7 +239,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div>-->
                     </div>
                 </form>
             </div>
@@ -307,6 +311,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="">
+
         document.getElementById('file-upload').addEventListener('change', function(event) {
             const file = event.target.files[0];
             if (file) {
@@ -358,6 +363,27 @@
         document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById('passwordButton').click();
         });
+
+    function getProvince() {
+        $.ajax({
+            url: "<?php echo site_url('user/getProvince'); ?>",
+            type: "GET",
+            success: function(result) {
+                $("#province").html(result);
+            }
+        })
+    }
+    $('#province').change(function() {
+        $.ajax({
+            url: "<?php echo site_url('user/getCity/'); ?>" + $('#province').val(),
+            type: "GET",
+            success: function(result) {
+                $("#city").html(result);
+            }
+        })
+    });
+
+    getProvince();
     </script>
 
 </body>

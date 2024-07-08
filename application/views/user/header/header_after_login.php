@@ -7,6 +7,9 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.css" rel="stylesheet" />
+    <style>
+     
+    </style>
 </head>
 
 <body class="w-full">
@@ -19,8 +22,8 @@
         </div>
 
         <div class="mr-5">
-            <a href="<?php echo site_url('user/landing_user')?>" class="text-black mr-4 md:mr-8">Tentang Segerahabis</a>
-            <a href="<?php echo site_url('seller/landing_seller')?>" class="text-black">Buka Toko</a>
+            <a href="<?php echo site_url('user/landing_user') ?>" class="text-black mr-4 md:mr-8">Tentang Segerahabis</a>
+            <a href="<?php echo site_url('seller/landing_seller') ?>" class="text-black">Buka Toko</a>
         </div>
     </div>
 
@@ -28,11 +31,11 @@
         <div class="flex md:flex-row md:items-center md:justify-between">
             <div class="mr-4">
                 <a href="<?php echo site_url('user') ?>">
-                    <img class="sm:invisible md:visible md:w-30 md:h-6 absolute-left transform -translate-y-1/2 mt-7" src="<?php echo base_url('assets/image/logo.png'); ?>" alt="logo">
+                    <img class="gambar sm:invisible lg:visible lg:w-30 lg:h-6 absolute-left transform -translate-y-1/2 mt-7" src="<?php echo base_url('assets/image/logo.png'); ?>" alt="logo">
                 </a>
             </div>
 
-            <form class="flex-grow flex-row mx-2" method="post" action="<?php echo site_url('user/all_product')?>">
+            <form class="flex-grow flex-row mx-2" method="post" action="<?php echo site_url('user/all_product') ?>">
                 <div class="flex">
                     <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"></label>
                     <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 

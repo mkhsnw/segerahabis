@@ -99,6 +99,8 @@ class User extends CI_Controller
 
     public function all_product()
     {
+        $data['kategori'] = $this->Muser->get_all_data('tbl_kategori')->result();
+        
         if (empty($this->session->userdata('id_user'))) {
             redirect('user/login');
         }
