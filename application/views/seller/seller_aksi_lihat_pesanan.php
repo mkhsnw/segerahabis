@@ -70,12 +70,19 @@
             </table>
         </div>
         <?php if ($detailorder->status_Order == 'Pesanan Baru') { ?>
+            <div class="flex flex-row gap-6 mt-4 w-full justify-between">
+                <p class="text-xl font-bold text-black bg-white">Status Pesanan</p>
+                <p class="text-green-600 py-1 w-28 text-center rounded-md bg-green-100 font-lg text-sm">Pesanan Baru</p>
+            </div>
             <div class="flex gap-6 mt-4">
-                <a href="<?php echo site_url('seller/seller_pesanan'); ?>" class="flex-1 text-center text-sm font-medium text-gray-500 bg-white border border-gray-500 rounded-lg px-4 py-2 focus:ring-4 focus:outline-none focus:ring-gray-100">Tolak Orderan</a>
-                <a href="<?php echo site_url('seller/terima_order/' . $dataorder->id_Order); ?>" class="flex-1 text-sm text-center font-medium text-white bg-green-800 border border-blue-700 rounded-lg px-4 py-2 hover:bg-green-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:ring-green-800">Terima Orderan</a>
+                <a href="<?php echo site_url('seller/tolak_order/' . $dataorder->id_Order); ?>" class="flex-1 text-center text-sm font-medium text-gray-500 bg-white border border-gray-500 rounded-lg px-4 py-2 focus:ring-4 focus:outline-none focus:ring-gray-100">Tolak Orderan</a>
+                <a href="<?php echo site_url('seller/terima_order/' . $dataorder->id_Order); ?>" class="flex-1 text-sm text-center font-medium text-white bg-green-800 border rounded-lg px-4 py-2 hover:bg-green-900">Terima Orderan</a>
             </div>
         <?php } elseif ($detailorder->status_Order == 'Siap Dikirim') { ?>
-
+            <div class="flex flex-row gap-6 mt-4 w-full justify-between">
+                <p class="text-xl font-bold text-black bg-white">Status Pesanan</p>
+                <p class="text-gray-600 py-1 w-24 text-center rounded-md bg-gray-100 font-lg text-sm">Siap Dikirim</p>
+            </div>
             <div class="flex mt-6">
                 <a href="<?php echo site_url('seller/kirim_order/' . $dataorder->id_Order); ?>" class="flex-1 text-sm text-center font-medium text-white bg-green-800 border rounded-lg px-4 py-2 hover:bg-green-900 ">Kirim Orderan</a>
             </div>
@@ -87,6 +94,21 @@
                 <p class="flex text-yellow-600 py-1 w-24 rounded-md bg-yellow-200 text-center justify-center font-lg text-sm">Pengiriman</p>
             </div>
         <?php } ?>
+
+        <?php if ($detailorder->status_Order == 'Dibatalkan') { ?>
+            <div class="flex flex-row gap-6 mt-4 w-full justify-between">
+                <p class="text-xl font-bold text-black bg-white">Status Pesanan</p>
+                <p class="text-red-600 py-1 w-20 text-center rounded-md bg-red-100 font-lg text-sm">Dibatalkan</p>
+            </div>
+        <?php } ?>
+
+        <?php if ($detailorder->status_Order == 'Selesai') { ?>
+            <div class="flex flex-row gap-6 mt-4 w-full justify-between">
+                <p class="text-xl font-bold text-black bg-white">Status Pesanan</p>
+                <p class="text-blue-600 py-1 w-16 text-center rounded-md bg-blue-100 font-lg text-sm">Selesai</p>
+            </div>
+        <?php } ?>
+
     </div>
 </body>
 

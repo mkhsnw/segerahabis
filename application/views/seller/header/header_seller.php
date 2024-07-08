@@ -26,7 +26,9 @@
     <div class="bg-white border-b-2 border-bg-black p-4 rounded shadow shadow-xs text-xs flex flex-row justify-between mx-auto items-center">
         <div class="text-center grow">
             <span class="mb-0 text-center items-center">
-                <img class="w-auto h-8 mr-2" src="<?php echo base_url('assets/image/logo_seller.png'); ?>" alt="logo">
+                <a href="<?php echo site_url('seller/dashboard_seller')?>">
+                    <img class="w-auto h-8 mr-2" src="<?php echo base_url('assets/image/logo_seller.png'); ?>" alt="logo">
+                </a>
             </span>
         </div>
 

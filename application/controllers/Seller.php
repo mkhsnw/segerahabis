@@ -134,20 +134,29 @@ class Seller extends CI_Controller
         redirect('seller/seller_pesanan');
     }
 
-    public function seller_aksi_lihat_pesanan($id_Order)
+    public function tolak_order($id)
     {
+        $data_edit = array(
+            'status_Order' => 'Dibatalkan'
+        );
+        $this->Madmin->update('tbl_order', $data_edit, 'id_Order', $id);
+        redirect('seller/seller_pesanan');
+    }
+
+    public function seller_aksi_lihat_pesanan($id_Order) {
         //if (!isset($id)) {
-        // show_error('No identifier provided', 500);}
+           // show_error('No identifier provided', 500);}
 
         $dataWhere = array('id_Order' => $id_Order);
         $data['dataorder'] = $this->Madmin->getDetailOrder($id_Order)->row_object();
-        $data['detailorder'] = $this->Madmin->getDatailDataOrder($id_Order)->row_object();
+       $data['detailorder'] = $this->Madmin->getDatailDataOrder($id_Order)->row_object();
         $data['user'] = $this->Madmin->get_by_id('tbl_toko', array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
         //print_r($data['dataorder']);exit();
         // Load views
         $this->load->view('seller/header/header_seller', $data);
         $this->load->view('seller/seller_aksi_lihat_pesanan', $data);
     }
+
 
 
 
@@ -423,27 +432,55 @@ class Seller extends CI_Controller
         redirect('seller/login_seller');
     }*/
 
-    public function simpan_seller_kontak()
-    {
-        $email = $this->input->post('email');
-        $noHP = $this->input->post('noHP');
-        $id = $this->session->userdata('id_Toko');
+    public function simpan_kontak()
+{
+    $noHP = $this->input->post('noHP');
+    $email = $this->input->post('email');
+    $id = $this->session->userdata('id_Toko');
 
-        $this->form_validation->set_rules('email', 'email', 'required');
-        $this->form_validation->set_rules('noHP', 'npHP', 'required');
+    // Set validation rules
+    $this->form_validation->set_rules('noHP', 'No HP', 'required|numeric');
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->session->set_flashdata('notValid', 'Data yang anda masukkan tidak valid!');
-            $this->load->view('seller/pengaturan');
-        } else {
-            $data_edit = array(
-                'email' => $email,
-            );
-            $this->Muser->update('tbl_toko', $data_edit, 'id_Toko', $id);
-            $this->session->set_flashdata('success', 'Data berhasil diubah!');
-            redirect('seller/pengaturan');
-        }
+    if ($this->form_validation->run() == FALSE) {
+        $this->session->set_flashdata('notValid', 'Data yang anda masukkan tidak valid!');
+        $this->load->view('seller/pengaturan');
+    } else {
+        $data_edit = array(
+            'noHP' => $noHP,
+            'email' => $email,
+        );
+
+        $this->Madmin->update('tbl_toko', $data_edit, 'id_Toko', $id);
+        $this->session->set_flashdata('success', 'Kontak berhasil diubah!');
+        redirect('seller/pengaturan');
     }
+}
+
+public function simpan_alamat()
+{
+    $city = $this->input->post('city');
+    $alamat = $this->input->post('alamat');
+    $id = $this->session->userdata('id_Toko');
+
+    // Set validation rules
+    $this->form_validation->set_rules('city', 'City', 'required');
+    $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+
+    if ($this->form_validation->run() == FALSE) {
+        $this->session->set_flashdata('notValid', 'Data yang anda masukkan tidak valid!');
+        $this->load->view('seller/pengaturan');
+    } else {
+        $data_edit = array(
+            'id_Kota' => $city,
+            'alamat' => $alamat,
+        );
+
+        $this->Madmin->update('tbl_toko', $data_edit, 'id_Toko', $id);
+        $this->session->set_flashdata('success', 'Alamat berhasil diubah!');
+        redirect('seller/pengaturan');
+    }
+}
 
     public function save_produk()
     {
