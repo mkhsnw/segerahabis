@@ -81,7 +81,9 @@
                     <a href="<?php echo site_url('user/toko/' . $toko->id_Toko) ?>">
                         <div class="flex">
                             <div class="w-15 h-15 bg-gray-400 rounded-full flex items-center justify-center">
-                                <img src="<?php echo base_url('assets/image/profile/toko1.png') ?>" alt="" class="w-20 h-20 rounded-full">
+
+                                <img src="<?php echo base_url('assets/image/profile/'.$toko->logo_Toko)?>" alt="Foto Profil" class="w-20 h-20 rounded-full">
+
                             </div>
                             <div class="ml-5">
                                 <h2 class="text-lg font-bold"><?php echo $toko->nama_Toko ?></h2>

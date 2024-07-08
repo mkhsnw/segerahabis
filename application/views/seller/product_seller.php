@@ -306,7 +306,7 @@
                                                                         <span class="sr-only">Close modal</span>
                                                                     </button>
                                                                     <p class="text-black font-bold text-lg mb-4">Hapus Produk</p>
-                                                                    <p class="mb-4 text-gray-500 dark:text-gray-300">INDOMIE Goreng Jumbo Rasa Odading Mang Oleh</p>
+                                                                    <p class="mb-4 text-gray-500 dark:text-gray-300"><?php echo $val->nama_Produk?></p>
                                                                     <div class="flex justify-center items-center space-x-4">
                                                                         <button data-modal-toggle="deleteModal" type="button" class="py-2 px-5 text-sm font-medium text-black bg-white rounded-lg border 
                                                                     border-gray-600 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 

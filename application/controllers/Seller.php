@@ -94,7 +94,7 @@ class Seller extends CI_Controller
     {
         $data['user'] = $this->Madmin->get_by_id('tbl_toko', array('id_Toko' => $this->session->userdata('id_Toko')))->row_object();
         $data['order'] = $this->Madmin->getDataOrder($this->session->userdata('id_Toko'))->result();
-        //print_r($data['order']);exit();
+
         // Method untuk menampilkan halaman dashboard beranda
         $this->load->view('seller/header/header_seller', $data);
         $this->load->view('seller/pesanan_seller', $data);
@@ -201,6 +201,10 @@ class Seller extends CI_Controller
                 );
                 $this->session->set_userdata($data_session);
                 redirect('seller/dashboard_seller');
+            }else{
+                $this->session->set_flashdata('failed', 'Email atau password salah!');
+                redirect('seller');
+            
             }
         }
     }
