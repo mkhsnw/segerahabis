@@ -47,22 +47,23 @@
                             </div>
                         </button>
                         <!-- Dropdown kategori -->
-                        <div id="pesanan" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 border-2 border-bg-gray-400">
-                            <ul class="text-sm text-gray-700 text-black" aria-labelledby="dropdownDefaultButton">
+                        <div id="pesanan" class="z-2  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 border-2 border-bg-gray-400">
+                            <ul class="text-sm text-gray-700 text-black w-full" aria-labelledby="dropdownDefaultButton">
                                 <li>
-                                    <a href="<?php echo site_url('user/filter_pesanan/a') ?>" class="w-full block px-4 py-2 hover:bg-green-600 hover:text-white">Pesanan Baru</a>
+
+                                    <a href="<?php echo site_url('user/filter_pesanan/a') ?>" class=" block px-4 py-2 hover:bg-green-600 hover:text-white w-full">Menunggu Konfirmasi</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo site_url('user/filter_pesanan/b') ?>" class="w-full block px-4 py-2 hover:bg-green-600 hover:text-white">Siap Dikirim</a>
+                                    <a href="<?php echo site_url('user/filter_pesanan/b') ?>" class=" block px-4 py-2 hover:bg-green-600 hover:text-white w-full">Konfirmasi</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo site_url('user/filter_pesanan/c') ?>" class="w-full block px-4 py-2 hover:bg-green-600 hover:text-white">Pengiriman</a>
+                                    <a href="<?php echo site_url('user/filter_pesanan/c') ?>" class=" block px-4 py-2 hover:bg-green-600 hover:text-white w-full">Pengiriman</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo site_url('user/filter_pesanan/d') ?>" class="w-full block px-4 py-2 hover:bg-green-600 hover:text-white">Selesai</a>
+                                    <a href="<?php echo site_url('user/filter_pesanan/d') ?>" class=" block px-4 py-2 hover:bg-green-600 hover:text-white w-full">Selesai</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo site_url('user/filter_pesanan/e') ?>" class="w-full block px-4 py-2 hover:bg-green-600 hover:text-white">Dibatalkan</a>
+                                    <a href="<?php echo site_url('user/filter_pesanan/e') ?>" class=" block px-4 py-2 hover:bg-green-600 hover:text-white w-full">Dibatalkan</a>
                                 </li>
                             </ul>
                         </div>
@@ -102,7 +103,7 @@
                                     <a href="#" class="w-full block px-4 py-2 hover:bg-green-600 hover:text-white">6 Bulan ini</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="w-full block px-4 py-2 hover:bg-green-600 hover:text-white">1 Tahun ini</a>
+                                    <a href="#" class="w-full block px-4 py-2 hover:bg-gray-300 hover:text-black">1 Tahun ini</a>
                                 </li>
                             </ul>
                         </div>
@@ -153,6 +154,11 @@
                                 <?php if ($val->status_Order == 'Selesai') { ?>
                                     <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
                                         <p class="text-blue-600 py-1 w-16 text-center rounded-md bg-blue-100 font-lg text-sm">Selesai</p>
+                                    </td>
+                                <?php } ?>
+                                <?php if ($val->status_Order == 'Dibatalkan') { ?>
+                                    <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
+                                    <p class="text-red-600 py-1 w-16 text-center rounded-md bg-red-100 font-lg text-sm">Dibatalkan</p>
                                     </td>
                                 <?php } ?>
                                 <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">

@@ -312,6 +312,9 @@
                                                 <?php if ($val->status_Order == 'Dibatalkan') { ?>
                                                     <p class="text-red-600 py-1 w-16 text-center rounded-md bg-red-100 font-lg text-sm">Dibatalkan</p>
                                                 <?php } ?>
+                                                <?php if ($val->status_Order == 'Menunggu Pembayaran') { ?>
+                                                    <p class="text-gray-600 py-1 w-40 text-center rounded-md bg-gray-200 font-lg text-sm">Menunggu Pembayaran</p>
+                                                <?php } ?>
                                             </td>
                                             <td class="px-3 py-5 text-sm font-medium text-gray-600 whitespace-nowrap ...">
                                                 <button id="dropdownDefaultButton" data-dropdown-toggle="aksi<?php echo $no ?>" class="text-center inline-flex items-center font-lg text-black text-2xl self-center">
